@@ -1,0 +1,51 @@
+<%page expression_filter="h"/>
+<%! from django.utils.translation import ugettext as _ %>
+<%inherit file="../main.html" />
+
+<%block name="pagetitle">${_("Help and FAQ")}</%block>
+
+<main id="main" aria-label="Content" tabindex="-1">
+
+
+	 <section class="breadcrumb">
+		<div class="row" >
+			<div class="col col-12" style="width:100%;">
+				<a href="/">iBiology Courses </a> :: Help
+			</div>
+		</div>
+	</section>
+
+<section class="container help">
+
+
+	<div class="ibio-page-header">
+		<h1>${_("Help")}</h1>
+	</div>
+
+  <p>If you do use the site and experience a problem, you can email <a href="courses@ibiology.org">courses@ibiology.org</a> and we'll do our best to resolve the issue.</p>
+
+  <h2>${_("FAQ")}</h2>
+
+  <div class="faq-item">
+    <div class="question">Where can I find iBiology's main public site and content?</div>
+    <p>For current iBiology content, including the latest open-access videos, please visit <a href="http://ibiology.org">ibiology.org</a>.</p>
+  </div>
+
+  <div class="faq-item">
+    <div class="question">What is Open EdX?</div>
+    <p>The <a href="http://www.openedx.org">Open edX platform</a> is a free--and open source--course management system (CMS) that was originally developed by edX. iBiology is using Open EdX as a platform to
+  distribute online learning modules.</p>
+  </div>
+
+  <div class="faq-item">
+    <div class="question">Where can I learn more about Open EdX and MOOCs (Massive Open Online Courses)?</div>
+    <p>If you're new to Open EdX and MOOCs and want to learn more about how to use sites such as this one, the following sites and documents are helpful. </p>
+    <ul>
+      <li><a href="http://edx.readthedocs.org/projects/open-edx-learner-guide/en/dogwood/">Open EdX Learner's Guide</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Massive_open_online_course">Massive Open Online Course (MOOC)</a> on Wikipedia</li>
+    </ul>
+  </div>
+
+
+</section>
+</main>

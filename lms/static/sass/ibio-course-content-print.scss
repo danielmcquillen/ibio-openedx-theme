@@ -1,0 +1,103 @@
+
+
+
+/* Style to hide most everything except course content */
+
+.logo {
+  a {
+    img {
+      content: url("https://courses.ibiology.org/static/ibio-openedx-theme/images/logo-color-on-white.png");
+    }
+  }
+}
+
+.courseware {
+  .window-wrap {
+    .ibio-nav {
+      display: none !important;
+    }
+
+    .global-navigation {
+      display: none !important;
+    }
+
+    .content-wrapper{
+
+      .message-banner {
+        display: none !important;
+      }
+
+      nav {
+        display: none !important;
+      }
+
+      .container {
+        .course-wrapper {
+
+          border: 0px !important;
+
+          a {
+              &:hover, &:link, &:active, &:visited {
+                  display: none;
+              }
+          }
+
+          .course-index {
+           display: none !important;
+          }
+
+          .course-content {
+            border: 0px !important;
+
+            .sequence-nav {
+              display: none !important;
+            }
+
+            .bookmark-button-wrapper {
+              display: none !important;
+            }
+
+            .submit {
+              display: none !important;
+            }
+
+            .sequence-bottom {
+              display: none !important;
+            }
+
+            .xblock-student_view-video {
+              display: none !important;
+            }
+
+            .answer-checkmark {
+              display: none !important;
+            }
+
+            textarea {
+              &.answer {
+                border: none;
+                box-shadow: none;
+              }
+            }
+
+
+          }
+
+          .courseware-results-wrapper {
+            display: none !important;
+          }
+
+        }
+      }
+
+      .container-footer {
+        display: none !important;
+      }
+
+      .nav-utilities {
+        display: none !important;
+      }
+
+    }
+  }
+}

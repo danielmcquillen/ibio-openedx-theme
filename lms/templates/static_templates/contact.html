@@ -1,0 +1,20 @@
+<%page expression_filter="h"/>
+<%! from django.utils.translation import ugettext as _ %>
+<%inherit file="../main.html" />
+
+<%block name="pagetitle">${_("Contact")}</%block>
+
+<main id="main" aria-label="Content" tabindex="-1">
+
+	 <section class="breadcrumb">
+		<div class="row" >
+			<div class="col col-12" style="width:100%;">
+				<a href="/">iBiology Courses </a> :: Contact
+			</div>
+		</div>
+	</section>
+
+<section class="container about">
+<h1 class="page-header">${_("Contact")}</h1>
+<p>Please contact <a href="mailto:courses@ibiology.org">courses@ibiology.org</a> if you need help accessing this site or using the courseware, or if you have a bug to report.</p>
+</main>

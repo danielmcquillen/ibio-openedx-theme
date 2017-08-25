@@ -1,0 +1,508 @@
+// Override course and coursewear styles
+// Import our theme overrides
+@import 'overrides';
+// Import the original styles from edx-platform.
+@import 'lms/static/sass/lms-course.scss';
+
+
+p {
+  line-height: 1.6em;
+}
+
+/* TOP TAB BAR */
+.wrapper-course-material {
+  .course-tabs {
+    li {
+      a.active {
+        color: $ibio-blue !important;
+        border-bottom: 4px solid $ibio-blue !important;
+      }
+    }
+  }
+}
+
+
+/* Course updates page */
+
+.info-wrapper {
+  .updates {
+    h1 {
+      text-transform: uppercase;
+      font-size: 1.4em !important;
+    }
+    h2 {
+      text-transform: uppercase;
+      font-size: 1.3em !important;
+    }
+    h3 {
+      text-transform: uppercase ;
+      font-size: 1.2em !important;
+    }
+  }
+}
+
+
+/* COURSE NAV */
+.course-index {
+
+  /* Hide top of left nav where bookmark and search appear. And reposition
+    bookmarks and search to better spots.*/
+  .wrapper-course-modes {
+    background: #666;
+    border-bottom: 0px;
+    height: 0px;
+    padding: 0px;
+    margin: 0px;
+
+    .search-bar {
+      position: absolute;
+      right: 0px;
+      top: -45px;
+      z-index: 99;
+      width: 250px;
+
+      .search-button {
+        background: #aaa;
+        color: #000;
+      }
+
+      .search-field-wrapper {
+        border: 1px solid #eee;
+        border-radius: 5px;
+        input {
+          box-shadow: none;
+        }
+      }
+    }
+
+    .courseware-bookmarks-button {
+      background-color: #aaa;
+      position: relative;
+      border-radius: 5px;
+      float: right;
+      top: 10px;
+      margin-right: 5px;
+      width: 40px;
+      z-index: 99;
+
+      .bookmarks-list-button {
+        color: #333;
+        border: 1px solid #222;
+        border-radius: 5px;
+        &:hover,
+        &:focus {
+          background-color: $ibio-blue;
+          color: #fff !important;
+        }
+      }
+    }
+  }
+
+
+
+
+  /* Let's improve that accordion nav */
+  .accordion {
+
+    .course-navigation {
+
+      .button-chapter {
+        color: #000;
+        .group-heading {
+
+          // For now we only want one section, and for that section to appear integrated with
+          // top of left nav, so we're going to style the group headers accordingly
+          //background-color: $ibio-nav-section;
+          background-color: #666;
+          color: #fff;
+          border-top: 1px solid #888;
+
+          position: relative;
+          display: block;
+          padding: 15px 20px 15px 20px;
+          text-align: left;
+          text-transform: uppercase;
+          border-top: 1px solid #BBB;
+          border-bottom: 1px solid #BBB;
+          font-size: 1em;
+          font-weight: normal !important;
+          font-family: "Helvetica Neue", Arial, sans-serif;
+
+          .icon {
+            position: absolute;
+            left: 8px;
+            top: 20px;
+            font-size: 0.875em;
+            color: #5bb1f9;
+            // For temporary section style. See comments above
+            display: none;
+          }
+        }
+
+        &.active {
+          .group-heading {
+            color: #fff;
+          }
+        }
+
+      }
+
+      .chapter-content-container {
+
+        .chapter-menu {
+          padding: 0 !important;
+          overflow: hidden;
+          margin: 0 !important;
+
+          .menu-item {
+            margin: 0px;
+            background: $ibio-nav-subsection;
+            padding: 0px;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            font-weight: normal;
+            border-radius: 0px;
+
+            &.active {
+              font-weight: normal;
+              background: $ibio-nav-subsection;
+              border: 0px;
+              a {
+                font-weight: normal;
+                font-family:  "Helvetica Neue", Arial, sans-serif;
+                background: none;
+                border-radius: 0px;
+              }
+            }
+
+            a {
+              font-weight: normal;
+              border-radius: 0px;
+              font-family:  "Helvetica Neue", Arial, sans-serif;
+            }
+
+            &:last-of-type {
+              padding: 0px;
+              margin: 0px;
+            }
+
+            /* This is the subsection nav block */
+            .accordion-nav {
+              padding: 15px 20px 15px 20px;
+              border-top: 1px solid #ccc;
+              border-bottom: 1px solid #ccc;
+              background: none;
+              .accordion-display-name {
+                font-family:  "Helvetica Neue", Arial, sans-serif;
+                text-transform: uppercase;
+              }
+            }
+
+            /* This is the container for units in subsection */
+            .subsection-content-container {
+              .subsection-menu {
+
+                .menu-item {
+                  margin: 0px;
+                  background: $ibio-nav-unit;
+                  padding: 0px;
+                  font-family:  "Helvetica Neue", Arial, sans-serif;
+                  font-weight: normal;
+                  border-bottom: 1px dotted #aaa;
+                  border-radius: 0px;
+
+                  &:last-of-type {
+                    padding-bottom: 0px;
+                    border-bottom: 0px;
+                  }
+                  a {
+                    font-family: "Helvetica Neue", Arial, sans-serif;
+                    font-weight: normal;
+                    background: none;
+                    &.active {
+                      color: #fff !important;
+                      background: $ibio-nav-active !important;
+                    }
+                    &:hover,
+                    &:focus {
+                      background: $ibio-nav-hover;
+                      color: #fff;
+                      .subtitle {
+
+                      }
+                    }
+                  }
+
+                  /* This is the unit nav block */
+                  .accordion-nav {
+                    background: none;
+                    border: 0px;
+                    .accordion-display-name {
+                      font-family:  "Helvetica Neue", Arial, sans-serif;
+                      text-transform: none;
+                      padding-left: 10px;
+                      &.active {
+                        color: #000;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* COURSE CONTENT */
+.course-wrapper {
+
+  /* Prevent search from hiding the user profile dropdown */
+  .courseware-search-bar {
+    z-index: 1 !important;
+  }
+
+  .courseware-results-wrapper {
+    padding: 10px 3% 40px 3% !important;
+    .search-results {
+      .search-info {
+        font-size: 1.5em;
+        font-weight: 600;
+        border-bottom: 1px solid #f1f1f1;
+        margin-bottom: 10px;
+        .search-count {
+          font-size: 1em;
+          font-weight: normal;
+          padding-top: 8px;
+        }
+      }
+    }
+  }
+
+  #course-content {
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif !important;
+    }
+
+    /* Get spacing right between various headers and xblocks */
+
+    .video {
+      margin-bottom: 30px;
+    }
+
+    .mentoring {
+      .themed-xblock {
+        margin-bottom: 40px;
+      }
+    }
+
+    h3 {
+      font-size: 1.3em;
+      padding-top:30px;
+      &.poll-header {
+        margin-top: 0px;
+      }
+      &.discussion-module-title {
+        margin-top: 0px;
+      }
+    }
+    h4 {
+      font-size: 1.1em;
+      padding-top:30px;
+    }
+
+    padding: 20px 3% 40px 3%;
+
+    .xblock-student_view {
+
+      border: 0px;
+      padding-bottom: 0px;
+      margin-bottom: 0px;
+
+      &.xblock-student_view-done {
+        /* make sure there's enough whitespace between the 'Mark as Complete'
+           button and the next XBlock */
+        margin-bottom: 45px;
+      }
+
+      &.xblock-student_view-problem-builder {
+        .mentoring {
+          .title {
+            h2 {
+              font-weight: 600;
+              font-size: 1.2em;
+              text-transform: none;
+              color: #3c3c3c;
+              line-height: 1.4em;
+              letter-spacing: normal;
+            }
+          }
+          .submit {
+            padding-bottom: 30px;
+            margin-top: 0px;
+          }
+        }
+      }
+    }
+
+    /* Our special iBio callout for video introduction text */
+    .ibio-video-intro {
+
+      /* XBlocks have a standard margin of 15, which we don't want here, so reverse within this child element's class */
+      margin-bottom: -15px;
+      border: 1px dotted #efc84a;
+      padding: 0px;
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px;
+      display: flex;
+      width: 100%;
+
+      .intro-icon-block {
+        background-color: #efc84a;
+        align-content: center;
+        padding: 20px;
+        .intro-icon-image {
+          background: url("/static/ibio-openedx-theme/images/icon-camera.png");
+          background-size: contain;
+          width: 40px;
+          height: 40px;
+          min-width: 40px;
+          min-height: 40px;
+        }
+      }
+
+      .intro-text {
+        align-content: center;
+        font-family: "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
+        line-height: 1.5em;
+        font-size: 1em;
+        padding: 10px 10px 10px 20px;
+      }
+
+    }
+
+    /* Top sequence controls */
+    .sequence-nav {
+
+      position: relative;
+      float: right;
+      border: none;
+      width: 120px;
+      top: -10px;
+
+      .sequence-nav-button {
+        position: relative;
+        border-radius: 5px !important;
+        background-image: none !important;
+        border: 1px solid transparent !important;
+        background: #f1f1f1;
+        width: 35px;
+        height: 35px;
+        display: inline;
+        box-shadow: none;
+        padding: 0px;
+        font-size: 1em;
+        min-width: 35px;
+
+        &.button-previous {
+          margin-right: 5px;
+        }
+
+        &:hover,
+        &:focus {
+          background-color: $ibio-blue !important;
+          color: #fff !important;
+          border: 1px solid transparent;
+          box-shadow: none !important;
+        }
+      }
+    }
+
+    /* bottom sequence controls */
+    .sequence-bottom {
+      .sequence-nav-button {
+        border-radius: 5px !important;
+        background-image: none !important;
+        border: 1px solid transparent !important;
+        background: #f1f1f1;
+        box-shadow: none;
+        width: 35px;
+        height: 35px;
+        font-size: 1em;
+        min-width: 35px;
+        padding: 0px;
+
+        &.button-previous {
+          margin-right: 5px;
+        }
+
+        &:hover,
+        &:focus {
+          background-color: $ibio-blue !important;
+          color: #fff !important;
+          box-shadow: none !important;
+          text-decoration: none !important;
+        }
+
+      }
+    }
+
+    /* Hide breadcrumbs. Ugly and not necessary with our new nav. */
+    .path {
+      display: none;
+    }
+
+    /* Move bookmark button so it recedes a bit in importance. */
+    .bookmark-button-wrapper {
+      float: right;
+
+      /* Get the bookmark button to sit just at the top of the content area, like a bookmark */
+      .bookmark-button {
+        border: 0px;
+        right: 25px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        background: #E9E9E9;
+        background-image: none;
+        position: absolute;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        top: 0px;
+        height: 45px;
+        min-width: 31px;
+        border-top: 1px solid #CCC;
+
+        &:hover {
+          background-image: none;
+          background-color: $x-light;
+          text-decoration: none;
+          color: #fff;
+        }
+
+        &.is-active {
+          background-image: none;
+          background-color: $ibio-blue;
+          color: $white;
+        }
+
+        &.bookmarked {
+          background-color: $ibio-blue;
+          color: $white;
+        }
+      }
+    }
+
+    .hd-2, .xblock .xblock h3 {
+      margin-bottom: .8em;
+    }
+  }
+
+  .courseware-results-wrapper {
+    padding: 0px 3% 40px 3%;
+  }
+}
+

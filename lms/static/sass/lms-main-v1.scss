@@ -1,0 +1,1192 @@
+
+//Add our overrides
+@import 'overrides';
+
+// New styles specific to iBiology on Open Edx
+// *******************************************nav// Import the original styles from edx-platform.
+@import 'lms/static/sass/lms-main-v1.scss';
+
+// Include grid system and settings from v2 ... so cheeky!
+@import 'settings.scss';
+@import 'grid.scss';
+
+// Styles to make our stupid simple top nav look like iBio's top nav
+@import 'ibio-top-nav';
+
+
+/* Fix margin with Course reviews */
+.course-info .course-sidebar > .coursetalk-read-reviews {
+  margin-top: 0px !important;
+}
+
+/* SITE WIDE STYLES */
+/* ~~~~~~~~~~~~~~~~ */
+
+/* Fonts and headers: Make Open edX more like iBiology */
+body {
+  font-family: "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 1.625;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+h2, .home > header .title > .heading-group p, section.outside-app h1 {
+  color: #646464;
+  /* font-family: "Helvetica Neue", "Open Sans", "Verdana", sans-serif;*/
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Page header */
+
+.page-header {
+  text-transform: uppercase;
+  font-size: 32px;
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Basic elements and controls*/
+
+h1.logo {
+  img {
+    max-height: 45px;
+  }
+}
+
+.btn {
+  border-radius: 3px;
+  box-shadow: none;
+}
+
+input[type="submit"], input[type="button"], button, .button {
+  text-shadow: none;
+}
+
+.btn-blue {
+  background: $ibio-blue;
+  box-shadow: none;
+  color: #fff !important;
+}
+
+.btn-deemphasize {
+  background: none;
+  border: none;
+}
+
+/* Button blue should be same color as logo */
+.header-global .nav-courseware li .btn, .header-global .nav-courseware div .btn, .login .form-actions button[type="submit"], .register .form-actions button[type="submit"], .passwordreset .form-actions button[type="submit"], #forgot-password-modal #password-reset .form-actions button[type="submit"], .view-survey .action-primary {
+  background: $ibio-blue;
+}
+
+/* Header and footer */
+
+#global-navigation {
+  background: #333 !important;
+}
+
+.wrapper-footer {
+  box-shadow: none;
+  border-top: 1px solid #E1e1e1;
+
+  footer#footer-openedx {
+    max-width: 1180px;
+    .wrapper-logo {
+      margin: 0px;
+    }
+  }
+}
+
+
+
+/* STYLE HEADER
+  - Style the user dropdown to work with dark colors.
+  - Tweak logo size, divider bar and course title text. 
+ */
+.header-global {
+
+  position: inherit; // Override 'relative' which is causing lots of issues on smaller screens
+
+  .wrapper-header {
+    padding: 15px 10px 10px;
+    max-width: 1180px;
+    height: initial;
+  }
+
+  /* We don't need an "Explore courses" button since we have our own top nav */
+  .nav-global {
+    li a, div a {
+      display: none;
+    }
+  }
+
+  .wrapper-header {
+    padding: 10px 10px 10px;
+  }
+
+  h1.logo {
+    img {
+      height: 45px;
+    }
+    a {
+      padding-top: 3px;
+    }
+  }
+
+  .user {
+    float: right;
+    padding: 5px 5px 3px 5px;
+    border-radius: 5px;
+    background-color: #999;
+
+    // Fix open edx bug where button doesn't get proper height in course view
+    .dropdown {
+      font: normal 0.8em/1.6rem "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
+    }
+
+    .user-link {
+      text-transform: none;
+      font-weight: normal;
+      letter-spacing: 0;
+      color: #fff;
+      box-shadow: none !important;
+      .label-username {
+        margin: 12px 5px 15px 15px;
+      }
+    }
+  }
+  .user-menu {
+    margin-top: 7px;
+  }
+
+  .primary > a {
+    color: #3c3c3c;
+    text-shadow: none;
+  }
+}
+
+/* ACCOUNT SETTINGS HEADER */
+.wrapper-account-settings {
+  .wrapper-header {
+    height: initial;
+  }
+}
+
+
+.user-menu {
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+
+
+
+
+/* ******************* */
+/* INDEX PAGE          */
+/* ******************* */
+
+
+.home {
+
+  .courses-list-title {
+    text-align: center;
+    padding: 70px 0px 0px;
+    font-family: "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
+    font-size: 22px;
+    max-width: 1140px;
+    font-weight: normal;
+    margin: 0 auto;
+  }
+
+}
+
+.home > header {
+
+  background-color: #FFFFFF;
+  background-position: center top;
+  background-image: url("/static/ibio-openedx-theme/images/hero-thingys-horizontal-strip.png");
+  background-repeat: repeat-y;
+  background-size: auto;
+  height: 318px;
+
+  .outer-wrapper {
+
+    color: #fff;
+    padding-top: 60px !important;
+    -webkit-animation: none;
+    -moz-animation: none;
+    animation: none;
+    -webkit-animation-fill-mode: none;
+    -moz-animation-fill-mode: none;
+    animation-fill-mode: none;
+    background-position: center top;
+    background-image: url("/static/ibio-openedx-theme/images/hero-image.jpg");
+    background-size: auto;
+    background-repeat: no-repeat;
+    height: 340px;
+    max-width: none;
+
+    /* title is baked into image at normal desktop browser size */
+    .title {
+      display: none;
+      box-shadow: none;
+    }
+
+  }
+}
+
+
+
+.ibioSlider {
+  width: 550px;
+  margin-left: -20px;
+  margin-top: 20px;
+
+  .wallop-item img{
+      width:100%;
+  }
+
+  .slider-container {
+      flex-direction: column;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .Wallop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .Wallop-list {
+      width: 400px;
+      .Wallop-item {
+        .videoWrapper {
+          position: relative;
+          padding-bottom: 56.25%; /* 16:9 */
+          height: 0;
+          border: 10px solid #ccc;
+          iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+
+    button {
+      border: none;
+      background-color: #ccc;
+      background-image: none;
+      width: 35px;
+      height: 35px;
+      color: #666;
+      box-shadow: none;
+
+      &:hover,
+      &:focus{
+        color: #fff;
+        background-color: #0066a2;
+        background-image: none;
+        box-shadow: none;
+      }
+    }
+
+    .Wallop-buttonPrevious{
+      margin-right:20px;
+      padding-left: 0px;
+    }
+    .Wallop-buttonNext{
+        margin-left:20px;
+    }
+
+  }
+
+  .slider-position {
+    margin-top:20px;
+    display: flex;
+    justify-content: center;
+
+     .slider-dot {
+        margin-right: 10px;
+        margin-right: 10px;
+        border: none;
+        background-color: #ccc;
+        background-image: none;
+        width: 15px;
+        height: 15px;
+        color: #666;
+        box-shadow: none;
+
+        &:hover,
+        &:focus{
+          color: #fff;
+          background-color: #0066a2;
+          background-image: none;
+          box-shadow: none;
+        }
+    }
+
+    .slider-dot-current {
+      color: #000;
+      background-color: #FFF;
+      background-image: none;
+      box-shadow: none;
+    }
+  }
+
+}
+
+/* Using flexbox to get responsive layout for our front page */
+
+.ibio-features {
+
+  .ibio-instructors {
+    background-color: #eee;
+  }
+
+  .ibio-peers {
+    background-color: #fff;
+  }
+
+  .ibio-openedx {
+    background-color: #fff;
+  }
+
+  .ibio-register {
+    background-color: #eee;
+    border-bottom: 1px solid #eee;
+  }
+
+  .ibio-testimonials {
+
+    background-color: #d3e8fa;
+
+
+    h2 {
+      color: #000;
+
+    }
+
+      .testimonialWrapper {
+        min-height: 250px;
+        border: 1px solid  #fff;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-family: "Merriweather", "Times New Roman", Serif;
+        background-color: #FFF;
+        font-size: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+
+        .testimonial {
+        }
+
+        .testimonial-source {
+          text-align: right;
+          font-style: italic;
+          color: #333;
+        }
+
+      }
+
+  }
+
+  .feature-row {
+
+    h2 {
+      font-family:  "Open Sans", "Helvetica Neue","Verdana", sans-serif;
+      font-size: 22px;
+    }
+
+
+    .feature-container {
+      margin: 0 auto;
+      max-width: 1180px;
+      min-height: 400px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+
+      .col-graphic {
+        justify-content: center;
+        align-items: center;
+        min-width: 400px;
+        padding: 40px 0px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        flex-grow: 1;
+        img {
+          width: 100%;
+          max-width: 400px;
+        }
+      }
+      .col-content {
+        padding: 40px 20px 40px 30px;
+        max-width: 500px;
+        flex-grow: 1;
+      }
+
+    }
+
+
+  }
+}
+
+.get-registered-btn, .get-registered-btn:hover {
+    background-color: #FFFFFF;
+    color: #000;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 1px 0 #0a4a67;
+    border-radius: 2px;
+    background-image: none;
+
+}
+
+.container {
+  max-width: 1180px;
+
+}
+
+.courses-container {
+  max-width: 1180px;
+  .highlighted-courses{
+    position: inherit;
+    .courses{
+      float:none;
+      .courses-listing{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        .course-listing-item{
+          float: none;
+          margin-bottom: 40px !important;
+          min-width: 350px;
+
+          &:first-child{
+            padding: 0px 20px 20px 10px;
+          }
+
+          .course-info {
+            .course-name, .course-organization, .course-title {
+              font-family: "Helvetica Neue", Arial, sans-serif;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+.feature-bar {
+
+  background: $ibio-feature-bar-1; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient($ibio-feature-bar-1, $ibio-feature-bar-2); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient($ibio-feature-bar-1, $ibio-feature-bar-2); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient($ibio-feature-bar-1, $ibio-feature-bar-2); /* For Firefox 3.6 to 15 */
+  background: linear-gradient($ibio-feature-bar-1, $ibio-feature-bar-2); /* Standard syntax */
+
+  min-height: 50px;
+
+  .feature-bar-wrap {
+    max-width: 1180px;
+    min-height: 65px;
+    margin: 0 auto;
+    padding-right: 10px;
+  }
+
+  .feature-text {
+    padding: 10px 0px;
+    color: #fff;
+    text-align: right;
+    line-height: 1.3em !important;
+
+    a, a:visited {
+      color: #8dc4e5;
+    }
+    a:hover {
+      color: #fff;
+    }
+  }
+
+
+}
+
+
+
+
+
+/* ******************* */
+/* ALL MARKETING PAGES */
+/* ******************* */
+
+
+
+/* Breadcrumb */
+.breadcrumb {
+  background-color: #555;
+  color: #fff;
+  font-size: 12px;
+  padding: 3px 0px 5px;
+
+  a{
+    &:visited,
+    &:active {
+      color: #ccc;
+    }
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+/* Nav-legal */
+.nav-legal-03 {
+  &:before {
+    margin-right: 5px;
+    content: "-";
+  }
+}
+
+/* Page header for marketing pages */
+.ibio-page-header {
+  h1{
+
+  }
+}
+
+
+/* REGISTRATION PAGE */
+.checkbox-user_agreement_ibio_study {
+  label{
+    display: inline-block !important;
+    margin: 5px 0px 0px 0px;
+    vertical-align: top;
+  }
+}
+
+/* COURSE ABOUT PAGE */
+.course-info {
+
+  .details {
+    font-family:  "Helvetica Neue", Arial, sans-serif !important;
+  }
+
+
+  header.course-profile {
+    padding: 20px 0px;
+    height: auto;
+    margin-top: 0px;
+    position: inherit;
+    box-shadow: none;
+
+    .intro-inner-wrapper {
+      box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.1);
+      border: 1px solid #AAAAAA;
+      .intro {
+        width: 60%;
+      }
+    }
+
+    /* YouTube Responsive CSS for iBio */
+
+    .ibio-intro-video {
+      padding: 10px 10px 10px 0px;
+
+      .ibio-video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        padding-top: 0px;
+        height: 0;
+        overflow: hidden;
+        max-width: 600px;
+      }
+      .ibio-video-container iframe, .ibio-video-container object, .ibio-video-container embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+
+  .about-testimonials {
+
+      margin-top: 80px;
+
+      h1 {
+        font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+        text-transform: uppercase;
+        color: #646464;
+        font-size: 1.2em;
+        margin-bottom: 10px;
+      }
+
+      .about-testimonial  {
+        margin: 20px;
+        padding: 20px;
+        border-radius: 5px;
+
+        .about-testimonial-quote {
+          margin-bottom: 5px;
+          color: #777;
+        }
+
+        .about-testimonial-source {
+          margin-top:0px;
+          font-style: italic;
+          margin-bottom: 0px;
+          color: #333;
+        }
+      }
+  }
+
+
+
+
+
+}
+
+// HELP / FAQ
+
+.help {
+  .faq-item {
+    margin-top: 15px;
+    .question {
+      font-weight: bold;
+    }
+  }
+}
+
+
+/* COURSE CATALOG PAGE*/
+.find-courses {
+  .courses-container {
+    .courses {
+      padding-top: 0px;
+    }
+  }
+}
+
+
+/* ABOUT PAGE */
+.container {
+  &.about, &.privacy-policy {
+    padding-top: 40px;
+
+    h2 {
+      margin: 36px 0px 5px;
+      color: #333;
+    }
+
+    h3 {
+      margin: 16px 0px 5px;
+    }
+  }
+}
+
+// Team bio blocks on about page
+.team-bio {
+
+  padding: 0px 0px 20px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+  min-height: 260px;
+
+  h3 {
+    display: block;
+    margin: 0 0 16px;
+    font-size: 18px;
+  }
+
+  img {
+    float: left;
+    text-align: left;
+    margin: 0px 24px 12px 0px;
+  }
+
+}
+
+
+/* Testimonials page */
+
+.ibio-testimonials-page {
+
+
+  h2 {
+    margin: 36px 0px 5px;
+    color: #333;
+  }
+
+  h3 {
+    margin: 16px 0px 5px;
+  }
+
+
+  .testimonial-quote {
+    margin-bottom: 5px;
+    color: #777;
+  }
+
+  .testimonial-source {
+    margin-top:0px;
+    font-style: italic;
+    margin-bottom: 0px;
+    color: #333;
+  }
+
+
+}
+
+/* SPEAKER BIOS */
+
+
+.ibio-speakers {
+
+
+  .ibio-speakers-grid {
+      display: flex;
+      width: 100%;
+      max-width: 1180px;
+      flex-wrap: wrap;
+
+    .speaker-card {
+      width: 340px;
+      border: 1px solid #e1e1e1;
+      border-radius: 5px;
+      margin: 0px 20px 20px;
+      position: relative;
+
+      .card-thumbnail {
+        width:100%;
+      }
+
+      .card-content {
+        padding: 20px;
+        margin-bottom: 30px;
+        .speaker-name {
+          font-weight: bold;
+        }
+        .speaker-title {
+          color: #999;
+          font-size: .9em;
+        }
+        .speaker-university {
+          color: #999;
+          font-size: .9em;
+          font-style: italic;
+        }
+        .speaker-description {
+
+        }
+      }
+
+      .bio-link {
+        padding: 0px 0px 10px 20px;
+        position: absolute;
+        bottom: 0px;
+      }
+
+    }
+  }
+}
+
+.ibio-speaker-bio {
+
+  .video-header-row {
+    background-color: #111;
+  }
+
+  .speaker-header {
+    text-align: left;
+    margin-bottom: 5px;
+    padding-bottom: 0px;
+    .speaker-label{
+      color:#333;
+    }
+    .speaker-name{
+    }
+    .speaker-sufix{
+      color: #ccc;
+    }
+  }
+
+  .speaker-title {
+    color: #999;
+    font-size: 1.2em;
+    margin-bottom: 0px;
+  }
+  .speaker-university{
+    color: #999;
+    font-style: italic;
+    font-size: 1.2em;
+    margin: 0px 0px 20px;
+  }
+
+  .speaker-bio {
+    margin-bottom: 50px;
+  }
+
+}
+
+
+
+
+
+/* LOGIN AND REGISTER FORMS */
+.login-register {
+  padding-top: 50px;
+  font-weight: normal;
+  .form-field {
+    &.select-year_of_birth {
+      margin-left: 0px !important;
+    }
+  }
+}
+
+.login-form {
+  margin-top: 100px;
+}
+
+/* SMALLER SCREENS... */
+
+@media only screen and (max-width: 1023px) {
+
+  .home > header {
+    background-image: none;
+    height: 190px;
+    .outer-wrapper {
+      background-position: left center;
+      background-image: url("/static/ibio-openedx-theme/images/hero-image-small.jpg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 190px;
+      padding: 0px;
+      margin-right: 50px;
+      margin-left: 0px;
+      width: inherit;
+      padding-top: 30px !important;
+      .title {
+        display: block;
+        width: inherit;
+        margin-left: 0px;
+        text-align: right;
+        font-family: "Open Sans", "Helvetica Neue",  Arial, sans-serif;
+        font-size: 2em !important;
+        color: #000;
+        margin-right: 20px;
+        margin-top: 0px;
+        background: none;
+      }
+    }
+  }
+
+
+  .container {
+    padding-left: 10px;
+  }
+
+  .header-global {
+    height: inherit;
+
+    .user {
+      margin-right: 20px;
+    }
+
+    .nav-courseware {
+      margin-right: 15px;
+    }
+  }
+
+  .feature-bar {
+    padding-right: 10px;
+  }
+
+  .courses-container {
+    padding: 0px 20px;
+  }
+
+  /* Just like iBiology.org site, decrease padding of top menu items */
+  .ibio-nav a {
+    padding: 16px;
+  }
+
+}
+
+@media only screen and (max-width: 979px) {
+
+  /* Just like iBiology.org site, shrink down top menu items for mobile */
+  .ibio-nav a {
+    padding: 16px;
+  }
+  .feature-container {
+    .col-content {
+      h2 {
+        text-align: center;
+      }
+    }
+  }
+
+}
+
+@media only screen and (max-width: 780px) {
+
+  .home > header {
+    .outer-wrapper{
+      .title{
+        font-size: 1.5em !important;
+      }
+    }
+  }
+  .courses-container {
+    .highlighted-courses {
+      .courses {
+        .courses-listing {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+  }
+  .feature-container {
+    .col-content {
+      padding: 50px 20px 10px 20px;
+    }
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+  .home > header {
+    background-image: none;
+    .outer-wrapper {
+      background-position: left center;
+      background-image: url("/static/ibio-openedx-theme/images/compass.jpg");
+      background-repeat: no-repeat;
+      background-size: auto;
+      .title {
+        text-align: center;
+      }
+    }
+  }
+
+  /* Just like iBiology.org site, shrink down top menu items for mobile */
+  .ibio-nav a, .ibio-nav .sub-menu a {
+    font-size: 10px;
+    padding: 10px 8px;
+  }
+
+  .ibio-features {
+     .feature-container {
+       .col-graphic {
+         padding-left: 40px !important;
+         padding-right: 40px !important;
+         padding-top: 60px !important;
+         padding-bottom: 20px !important;
+         margin: 0px;
+         min-width: 200px !important;
+       }
+     }
+  }
+
+  .ibio-features {
+     .ibio-instructors {
+       .feature-container {
+         .col-graphic {
+           padding: 0px 0px 10px !important;
+           .ibioSlider {
+             width:100%;
+             margin-left:0px;
+             .Wallop {
+               .Wallop-buttonPrevious {
+                 display: none;
+               }
+               .Wallop-buttonNext {
+                 display: none;
+               }
+               .Wallop-list {
+                 .Wallop-item {
+                   .videoWrapper {
+                     border: 0px !important;
+                   }
+                 }
+               }
+             }
+           }
+         }
+       }
+     }
+
+    .ibio-speakers {
+      padding-left: 0px !important;
+    }
+  }
+
+
+  .ibioSlider {
+    .slider-position{
+      .slider-dot{
+        width:30px;
+        height:30px;
+        margin-left:30px;
+      }
+    }
+  }
+
+  .ibio-register {
+    text-align: center;
+  }
+
+
+}
+
+@media only screen and (max-width: 540px) {
+
+  /* Just like iBiology.org site, shrink down top menu items for mobile */
+  .ibio-nav a, .ibio-nav .sub-menu a {
+    font-size: 10px;
+    padding: 10px 8px;
+  }
+
+  .ibioSlider {
+    width: 100%;
+    margin-left: 0px;
+    .wallop-item img {
+      width: 100%;
+    }
+    .Wallop {
+      .Wallop-list {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* Ribbon for coming soon */
+
+.ibio-ribbon-wrapper {
+  width: 125px;
+  height: 128px;
+  overflow: hidden;
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  z-index: 999;
+}
+
+.ibio-ribbon {
+  font: bold 15px Sans-Serif;
+  color: #333;
+  text-align: center;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  position: relative;
+  padding: 7px 0;
+  left: 10px;
+  top: 25px;
+  width: 150px;
+  background-color: #CCC;
+  color: #6a6340;
+}
+
+.ibio-ribbon:before {
+  content: "";
+  border-top: 3px solid #999;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  position: absolute;
+  bottom: -3px;
+  left: 0px;
+}
+
+.ibio-ribbon:after {
+  content: "";
+  border-top: 3px solid #999;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  position: absolute;
+  bottom: -3px;
+  right: 0px;
+}
+
+.ibio-video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  max-width: 340px;
+}
+
+
+
+/* Speaker list shown inside course (on tab) */
+
+.ibio-course-speaker-list{
+  .speaker {
+    display: flex;
+    margin-bottom: 20px;
+    .video-container{
+      .iframe {
+        width: 360px;
+        height: 210px;
+      }
+    }
+    .speaker-bio-info {
+      margin-left:20px;
+      .info-name {
+        font-weight: bold;
+      }
+      .info-university {
+        font-style:italic;
+      }
+    }
+  }
+}
+
+
+/* Hide the problem-builder copyright notice and make our own notice farther down on page */
+.mentoring {
+  .copyright{
+    display: none;
+  }
+}
+
+.course-wrapper {
+  .course-content {
+    p {
+      &.problem-builder-copyright {
+        font-size: 10px;
+        font-color: #aaa;
+      }
+    }
+  }
+}

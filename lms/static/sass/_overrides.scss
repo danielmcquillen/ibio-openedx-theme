@@ -1,0 +1,58 @@
+
+
+/* Sass partial overrides for iBio */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+// $static-path: '..' !default;
+
+/* Our blue brand and nav colors */
+
+$ibio-blue: #359ff7;
+$x-light: #bad9f2;
+$light: #7bbdf4;
+$dark: #2f86ce;
+$x-dark: #256aa2;
+$brand-color: $ibio-blue;
+
+$action-primary-bg: lighten($brand-color, 10%);
+
+$ibio-feature-bar-1: $ibio-blue;
+$ibio-feature-bar-2: darken($ibio-blue, 5%);
+
+
+/* Colors for our ibio left nav */
+$ibio-nav-section: #d6d6d6;
+$ibio-nav-subsection: #e9e9e9;
+$ibio-nav-unit: #f6f6f6;
+$ibio-nav-active: $light;
+$ibio-nav-hover: $x-light;
+
+/* these uxpl don't make sense to me... */
+$uxpl-blue-base: $ibio-blue;
+$uxpl-blue-hover-active: $ibio-blue;
+
+/* Try overriding all blues */
+$m-blue: $ibio-blue;
+$m-blue-l1: #cde6fd;
+$m-blue-l2: #bfdffc;
+$m-blue-l3: #b3d9fc;
+$m-blue-l4: #a5d2fb;
+$m-blue-l5: #98cbfa;
+$m-blue-l6: #8cc5fa;
+$m-blue-d1: #5bb1f9;
+$m-blue-d2: #51a8f0;
+$m-blue-d3: #4c9ee2;
+$m-blue-d4: #4894d4;
+$m-blue-d5: #448bc6;
+$m-blue-d6: #3f81b8;
+$m-blue-t0: rgba($m-blue,0.125);
+$m-blue-t1: rgba($m-blue,0.25);
+$m-blue-t2: rgba($m-blue,0.50);
+$m-blue-t3: rgba($m-blue,0.75);
+
+/* Standard iBio fonts */
+$sans-serif: 'Helvetica Neue', 'Open Sans', 'Verdana', sans-serif !default;
+
+
+
+

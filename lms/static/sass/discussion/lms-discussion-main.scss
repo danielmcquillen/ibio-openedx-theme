@@ -1,0 +1,457 @@
+
+// New styles specific to iBiology on Open Edx
+// *******************************************
+
+
+// Import the original styles from edx-platform.
+@import 'lms/static/sass/discussion/lms-discussion-main.scss';
+
+// Import our theme overrides
+@import '../overrides';
+
+// Styles to make our stupid simple top nav look like iBio's top nav
+@import '../ibio-top-nav';
+
+/* Fix margin with Course reviews */
+.course-info .course-sidebar>.coursetalk-read-reviews {
+    margin-top: 0px !important;
+}
+
+
+/* SITE WIDE STYLES */
+/* ~~~~~~~~~~~~~~~~ */
+
+/* Fonts and headers: Make Open edX more like iBiology */
+body {
+  font-family: "Helvetica Neue","Open Sans","Verdana",sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 1.625;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Open Sans","Helvetica Neue","Verdana",sans-serif;
+}
+
+h2, .home > header .title > .heading-group p, section.outside-app h1 {
+    color: #646464;
+    font-family: "Open Sans","Helvetica Neue","Verdana",sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Page header */
+
+.page-header {
+  text-transform: uppercase;
+  font-size: 32px;
+  padding-bottom: 9px;
+  margin: 0px 0 20px;
+  border-bottom: 1px solid #eee;
+}
+
+
+/* Basic elements and controls*/
+
+h1.logo {
+	img {
+		max-height: 45px;
+	}
+}
+
+
+.btn {
+  border-radius: 3px;
+  box-shadow: none;
+}
+
+input[type="submit"], input[type="button"], button, .button {
+  text-shadow: none;
+}
+
+.btn-blue {
+  background: $ibio-blue;
+  box-shadow: none;
+}
+
+.btn-deemphasize {
+	background: none;
+	border: none;
+}
+
+/* Button blue should be same color as logo */
+.header-global .nav-courseware li .btn, .header-global .nav-courseware div .btn, .login .form-actions button[type="submit"], .register .form-actions button[type="submit"], .passwordreset .form-actions button[type="submit"], #forgot-password-modal #password-reset .form-actions button[type="submit"], .view-survey .action-primary {
+    background: $ibio-blue;
+}
+
+/* Header and footer */
+
+#global-navigation {
+	background: #333 !important;
+}
+
+
+.wrapper-footer {
+	box-shadow: none;
+	border-top: 1px solid #E1e1e1;
+
+	footer#footer-openedx {
+		max-width: 1140px;
+        .wrapper-logo {
+            margin: 0px;
+        }
+	}
+}
+
+/* STYLE HEADER
+  - Style the user dropdown to work with dark colors.
+  - Tweak logo size, divider bar and course title text.
+ */
+.header-global {
+
+  .wrapper-header {
+    padding: 15px 10px 0;
+    max-width: 1140px;
+    margin-bottom: 10px;
+  }
+
+  /* We don't need an "Explore courses" button since we have our own top nav */
+  .nav-global {
+      li a, div a {
+         display: none;
+      }
+  }
+
+  .wrapper-header {
+    padding: 10px 10px 0;
+  }
+
+  h1.logo  {
+    img {
+      height: 45px;
+    }
+    a {
+      padding-top: 3px;
+    }
+  }
+
+  .user {
+    float: right;
+    padding: 5px 5px 3px 5px;
+    border-radius: 5px;
+    background-color: #999;
+
+    // Fix open edx bug where button doesn't get proper height in course view
+    .dropdown {
+      font: normal 0.8em/1.6rem "Helvetica Neue","Open Sans","Verdana",sans-serif;
+    }
+
+    .user-link {
+      text-transform: none;
+      font-weight: normal;
+      letter-spacing: 0;
+      color: #fff;
+      box-shadow: none !important;
+      .label-username {
+        margin: 12px 5px 15px 15px;
+      }
+    }
+  }
+  .user-menu {
+    margin-top: 7px;
+  }
+
+  .primary > a {
+    color: #3c3c3c;
+    text-shadow: none;
+  }
+}
+
+.user-menu {
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+
+
+/* INDEX PAGE */
+
+.home > header .title {
+    float: left;
+    display: block;
+    margin-right: 0;
+    width: 1140px;
+    margin-left: 0;
+    box-sizing: content-box;
+    transition: all 0.2s linear 0s;
+    position: relative;
+    padding: 20px 30px;
+    min-height: 120px;
+    vertical-align: top;
+}
+
+.container {
+  max-width: 1140px;
+}
+
+.courses-container {
+   max-width: 1140px;
+}
+
+/* COURSE ABOUT PAGE */
+.course-info header.course-profile {
+  padding: 20px 0px;
+  height: auto;
+  margin-top: 0px;
+  position: inherit;
+  box-shadow: none;
+
+  .intro-inner-wrapper {
+    box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid #AAAAAA;
+    .intro {
+      width: 60%;
+    }
+  }
+
+   /* YouTube Responsive CSS for iBio */
+
+  .ibio-intro-video {
+    padding: 10px 10px 10px 0px;
+
+    .ibio-video-container {
+      position:relative;
+      padding-bottom:56.25%;
+      height:0;
+      overflow:hidden;
+    }
+    .ibio-video-container iframe, .ibio-video-container object, .ibio-video-container embed {
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    }
+  }
+
+}
+
+
+
+
+
+// HELP / FAQ
+
+.help {
+  .faq-item {
+    margin-top: 15px;
+    .question {
+      font-weight: bold;
+    }
+  }
+}
+
+
+// Team bio blocks on about page
+.team-bio {
+
+  padding: 0px 0px 20px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+  min-height: 260px;
+
+  h3 {
+    display: block;
+    margin: 0 0 16px;
+    font-size: 18px;
+  }
+
+  img {
+    float: left;
+    text-align: left;
+    margin: 0px 24px 12px 0px;
+  }
+
+}
+
+
+/* Index page changes... */
+.home>header {
+
+  background-color: #E1E1E1;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: auto 150%;
+  height: 350px;
+  background-image: none;
+
+  .outer-wrapper {
+
+    color: #fff;
+    padding-top: 120px !important;
+    -webkit-animation: none;
+    -moz-animation: none;
+    animation: none;
+    -webkit-animation-fill-mode: none;
+    -moz-animation-fill-mode: none;
+    animation-fill-mode: none;
+
+    .title {
+
+      background: none;
+      color: white;
+      text-align: right;
+      box-shadow: none;
+
+      .logo-block {
+        display: block;
+        .logo {
+
+        }
+      }
+
+      .caption {
+        color: #000;
+        font-size: 2em !important;
+      }
+
+    }
+
+  }
+}
+
+
+
+
+/* Blue bar beneath hero image */
+
+.feature-bar {
+
+  background: $ibio-feature-bar-1;                   /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient($ibio-feature-bar-1, $ibio-feature-bar-2); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient($ibio-feature-bar-1, $ibio-feature-bar-2);      /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient($ibio-feature-bar-1, $ibio-feature-bar-2);    /* For Firefox 3.6 to 15 */
+  background: linear-gradient($ibio-feature-bar-1, $ibio-feature-bar-2);         /* Standard syntax */
+
+  height: 70px;
+
+  .feature-bar-wrap {
+    margin: 0 auto;
+    max-width: 1140px;
+  }
+
+  .feature-text {
+    padding-top:12px;
+    color: #fff;
+    text-align: right;
+    line-height: 1.3em !important;
+
+    a, a:visited {
+      color: #8dc4e5;
+    }
+    a:hover {
+      color: #fff;
+    }
+  }
+
+}
+
+/* COURSE NAVIGATION */
+
+/*  Hide unit navigation and bottom buttons
+    We're not going to use this level of navigation
+*/
+.sequence-nav {
+  display: none;
+}
+
+.sequence-bottom {
+  display: none;
+}
+
+/* LOGIN AND REGISTER FORMS */
+.login-register {
+  padding-top: 50px;
+  font-weight: normal;
+}
+.login-form {
+  margin-top: 100px;
+}
+
+
+/* Discussion specific styles */
+
+/* Layout elements and default styles are different in Discussion than in
+   standard main-v1.css. For example, the user dropdown. So we have
+   to adjust the header items again here to get them to look like the regular elements.
+*/
+
+/* Course Title */
+h2, .home>header .title>.heading-group p, section.outside-app h1 {
+  color: #FFFFFF;
+  adding-top: 3px;
+}
+
+.header-global .wrapper-header .wrapper-user-menu {
+    float: right;
+    margin-top: 4px;
+    width: auto;
+    padding: 5px 5px 3px 5px;
+    border-radius: 5px;
+    background-color: #999;
+    height: 50px;
+}
+
+.dropdown-menu-container .dropdown-menu .dropdown-item {
+    border-bottom: 1px dotted #ccc;
+}
+
+.list-divided .item {
+  padding-bottom: 4px;
+}
+
+.dropdown-menu-container .menu-button {
+  background: inherit;
+  background-color: #fff;
+}
+
+.dropdown-menu-container .menu-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+
+/* DISCUSSION */
+
+.view-discussion-home {
+
+  .home-header {
+    .label {
+      font-size:20px;
+      margin-bottom:10px;
+    }
+  }
+
+  h1 {
+
+    &.settings-header{
+      margin: 30px 0px 10px;
+    }
+
+    &.quickhelp-header{
+      margin:40px 0px 0px;
+    }
+
+  }
+
+  .home-settingsgrid {
+    border-bottom: none;
+    border-radius: 3px;
+    border: 1px solid #d9d9d9;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  }
+
+
+
+}

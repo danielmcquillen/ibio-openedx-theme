@@ -1,0 +1,358 @@
+<%page expression_filter="h"/>
+<%inherit file="main.html" />
+<%namespace name='static' file='static_content.html'/>
+<%!
+	from django.utils.translation import ugettext as _
+	from django.core.urlresolvers import reverse
+
+	from openedx.core.djangolib.markup import HTML, Text
+%>
+
+<%block name="headextra">
+	<!-- we only use these styles and scripts in index marketing page -->
+	<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+	<link href="/static/ibio-openedx-theme/css/wallop.css" rel="stylesheet">
+	<link href="/static/ibio-openedx-theme/css/wallop--slide.css" rel="stylesheet">
+	<script src="/static/ibio-openedx-theme/js/Wallop.min.js"></script>
+
+</%block>
+
+<main id="main" aria-label="Content" tabindex="-1">
+
+	<section class="home">
+
+		<header>
+			<div class="outer-wrapper">
+				<div class="title">
+					<p>Helping you navigate<br/>your scientific journey.</p>
+				</div>
+			</div>
+		</header>
+
+		<div class="feature-bar">
+
+		</div>
+
+		<div class="courses-list-title">
+			<h2>Our Courses</h2>
+		</div>
+
+		<%include file="${courses_list}" />
+
+	</section> <!-- section home -->
+
+	<section class="ibio-features">
+
+		<div class="feature-row ibio-instructors">
+			<div class="feature-container">
+				<div class="col-graphic">
+
+					  <div class="ibioSlider">
+
+						  <script>
+
+									/*
+										iBio: Setup players for videos in Wallop slider
+									*/
+									// TODO : Add to edxapp file and manage via RequireJS
+
+									// Load the IFrame Player API code asynchronously.
+						      var tag = document.createElement('script');
+
+						      tag.src = "https://www.youtube.com/iframe_api";
+						      var firstScriptTag = document.getElementsByTagName('script')[0];
+						      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+									var ytplayerArr = [];
+
+									function onYouTubeIframeAPIReady() {
+										var bios = document.querySelectorAll('.vidBio');
+										bios.forEach(function(entry, index, array){
+								      ytplayerArr.push(new YT.Player(entry));
+								    });
+									}
+
+							</script>
+
+
+			        <div id="videoSlider" class="Wallop Wallop--slide">
+			            <button class="Wallop-buttonPrevious"></button>
+			            <div class="Wallop-list">
+
+			                <div class="Wallop-item">
+					              <div class="videoWrapper">
+						              <!-- Keith Yamamoto -->
+			                    <iframe class="vidBio"
+			                            width="560"
+			                            height="315"
+			                            src="https://www.youtube.com/embed/0XlyTiGO794?rel=0&enablejsapi=1&origin=https://courses.ibiology.org"
+			                            frameborder="0"
+			                            allowfullscreen></iframe>
+					              </div>
+			                </div>
+
+			                <div class="Wallop-item">
+					              <div class="videoWrapper">
+						              <!-- Asia Matthew-Onabanjo -->
+			                    <iframe class="vidBio"
+			                            width="560"
+			                            height="315"
+			                            src="https://www.youtube.com/embed/gI_JRiu4Qic?rel=0&enablejsapi=1&origin=https://courses.ibiology.org"
+			                            frameborder="0"
+			                            allowfullscreen></iframe>
+					              </div>
+			                </div>
+
+			                <div class="Wallop-item">
+					              <div class="videoWrapper">
+						              <!-- Randy Shenkman -->
+			                    <iframe class="vidBio"
+			                            width="560"
+			                            height="315"
+			                            src="https://www.youtube.com/embed/4_EIslN-qH0?rel=0&enablejsapi=1&origin=https://courses.ibiology.org"
+			                            frameborder="0"
+			                            allowfullscreen></iframe>
+					              </div>
+			                </div>
+
+			                <div class="Wallop-item">
+					              <div class="videoWrapper">
+						              <!-- Cynthia Fuhrmann -->
+			                    <iframe class="vidBio"
+			                            width="560"
+			                            height="315"
+			                            src="https://www.youtube.com/embed/HHObjwfyJ0k?rel=0&enablejsapi=1&origin=https://courses.ibiology.org"
+			                            frameborder="0"
+			                            allowfullscreen></iframe>
+					              </div>
+			                </div>
+
+				              <div class="Wallop-item">
+					              <div class="videoWrapper">
+						              <!-- Ben Vincent -->
+			                    <iframe class="vidBio"
+			                            width="560"
+			                            height="315"
+			                            src="https://www.youtube.com/embed/PZJdCPU4_g8?rel=0&enablejsapi=1&origin=https://courses.ibiology.org"
+			                            frameborder="0"
+			                            allowfullscreen></iframe>
+					              </div>
+			                </div>
+
+			            </div>
+			            <button class="Wallop-buttonNext"></button>
+			        </div> <!-- ./Wallop -->
+			        <div id="video-slider-position" class="slider-position" >
+			            <button class="slider-dot slider-dot-current" onclick="iBioVideoSlider.goTo(0)"></button>
+			            <button class="slider-dot " onclick="iBioVideoSlider.goTo(1)"></button>
+			            <button class="slider-dot " onclick="iBioVideoSlider.goTo(2)"></button>
+			            <button class="slider-dot " onclick="iBioVideoSlider.goTo(3)"></button>
+			            <button class="slider-dot " onclick="iBioVideoSlider.goTo(4)"></button>
+			        </div>
+			    </div> <!-- ./ibioSlider -->
+					<script>
+
+								/*
+									iBio: A bit of code to setup and drive the iBio
+								  Wallop-based slider, videos and forward/back and
+								  index buttons
+								*/
+
+								// TODO : Add to edxapp file and manage via RequireJS
+
+								var wallopEl = document.querySelector('#videoSlider');
+						    var iBioVideoSlider = new Wallop(wallopEl);
+
+
+						    iBioVideoSlider.on('change', function(event) {
+						    	var videoSelector = document.querySelector("#video-slider-position");
+						      var dots = videoSelector.querySelectorAll('.slider-dot');
+							    iBioSliderRemoveClass(videoSelector.querySelector('.slider-dot-current'), 'slider-dot-current');
+							    iBioSliderAddClass(dots[event.detail.currentItemIndex], 'slider-dot-current');
+							    //stop all videos
+							    for (var i=0; i<ytplayerArr.length; i++) {
+								    ytplayerArr[i].stopVideo();
+							    }
+						    });
+
+						    function iBioSliderAddClass(element, className) {
+							    if (!element) { return; }
+							    element.className = element.className.replace(/\s+$/gi, '') + ' ' + className;
+						    }
+
+						    function iBioSliderRemoveClass(element, className) {
+							    if (!element) { return; }
+							    element.className = element.className.replace(className, '');
+						    }
+
+
+					</script>
+				</div>
+				<div class="col-content">
+					<h2>World-class Instructors</h2>
+					<p>Our courses will feature videos by top scientists and teachers from around the world. <a href="/speakers">More about our speakers >></a></p>
+				</div>
+			</div> <!-- ./feature-container-->
+		</div> <!-- ./ibio-instructors -->
+
+		<div class="feature-row  ibio-peers">
+			<div class="feature-container">
+			<div class="col-graphic">
+				<img src="/static/ibio-openedx-theme/images/community.png" alt="Graphic of various people icons in grid."/>
+			</div>
+			<div class="col-content">
+				<h2>Peer Interaction</h2>
+				<p>Our courses encourage peer-to-peer interaction, because that's where learning happens.
+					Join a community of like-minded students and professionals who want to learn
+					more about biology and doing good science.</p>
+			</div>
+			</div> <!-- ./feature-container-->
+		</div>
+
+
+
+
+		<div class="feature-row ibio-testimonials">
+			<div class="feature-container">
+				<div class="col-graphic">
+
+					  <div class="ibioSlider">
+			        <div id="testimonialSlider" class="Wallop Wallop--slide">
+			            <button class="Wallop-buttonPrevious"></button>
+			            <div class="Wallop-list">
+			                <div class="Wallop-item">
+					              <div class="testimonialWrapper">
+													<p class="testimonial">I loved the way this course was planned and executed. I enjoyed watching the videos,
+						              the information was extremely helpful and I am working on implementing the ideas into my everyday life!</p>
+						              <p class="testimonial-source">Graduate student</p>
+					              </div>
+			                </div>
+			                <div class="Wallop-item">
+					              <div class="testimonialWrapper">
+						            	<p class="testimonial">Great course!! Seriously this has vastly better prepared me for a career in academia than any other single course I've taken. </p>
+						              <p class="testimonial-source">Graduate student</p>
+					              </div>
+			                </div>
+			                <div class="Wallop-item">
+					              <div class="testimonialWrapper">
+						             	<p class="testimonial">The sense of community this course fostered was really important for me. It not
+							              only provided me with important pieces of advice, it also showed me that
+							              I'm not alone in this journey and that many of my doubts and struggles are experienced by other people.</p>
+						              <p class="testimonial-source">Undergraduate student</p>
+					              </div>
+			                </div>
+			                <div class="Wallop-item">
+					              <div class="testimonialWrapper">
+						             	<p class="testimonial">It completely reframed my mind on how to tackle my project! I loved it!</p>
+						              <p class="testimonial-source">Postdoc</p>
+					              </div>
+			                </div>
+			            </div>
+			            <button class="Wallop-buttonNext"></button>
+			        </div> <!-- ./Wallop -->
+			        <div id="testimonial-slider-position" class="slider-position" >
+			            <button class="slider-dot slider-dot-current" onclick="iBioTestimonialSlider.goTo(0)"></button>
+			            <button class="slider-dot " onclick="iBioTestimonialSlider.goTo(1)"></button>
+			            <button class="slider-dot " onclick="iBioTestimonialSlider.goTo(2)"></button>
+			            <button class="slider-dot " onclick="iBioTestimonialSlider.goTo(3)"></button>
+			        </div>
+			    </div> <!-- ./ibioSlider -->
+					<script>
+
+								/*
+									iBio: A bit of code to setup and drive the iBio
+								  Wallop-based slider, videos and forward/back and
+								  index buttons
+								*/
+
+								// TODO : Add to edxapp file and manage via RequireJS
+
+								var wallopEl = document.querySelector('#testimonialSlider');
+						    var iBioTestimonialSlider = new Wallop(wallopEl);
+
+						    iBioTestimonialSlider.on('change', function(event) {
+						    	var testimonialSelector = document.querySelector("#testimonial-slider-position");
+						      var dots = testimonialSelector.querySelectorAll('.slider-dot');
+							    iBioSliderRemoveClass(testimonialSelector.querySelector('.slider-dot-current'), 'slider-dot-current');
+							    iBioSliderAddClass(dots[event.detail.currentItemIndex], 'slider-dot-current');
+						    });
+
+
+
+
+					</script>
+				</div>
+				<div class="col-content">
+					<h2>Rave Reviews</h2>
+					<p>Graduate students, post docs and undergrads alike tell us they enjoy and benefit from our courses.</p>
+					<p><a href="/testimonials">Read more testimonials >></a></p>
+				</div>
+			</div> <!-- ./feature-container-->
+		</div> <!-- ./ibio-instructors -->
+
+
+
+
+		<div class="feature-row  ibio-openedx">
+			<div class="feature-container">
+			<div class="col-graphic">
+				<img src="/static/ibio-openedx-theme/images/edx-openedx-logo-tag.png" alt="Open edX logo" />
+			</div>
+			<div class="col-content">
+				<h2>Top-notch Platform</h2>
+				<p>iBiology Courses is based on Open edX, the same software that
+					powers sites like edx.org and Stanford Online. That
+					means we have some excellent tools to create a great
+					learning environment for you.</p>
+			</div>
+			</div> <!-- ./feature-container-->
+		</div>
+
+		<div class="feature-row  ibio-register">
+			<div class="feature-container">
+			<div class="col-graphic">
+				<img src="/static/ibio-openedx-theme/images/compass.png" alt="iBiology Courses compass icon"/>
+			</div>
+			<div class="col-content">
+				<h2>Start Today</h2>
+				<p>Register today and get free access to our courses!</p>
+				<br/><br/>
+				<div class="btn-wrapper">
+						<a class="btn btn-blue" href="/register">Register Today</a>
+				</div>
+
+
+			</div>
+			</div> <!-- ./feature-container-->
+		</div>
+
+	</section> <!-- ./ibio-features -->
+
+</main>
+
+<%block name="js_extra">
+	<script type="text/javascript">
+		$(window).load(function () {
+			if (getParameterByName('next')) {
+				$('#login').trigger("click");
+			}
+		})
+	</script>
+</%block>
+
+% if show_signup_immediately is not UNDEFINED:
+	## NOTE: This won't work in production, because anonymous views are cached, so it will
+  ## show either with or without this extra js for 3 minutes at a time.
+
+	<script type="text/javascript">
+		$(window).load(function () {
+			$('#signup_action').trigger("click");
+		});
+	</script>
+% endif
+
+
+
+
+
+

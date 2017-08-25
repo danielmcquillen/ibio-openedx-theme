@@ -1,0 +1,188 @@
+
+// New styles specific to iBiology on Open Edx
+// *******************************************
+
+// Import our theme overrides
+@import 'overrides';
+
+// Import the original styles from edx-platform.
+@import 'lms/static/sass/lms-main-v2.scss';
+
+// Styles to make our stupid simple top nav look like iBio's top nav
+@import 'ibio-top-nav';
+
+
+.page-header {
+  text-transform: uppercase;
+  font-size: 32px;
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  border-bottom: 1px solid #eee;
+}
+
+
+/* Basic elements and controls*/
+
+h1.logo {
+	img {
+		max-height: 45px;
+	}
+}
+
+.btn {
+	background: $ibio-blue;
+}
+
+.btn-deemphasize {
+	background: none;
+	border: none;
+}
+
+
+
+/* Header and footer */
+
+#global-navigation {
+	background: #555 !important;
+}
+
+
+.wrapper-footer {
+	box-shadow: none;
+	border-top: 1px solid #E1e1e1;
+
+	footer#footer-openedx {
+		max-width: 1180px;
+	}
+
+}
+
+
+// HELP / FAQ
+
+.help {
+  .faq-item {
+    margin-top: 15px;
+    .question {
+      font-weight: bold;
+    }
+  }
+}
+
+
+// Team bio blocks on about page
+.team-bio {
+
+  padding: 0px 0px 20px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+  min-height: 260px;
+
+  h3 {
+    display: block;
+    margin: 0 0 16px;
+    font-size: 18px;
+  }
+
+  img {
+    float: left;
+    text-align: left;
+    margin: 0px 24px 12px 0px;
+  }
+
+}
+
+
+/* Index page changes... */
+.home>header {
+
+  background-color: #001234;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: auto 150%;
+  height: 350px;
+
+  .outer-wrapper {
+
+    color: #fff;
+    padding-top: 120px;
+    -webkit-animation: none;
+    -moz-animation: none;
+    animation: none;
+    -webkit-animation-fill-mode: none;
+    -moz-animation-fill-mode: none;
+    animation-fill-mode: none;
+
+    .title {
+
+      background: none;
+      color: white;
+      text-align: right;
+      box-shadow: none;
+
+      .logo-block {
+        display: block;
+        .logo {
+
+        }
+      }
+
+      .caption {
+        color: #fff;
+        font-size: 2em;
+      }
+
+    }
+
+  }
+}
+
+
+.feature-bar {
+
+  background: $ibio-feature-bar-1;                   /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient($ibio-feature-bar-1, $ibio-feature-bar-2); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient($ibio-feature-bar-1, $ibio-feature-bar-2);      /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient($ibio-feature-bar-1, $ibio-feature-bar-2);    /* For Firefox 3.6 to 15 */
+  background: linear-gradient($ibio-feature-bar-1, $ibio-feature-bar-2);         /* Standard syntax */
+
+  min-height: 50px;
+
+  .beta-beaker-wrap {
+    margin: 0 auto;
+    max-width: 1180px;
+
+    .beta-text {
+
+      padding-top:10px;
+      color: #fff;
+      text-align: right;
+      line-height: 1.3em !important;
+
+      a, a:visited {
+        color: #8dc4e5;
+      }
+      a:hover {
+        color: #fff;
+      }
+    }
+
+  }
+}
+
+
+
+/* COURSE NAVIGATION */
+
+/*  Hide unit navigation and bottom buttons
+    We're not going to use this level of navigation
+*/
+.sequence-nav {
+  display: none;
+}
+
+.sequence-bottom {
+  display: none;
+}
+
+
