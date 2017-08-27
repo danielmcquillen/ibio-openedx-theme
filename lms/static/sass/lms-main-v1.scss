@@ -550,6 +550,11 @@ input[type="submit"], input[type="button"], button, .button {
   color: #fff;
   font-size: 12px;
   padding: 3px 0px 5px;
+  min-height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-transform: uppercase;
 
   a{
     &:visited,
