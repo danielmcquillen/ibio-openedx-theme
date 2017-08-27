@@ -230,7 +230,7 @@ from openedx.core.lib.courses import course_image_url
               %>
             <li class="important-dates-item">
               <span class="icon fa fa-calendar" aria-hidden="true"></span>
-              <p class="important-dates-item-title">${_("Classes Start")}</p>
+              <p class="important-dates-item-title">${_("Class Starts")}</p>
               % if isinstance(course_start_date, str):
                   <span class="important-dates-item-text start-date">${course_start_date}</span>
               % else:
@@ -250,7 +250,7 @@ from openedx.core.lib.courses import course_image_url
 
             <li class="important-dates-item">
                 <span class="icon fa fa-calendar" aria-hidden="true"></span>
-                <p class="important-dates-item-title">${_("Classes End")}</p>
+                <p class="important-dates-item-title">${_("Class Ends")}</p>
                   % if isinstance(course_end_date, str):
                       <span class="important-dates-item-text final-date">${course_end_date}</span>
                   % else:
@@ -263,7 +263,7 @@ from openedx.core.lib.courses import course_image_url
             % endif
 
           % if get_course_about_section(request, course, "effort"):
-            <li class="important-dates-item"><span class="icon fa fa-pencil" aria-hidden="true"></span><p class="important-dates-item-title">${_("Estimated Effort")}</p><span class="important-dates-item-text effort">${get_course_about_section(request, course, "effort")}</span></li>
+            <li class="important-dates-item"><span class="icon fa fa-pencil" aria-hidden="true"></span><p class="important-dates-item-title">${_("Estimated Effort (hours/week)")}</p><span class="important-dates-item-text effort">${get_course_about_section(request, course, "effort")}</span></li>
           % endif
 
           ##<li class="important-dates-item"><span class="icon fa fa-clock-o" aria-hidden="true"></span><p class="important-dates-item-title">${_('Course Length')}</p><span class="important-dates-item-text course-length">${_('{number} weeks').format(number=15)}</span></li>
@@ -309,7 +309,7 @@ from openedx.core.lib.courses import course_image_url
 			        <p class="about-testimonial-quote">“I loved this course so much. Thank you for the opportunity to learn from so many wise scientists in a fun, easy to use, yet challenging and stimulating way.”</p>
 			        <p class="about-testimonial-source">-Graduate student</p>
 		        </div>
-		     
+
 		        <div class="about-testimonial">
 			        <p class="about-testimonial-quote">“I usually do not like online courses, but I found myself very engaged in these lessons and really enjoyed watching the videos. Great professionals were chosen for this!”
 			        <p class="about-testimonial-source">-Graduate student</p>
