@@ -224,10 +224,17 @@ from openedx.core.lib.courses import course_image_url
 
         <ol class="important-dates">
           <li class="important-dates-item"><span class="icon fa fa-info-circle" aria-hidden="true"></span><p class="important-dates-item-title">${_("Course Number")}</p><span class="important-dates-item-text course-number">${course.display_number_with_default | h}</span></li>
-          % if not course.start_date_is_still_default:
-              <%
-                  course_start_date = course.start
-              %>
+
+	        ## iBio: We want to show advertised start here
+	        % if course.advertised_start:
+            <%  course_start_date = str(course.advertised_start) %>
+          % elif course.start_date_is_still_default == False:
+            <%  course_start_date = course.start %>
+          % else:
+            <% course_start_date = None %>
+          % endif
+
+          % if course_start_date:
             <li class="important-dates-item">
               <span class="icon fa fa-calendar" aria-hidden="true"></span>
               <p class="important-dates-item-title">${_("Course Starts")}</p>
