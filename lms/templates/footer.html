@@ -32,10 +32,11 @@
 		}
 
 		.ibioCol {
-			padding: 30px 20px 20px 100px;
+			padding: 30px;
 			color: #fff;
 		  flex-basis: 0;
 		  flex-grow: 1;
+			min-width: 400px;
 		}
 
 
@@ -44,6 +45,7 @@
 			font-family:  "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
 			color: #ddd;
 			font-size: 16px;
+      font-weight: 300;
 		}
 
 		.ibioCol .ibioCopyright {
@@ -51,6 +53,13 @@
 			font-family:  "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
 			color: #ddd;
 			font-size: 14px;
+      font-weight: 300;
+		}
+
+		.ibioCol p {
+			font-family: "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
+			font-style: normal;
+      font-weight: 300;
 		}
 
 		.ibioCol  h1 {
@@ -100,10 +109,12 @@
 
 		.ibioNewsletterForm label {
 			font-family: "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
+			font-style: normal;
 		}
 
-		.ibioNewsletterForm textarea {
+		.ibioNewsletterForm input {
 			font-family: "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
+			font-style: normal;
 		}
 
 		/* Override AC form style */
@@ -111,7 +122,7 @@
 		#_form_1_ {
 			position:relative;
 			text-align:left;
-			margin: 30px 20px 30px 0px;
+			margin: 30px 20px 30px 0px !important;
 			padding:20px; -webkit-box-sizing:border-box;
 			-moz-box-sizing:border-box;
 			box-sizing:border-box;
@@ -127,6 +138,9 @@
 			color:#000 !important;
 		}
 
+		.ibioNavNote {
+			margin-top: 30px;
+		}
 
 	</style>
 
@@ -198,6 +212,8 @@
 				</ul>
 			</nav>
 
+			<p class="ibioNavNote">Pages shown above are only for iBiology Courses. For other iBiology content, please visit <a href="https://ibiology.org">iBiology.org</a></p>
+
 
 		</div>
 
@@ -205,9 +221,12 @@
 
 			<h1>NEWSLETTER</h1>
 
-			 <p>
-          Don't miss out! Sign up for our email newsletter below to get updates from iBiology Courses.
-			 </p>
+
+			<div>
+				 Don't miss out! Sign up for our email newsletter below to get updates from iBiology Courses.
+			</div>
+
+
 
 
 			<!-- ActiveCampaign form -->
