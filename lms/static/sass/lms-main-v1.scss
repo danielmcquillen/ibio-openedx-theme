@@ -557,12 +557,14 @@ input[type="submit"], input[type="button"], button, .button {
   text-transform: uppercase;
 
   a{
+    color: #eee !important;
+
     &:visited,
     &:active {
-      color: #ccc;
+      color: #ccc !important;
     }
     &:hover {
-      color: #fff;
+      color: #fff !important;
     }
   }
 }
