@@ -9,6 +9,12 @@ p {
   line-height: 1.6em;
 }
 
+#main {
+  .container {
+    margin-bottom: 50px;
+  }
+}
+
 /* TOP TAB BAR */
 .wrapper-course-material {
   .course-tabs {
@@ -39,6 +45,7 @@ p {
       font-size: 1.2em !important;
     }
   }
+  margin-bottom: 50px;
 }
 
 
