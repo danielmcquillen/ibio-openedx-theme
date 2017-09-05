@@ -11,6 +11,16 @@
   }
 }
 
+.no-print {
+  display: none !important;
+}
+
+h2 {
+  font-size: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px dotted #ccc
+}
+
 .courseware {
   .window-wrap {
     .ibio-nav {
@@ -90,7 +100,7 @@
         }
       }
 
-      .container-footer {
+      .footer-wrapper {
         display: none !important;
       }
 
@@ -98,6 +108,16 @@
         display: none !important;
       }
 
+    }
+  }
+}
+
+/* MRP-specific styles for the print version of MRP */
+.mentoring {
+  .answer {
+    &.read_only{
+      border-left: 1px solid #ccc;
+      margin: 20px 10px 20px 0px;
     }
   }
 }
