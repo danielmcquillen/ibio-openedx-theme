@@ -21,6 +21,10 @@ h2 {
   border-bottom: 1px dotted #ccc
 }
 
+.course-license {
+  display: none !important;
+}
+
 .courseware {
   .window-wrap {
     .ibio-nav {
@@ -100,10 +104,6 @@ h2 {
         }
       }
 
-      .footer-wrapper {
-        display: none !important;
-      }
-
       .nav-utilities {
         display: none !important;
       }
@@ -112,12 +112,3 @@ h2 {
   }
 }
 
-/* MRP-specific styles for the print version of MRP */
-.mentoring {
-  .answer {
-    &.read_only{
-      border-left: 1px solid #ccc;
-      margin: 20px 10px 20px 0px;
-    }
-  }
-}
