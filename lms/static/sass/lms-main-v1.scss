@@ -668,7 +668,13 @@ input[type="submit"], input[type="button"], button, .button {
 
   .about-newsletter-signup {
 
-    margin-top: 80px;
+    margin-top: 80px !important;
+    color: #999;
+    margin: 0 32px;
+
+    p {
+      padding-left: 10px;
+    }
 
     h1 {
       font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
