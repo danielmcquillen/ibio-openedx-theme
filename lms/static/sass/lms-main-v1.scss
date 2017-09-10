@@ -588,6 +588,31 @@ input[type="submit"], input[type="button"], button, .button {
   }
 }
 
+
+
+/* iBio Intro Video - used on about and newsletter signup complete */
+
+.ibio-intro-video {
+  padding: 10px 10px 10px 0px;
+
+  .ibio-video-container {
+    position:relative;
+    padding-bottom:56.25%;
+    height:0;
+    overflow:hidden;
+  }
+  .ibio-video-container iframe, .ibio-video-container object, .ibio-video-container embed {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+  }
+}
+
+
+
+
 /* COURSE ABOUT PAGE */
 .course-info {
 
@@ -610,28 +635,7 @@ input[type="submit"], input[type="button"], button, .button {
         width: 60%;
       }
     }
-
-    /* YouTube Responsive CSS for iBio */
-
-    .ibio-intro-video {
-      padding: 10px 10px 10px 0px;
-
-      .ibio-video-container {
-        position: relative;
-        padding-bottom: 56.25%;
-        padding-top: 0px;
-        height: 0;
-        overflow: hidden;
-        max-width: 600px;
-      }
-      .ibio-video-container iframe, .ibio-video-container object, .ibio-video-container embed {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
-    }
+    
   }
 
 
