@@ -1102,27 +1102,6 @@ input[type="submit"], input[type="button"], button, .button {
 
 }
 
-@media only screen and (max-width: 540px) {
-
-  /* Just like iBiology.org site, shrink down top menu items for mobile */
-  .ibio-nav a, .ibio-nav .sub-menu a {
-    font-size: 10px;
-    padding: 10px 8px;
-  }
-
-  .ibioSlider {
-    width: 100%;
-    margin-left: 0px;
-    .wallop-item img {
-      width: 100%;
-    }
-    .Wallop {
-      .Wallop-list {
-        width: 100%;
-      }
-    }
-  }
-}
 
 /* Ribbon for coming soon */
 
@@ -1180,7 +1159,7 @@ input[type="submit"], input[type="button"], button, .button {
   padding-top: 30px;
   height: 0;
   overflow: hidden;
-  max-width: 340px;
+  /* max-width: 340px; */
 }
 
 
@@ -1223,6 +1202,29 @@ input[type="submit"], input[type="button"], button, .button {
       &.problem-builder-copyright {
         font-size: 10px;
         font-color: #aaa;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 540px) {
+
+  /* Just like iBiology.org site, shrink down top menu items for mobile */
+  .ibio-nav a, .ibio-nav .sub-menu a {
+    font-size: 10px;
+    padding: 10px 8px;
+  }
+
+  .ibioSlider {
+    width: 100%;
+    margin-left: 0px;
+    .wallop-item img {
+      width: 100%;
+    }
+    .Wallop {
+      .Wallop-list {
+        width: 100%;
       }
     }
   }
