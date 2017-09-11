@@ -794,7 +794,10 @@ input[type="submit"], input[type="button"], button, .button {
 
 /* NEWSLETTER COMPLETE PAGE */
 .ibio-newsletter-signup-complete-page {
-
+  p {
+    max-width: 700px;
+    margin: 0px auto;
+  }
 }
 
 
