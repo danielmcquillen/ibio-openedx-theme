@@ -612,7 +612,6 @@ input[type="submit"], input[type="button"], button, .button {
 
 
 
-
 /* COURSE ABOUT PAGE */
 .course-info {
 
@@ -635,7 +634,13 @@ input[type="submit"], input[type="button"], button, .button {
         width: 60%;
       }
     }
-    
+
+    /* YouTube Responsive CSS for iBio */
+    .ibio-intro-video {
+      .ibio-video-container {
+        /* max-width: 600px; */
+      }
+    }
   }
 
 
