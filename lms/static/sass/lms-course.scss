@@ -391,7 +391,7 @@ p {
     .ibio-print-intro {
       /* XBlocks have a standard margin of 15, which we don't want here, so reverse within this child element's class */
       margin-bottom: -15px;
-      border: 1px dotted #df5a48;
+      border: 1px dotted #cf464a;
       padding: 0px;
       border-bottom-right-radius: 5px;
       border-top-right-radius: 5px;
@@ -399,7 +399,7 @@ p {
       width: 100%;
 
       .intro-icon-block {
-        background-color: #df5a48;
+        background-color: #cf464a;
         align-content: center;
         padding: 20px;
         .intro-icon-image {
