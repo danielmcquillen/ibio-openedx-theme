@@ -350,6 +350,7 @@ p {
     }
 
     /* Our special iBio callout for video introduction text */
+    /* TODO: collapse into shared ibio-callout style */
     .ibio-video-intro {
 
       /* XBlocks have a standard margin of 15, which we don't want here, so reverse within this child element's class */
@@ -384,6 +385,44 @@ p {
       }
 
     }
+
+
+    /* Our iBio callout for print pages */
+    .ibio-print-intro {
+      /* XBlocks have a standard margin of 15, which we don't want here, so reverse within this child element's class */
+      margin-bottom: -15px;
+      border: 1px dotted #df5a48;
+      padding: 0px;
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px;
+      display: flex;
+      width: 100%;
+
+      .intro-icon-block {
+        background-color: #df5a48;
+        align-content: center;
+        padding: 20px;
+        .intro-icon-image {
+          background: url("/static/ibio-openedx-theme/images/icon-printer.png");
+          background-size: contain;
+          width: 40px;
+          height: 40px;
+          min-width: 40px;
+          min-height: 40px;
+        }
+      }
+
+      .intro-text {
+        align-content: center;
+        font-family: "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
+        line-height: 1.5em;
+        font-size: 1em;
+        padding: 10px 10px 10px 20px;
+      }
+
+    }
+
+
 
     /* Top sequence controls */
     .sequence-nav {
