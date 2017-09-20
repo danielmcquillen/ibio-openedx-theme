@@ -422,6 +422,41 @@ p {
 
     }
 
+    /* Styles for step markers on MRP */
+
+    .step-wrapper {
+      display: flex;
+      font-size: 1.3em;
+      border: 1px dotted #f8d04d;
+      border-radius: 5px 0px 0px 5px;
+      margin-bottom: 20px;
+
+      .step-marker {
+         color: #000;
+          border-radius: 5px 0px 0px 5px;
+          padding: 15px 17px 15px 20px;
+          text-transform: uppercase;
+          margin-right: 12px;
+          font-size: 15px;
+          background: #f8d04d; /* Old browsers */
+          background: -moz-linear-gradient(top, #f8d04d 0%, #efc84a 100%); /* FF3.6-15 */
+          background: -webkit-linear-gradient(top, #f8d04d 0%,#efc84a 100%); /* Chrome10-25,Safari5.1-6 */
+          background: linear-gradient(to bottom, #f8d04d 0%,#efc84a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8d04d', endColorstr='#efc84a',GradientType=0 ); /* IE6-9 */
+        align-self: center;
+        justify-content: center;
+      }
+
+      .step-text {
+        align-self: center;
+        padding-left: 20px;
+      }
+
+
+    }
+
+
+
 
 
     /* Top sequence controls */
