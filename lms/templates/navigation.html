@@ -31,118 +31,45 @@ from status.status import get_site_status_msg
 				<a href="https://www.ibiology.org/" itemprop="url" title="iBiology Home"><span itemprop="name">iBiology</span></a>
 			</li>
 
-			<li class="current">
-				<a href="https://courses.ibiology.org/" itemprop="url" title="iBiology Home" >
-					<span itemprop="name">iBio Courses</span>
+			% if user.is_authenticated():
+			<li>
+				<a href="/dashboard" itemprop="url">
+					<span itemprop="name">Dashboard</span>
 				</a>
-				<ul>
-					% if user.is_authenticated():
-					<li>
-						<a href="/dashboard" itemprop="url">
-							<span itemprop="name">Dashboard</span>
-						</a>
-					</li>
-					% endif
-					<li>
-						<a href="/courses" itemprop="url">
-							<span itemprop="name">Course Catalog</span>
-						</a>
-					</li>
-					<li>
-						<a href="/speakers" itemprop="url">
-							<span itemprop="name">Speakers</span>
-						</a>
-					</li>
-					<li>
-						<a href="/about" itemprop="url">
-							<span itemprop="name">About</span>
-						</a>
-					</li>
-					<li>
-						<a href="/help" itemprop="url">
-							<span itemprop="name">Help</span>
-						</a>
-					</li>
-				</ul>
 			</li>
+			% endif
 
 			<li>
-				<a class="sf-with-ul" href="https://www.ibiology.org/about-us.html" itemprop="url" >
-					<span itemprop="name">About Us</span>
-				</a>
-				<ul >
-					<li >
-						<a href="https://www.ibiology.org/about-us/ibiology-team.html" itemprop="url">
-							<span itemprop="name">iBiology Team</span>
-						</a>
-					</li>
-					<li class="">
-						<a href="https://www.ibiology.org/about-us/mission.html" itemprop="url">
-							<span itemprop="name">Mission</span>
-						</a>
-					</li>
-					<li>
-						<a href="https://www.ibiology.org/about-us/make-a-donation.html" itemprop="url">
-							<span itemprop="name">Make a Donation</span>
-						</a>
-					</li>
-					<li>
-						<a href="https://www.ibiology.org/about-us/partners.html" itemprop="url">
-							<span itemprop="name">Partners</span>
-						</a>
-					</li>
-					<li>
-						<a href="https://www.ibiology.org/about-us/testimonials.html" itemprop="url">
-							<span itemprop="name">Testimonials</span>
-						</a>
-					</li>
-					<li>
-						<a href="https://www.ibiology.org/contact-us.html" itemprop="url">
-							<span itemprop="name">Contact Us</span>
-						</a>
-					</li>
-				</ul>
-			</li>
-
-			<li>
-				<a href="https://www.ibiology.org/blog.html" itemprop="url">
-				<span itemprop="name">Blog</span>
+				<a href="/courses" itemprop="url">
+					<span itemprop="name">Course Catalog</span>
 				</a>
 			</li>
 
 			<li>
-				<a href="https://www.ibiology.org/join.html" itemprop="url">
-				<span itemprop="name">Newsletter</span>
+				<a href="/speakers" itemprop="url">
+					<span itemprop="name">Speakers</span>
 				</a>
 			</li>
 
-			<li >
-				<a class="sf-with-ul" href="#" itemprop="url" >
-					<span itemprop="name">Educators</span>
-				</a>
-				<ul >
-					<li>
-						<a href="https://www.ibiology.org/wp-login.php" itemprop="url">
-							<span itemprop="name">Login</span>
-						</a>
-					</li>
-					<li>
-						<a href="https://www.ibiology.org/educator-registration.html" itemprop="url" title="Educators Registration">
-							<span itemprop="name">Registration</span>
-						</a>
-					</li>
-					<li >
-						<a href="https://www.ibiology.org/ibioeducation/educator-resources.html" itemprop="url">
-							<span itemprop="name">Resources</span>
-						</a>
-					</li>
-				</ul>
-			</li>
-			<li >
-				<a href="https://www.ibiology.org/ibioambassadors.html" itemprop="url">
-					<span itemprop="name">Volunteer</span>
+			<li>
+				<a href="/about" itemprop="url">
+					<span itemprop="name">About</span>
 				</a>
 			</li>
+
+			<li>
+				<a href="/help" itemprop="url">
+					<span itemprop="name">Help</span>
+				</a>
+			</li>
+
+
+			<li>
+				<a href="https://www.ibiology.org" itemprop="url">
+					<span itemprop="name">Visit iBiology.org >></span>
+				</a>
+			</li>
+
 
 		</ul>
 	</div>
