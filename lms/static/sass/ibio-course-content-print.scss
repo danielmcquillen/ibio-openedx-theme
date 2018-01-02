@@ -94,7 +94,20 @@ h2 {
               }
             }
 
-
+            /* Specific to MRP review page */
+            /* Resizable iframes: https://stackoverflow.com/a/26537427 */
+            .ibio-revisit-pb {
+              height: 480px;
+              width: 820px;
+              resize: both;
+              overflow: auto;
+              iframe {
+                textarea{
+                  height: calc(100vh - 200px) !important;
+                }
+              }
+            }
+            
           }
 
           .courseware-results-wrapper {
