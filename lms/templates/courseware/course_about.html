@@ -341,6 +341,33 @@ from openedx.core.lib.courses import course_image_url
 
       % endif
 
+
+	  % if course.display_number_with_default == "BCLS":
+	    <div class="about-testimonials">
+
+					<h1>${_("Testimonials")}</h1>
+
+	        <div class="about-testimonial">
+		        <p class="about-testimonial-quote">“I was able to use the workshop to learn effective communication both scientifically and socially.”</p>
+		        <p class="about-testimonial-source">-Sr. Research Associate</p>
+	        </div>
+		    <div class="about-testimonial">
+		        <p class="about-testimonial-quote">“Understanding stakeholders in the academic environment helped me better think about the research environment.”</p>
+		        <p class="about-testimonial-source">-Graduate student</p>
+	        </div>
+		    <div class="about-testimonial">
+		        <p class="about-testimonial-quote">“I began thinking more strategically about the kinds of postdoc research I might want to do to get to do clinical research at some point.”</p>
+		        <p class="about-testimonial-source">-Graduate student</p>
+	        </div>
+		    <div class="about-testimonial">
+		        <p class="about-testimonial-quote">“It helped solidify my desire to move into the business of science.”</p>
+		        <p class="about-testimonial-source">-Graduate student</p>
+	        </div>
+	    </div> <!-- ./about-testimonials -->
+
+			 % endif
+
+
 			<div class="about-newsletter-signup">
 				<h1>IBIO COURSES NEWSLETTER</h1>
 				<p>
