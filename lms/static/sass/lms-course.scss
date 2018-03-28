@@ -344,7 +344,7 @@ p {
       }
 
       .assessment-header-icon-block{
-          padding: 0px 10px;
+          padding: 10px;
           display: flex;
           align-items: center;
       }
@@ -359,8 +359,8 @@ p {
 
       .assessment-header-icon-image-msp{
           background: url("/static/ibio-openedx-theme/images/icon-plan.png");
-          width: 60px;
           background-size: contain;
+          width: 60px;
           height: 60px;
           min-width: 40px;
           min-height: 40px;
