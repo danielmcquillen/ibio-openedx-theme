@@ -323,6 +323,67 @@ p {
       padding-bottom: 0px;
       margin-bottom: 0px;
 
+
+      /* Headers for company vs MSP (BCLS) */
+
+      .assessment-header{
+          padding: 0px;
+          border-bottom-right-radius: 5px;
+          border-top-right-radius: 5px;
+          display: flex;
+          width: 100%;
+          margin-bottom:20px;
+      }
+
+      .border-mrp {
+        border: 1px dotted #15BDB2;
+      }
+
+      .border-company {
+        border: 1px dotted #efc84a;
+      }
+
+      .assessment-header-icon-block{
+          padding: 0px 10px;
+          display: flex;
+          align-items: center;
+      }
+
+      .bg-mrp {
+          background-color: #15BDB2;
+      }
+
+      .bg-company {
+          background-color: #efc84a;
+      }
+
+      .assessment-header-icon-image-mrp{
+          background: url(/static/ibio-openedx-theme/images/icon-plan.png);
+          background-size: contain;
+          width: 60px;
+          height: 60px;
+          min-width: 40px;
+          min-height: 40px;
+      }
+
+      .assessment-header-icon-image-company{
+          background: url(/static/ibio-openedx-theme/images/icon-buildings.png);
+          background-size: contain;
+          width: 60px;
+          height: 60px;
+          min-width: 40px;
+          min-height: 40px;
+      }
+
+      .assessment-intro-text{
+          align-content: center;
+          font-family: "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
+          line-height: 1.5em;
+          font-size: 1em;
+          padding: 10px 10px 0px 20px;
+      }
+
+
       &.xblock-student_view-done {
         /* make sure there's enough whitespace between the 'Mark as Complete'
            button and the next XBlock */
