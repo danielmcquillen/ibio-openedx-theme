@@ -63,6 +63,12 @@ h2 {
           .course-content {
             border: 0px !important;
 
+            .xblock-student_view-video {
+              h3 {
+                padding-top: 0px !important;
+              }
+            }
+
             .sequence-nav {
               display: none !important;
             }
