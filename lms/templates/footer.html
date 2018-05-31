@@ -1,249 +1,248 @@
 ## mako
 <%page expression_filter="h"/>
 <%!
-	from django.core.urlresolvers import reverse
-	from django.utils.translation import ugettext as _
-	from branding.api import get_footer
+    from django.core.urlresolvers import reverse
+    from django.utils.translation import ugettext as _
+    from branding.api import get_footer
 %>
 <% footer = get_footer(is_secure=is_secure) %>
 <%namespace name='static' file='static_content.html'/>
 
 <div class="wrapper">
 
-	<style>
+    <style>
 
-		.iBioLogo {
-			width: 155px;
-			height: 56px;
-		}
+        .iBioLogo {
+            width: 155px;
+            height: 56px;
+        }
 
-		.footer-wrapper {
-			background-color: #333;
-		}
+        .footer-wrapper {
+            background-color: #333;
+        }
 
-		.footer-wrapper footer {
-			clear: both;
-			display: flex;
-			margin: 0px auto;
-			max-width: 1180px;
-			background-color: #333;
-	    display: -webkit-box;
-	    display: -moz-box;
-	    display: -ms-flexbox;
-	    display: -webkit-flex;
-			flex-wrap: wrap;
-	    justify-content: center;
-			font-family: "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
-		}
+        .footer-wrapper footer {
+            clear: both;
+            display: flex;
+            margin: 0px auto;
+            max-width: 1180px;
+            background-color: #333;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            font-family: "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
+        }
 
-		.ibioCol {
-			padding: 30px;
-			color: #fff;
-		  flex-basis: 0;
-		  flex-grow: 1;
-			min-width: 200px;
-			line-height: 1.625 !important;
-			font-style: normal !important;
-		}
+        .ibioCol {
+            padding: 30px;
+            color: #fff;
+            flex-basis: 0;
+            flex-grow: 1;
+            min-width: 200px;
+            line-height: 1.625 !important;
+            font-style: normal !important;
+        }
 
+        .ibioCol .ibioBackground {
+            margin-top: 20px;
+            font-family: "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
+            color: #ddd;
+            font-size: 16px;
+            font-weight: 300;
+        }
 
-		.ibioCol .ibioBackground {
-			margin-top: 20px;
-			font-family:  "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
-			color: #ddd;
-			font-size: 16px;
-      font-weight: 300;
-		}
+        .ibioCol .ibioCopyright {
+            margin-top: 20px;
+            font-family: "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
+            color: #ddd;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.625;
+        }
 
-		.ibioCol .ibioCopyright {
-			margin-top: 20px;
-			font-family:  "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
-			color: #ddd;
-			font-size: 14px;
-      font-weight: 300;
-			line-height: 1.625;
-		}
+        .ibioCol p {
+            font-family: "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 16px;
+            color: #ddd;
+        }
 
-		.ibioCol p {
-			font-family: "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
-			font-style: normal;
-      font-weight: 300;
-			font-size: 16px;
-      color: #ddd;
-		}
+        .ibioCol h1 {
+            font-family: "Open Sans", "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-size: 1em;
+            color: #fff;
+            text-align: left;
+            border-bottom: 1px dotted #777;
+            max-width: 300px;
+        }
 
-		.ibioCol  h1 {
-			font-family: "Open Sans", "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
-			text-transform: uppercase;
-			margin-bottom: 10px;
-			font-size: 1em;
-			color: #fff;
-			text-align: left;
-			border-bottom: 1px dotted #777;
-			max-width: 300px;
-		}
+        .ibioSiteMap {
+            color: #ffff;
+        }
 
+        .openedx-logo {
+            margin-top: 30px;
+        }
 
-		.ibioSiteMap {
-			color: #ffff;
-		}
+        .ibioSiteMap nav h2 {
+            font-family: "Open Sans", "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
+            text-transform: uppercase;
+            margin-top: 20px;
+            font-size: 1em;
+            color: #fff;
+            text-align: left;
+        }
 
-		.openedx-logo {
-			margin-top:30px;
-		}
+        .ibioSiteMap ul {
+            list-style-image: none;
+            margin-left: 0px;
+        }
 
-		.ibioSiteMap nav h2 {
-			font-family: "Open Sans", "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
-			text-transform: uppercase;
-			margin-top: 20px;
-			font-size: 1em;
-			color: #fff;
-			text-align: left;
-		}
+        .ibioSiteMap li {
+            margin-left: 5px;
+            font-weight: 400 !important;
+            list-style: none;
+            font-family: "Helvetica Neue", "Open Sans", "Verdana", sans-serif !important;
+        }
 
-		.ibioSiteMap ul {
-			list-style-image: none;
-			margin-left: 0px;
-		}
+        .ibioSiteMap a:link {
+            color: #eee;
+        }
 
-		.ibioSiteMap li {
-			margin-left: 5px;
-			font-weight: 400 !important;
-			list-style: none;
-			font-family: "Helvetica Neue", "Open Sans", "Verdana", sans-serif !important;
-		}
+        .ibioSiteMap a:hover, ibioSiteMap a:active {
+            color: #fff;
+        }
 
-		.ibioSiteMap a:link {
-			color: #eee;
-		}
+        .ibioSiteMap a:visited {
+            color: #ddd;
+        }
 
-		.ibioSiteMap a:hover, ibioSiteMap a:active {
-			color: #fff;
-		}
+        .ibioNewsletterForm label {
+            font-family: "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
+            font-style: normal;
+        }
 
-		.ibioSiteMap a:visited {
-			color: #ddd;
-		}
+        .ibioNewsletterForm input {
+            font-family: "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
+            font-style: normal;
+        }
 
-		.ibioNewsletterForm label {
-			font-family: "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
-			font-style: normal;
-		}
+        .ibioNavNote {
+            margin-top: 30px;
+            max-width: 250px;
+        }
 
-		.ibioNewsletterForm input {
-			font-family: "Helvetica Neue", "Open Sans", "Verdana", sans-serif;
-			font-style: normal;
-		}
+    </style>
 
+    <div class="footer-wrapper">
 
-		.ibioNavNote {
-			margin-top: 30px;
-			max-width: 250px;
-		}
+        <footer>
 
-	</style>
+            <div class="ibioCol">
+                <a href="/">
+                    <img alt="organization logo" src="/static/ibio-openedx-theme/images/logo.png" style="max-width: 210px;">
+                </a>
+                <div class="ibioBackground">
+                    iBiology Courses is a online learning system by iBiology. It is developed with support from a
+                    National Institute for General Medical Sciences grant (#5R25GM116704).
+                    <a href="/about">Read more.</a>
+                </div>
+                <img alt="organization logo" src="/static/ibio-openedx-theme/images/logo-nih-dark.png"
+                     style="max-width: 210px;">
 
-<div class="footer-wrapper">
+                ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
 
-	<footer>
+                <div class="ibioCopyright">
+                    © iBiology. All rights reserved except where noted. EdX, Open edX and the edX
+                    and Open EdX logos are registered trademarks or trademarks of edX Inc.
+                </div>
+                <div class="openedx-logo">
+                    <a href="${footer['openedx_link']['url']}">
+                        <img src="/static/ibio-openedx-theme/images/powered-by-open-edx.png"
+                             alt="${footer['openedx_link']['title']}" width="140"/>
+                    </a>
+                </div>
+            </div>
 
+            <div class="ibioCol">
+                <div class="ibioSiteMap">
+                    <h1>SITEMAP</h1>
+                    <nav>
 
-		<div class="ibioCol">
+                        <h2>MAIN PAGES</h2>
+                        <ul>
+                            <li>
+                                <a href="/courses">Course Catalog</a>
+                            </li>
+                            <li>
+                                <a href="/speakers">Speakers</a>
+                            </li>
+                            <li>
+                                <a href="/about">About</a>
+                            </li>
+                            <li>
+                                <a href="/help">Help</a>
+                            </li>
+                            <li>
+                                <a href="/dashboard">Dashboard</a>
+                            </li>
+                        </ul>
 
-			<a href="/">
-        <img alt="organization logo" src="/static/ibio-openedx-theme/images/logo.png" style="max-width: 210px;" >
-			</a>
+                        <h2>
+                            LEGAL
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/honor">Honor Code</a>
+                            </li>
+                            <li>
+                                <a href="/tos">Terms of Service</a>
+                            </li>
+                            <li>
+                                <a href="/privacy">Privacy Policy</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <p class="ibioNavNote">The pages shown above are only for content on the iBiology Courses website.
+                        For all other iBiology content, please visit <a href="https://ibiology.org">iBiology.org</a></p>
+                </div>
+            </div>
 
-			<div class="ibioBackground">
-				iBiology Courses is a online learning system by iBiology. It is developed with support from a National Institute for General Medical Sciences grant (#5R25GM116704).
-			</div>
+            <div class="ibioCol">
+                <h1>PRIMARY FUNDING</h1>
+                <img src="/static/ibio-openedx-theme/images/logo-nih-dark.png" alt="NIH Logo"
+                     style="max-width: 200px;"/>
+            </div>
 
-				## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
-      <div class="ibioCopyright">
-				© iBiology. All rights reserved except where noted. EdX, Open edX and the edX
-				and Open EdX logos are registered trademarks or trademarks of edX Inc.
-			</div>
+            <div class="ibioCol">
+                <h1>NEWSLETTER</h1>
+                <p>
+                    Don't miss out! Sign up for our email newsletter below to get updates from iBiology Courses.
+                </p>
+                <div class="_form_1"></div>
+                <script src="https://ibiology.activehosted.com/f/embed.php?id=1" type="text/javascript"
+                        charset="utf-8"></script>
+            </div>
 
-			<div class="openedx-logo">
-				<a href="${footer['openedx_link']['url']}">
-					<img src="/static/ibio-openedx-theme/images/powered-by-open-edx.png" alt="${footer['openedx_link']['title']}" width="140" />
-				</a>
-			</div>
-		</div>
-
-
-
-		<div class="ibioCol">
-
-			<div class="ibioSiteMap">
-
-				<h1>IBIOLOGY COURSES SITEMAP</h1>
-
-				<nav>
-
-					<h2>MAIN PAGES</h2>
-					<ul>
-						<li>
-							<a href="/courses">Course Catalog</a>
-						</li>
-						<li>
-							<a href="/speakers">Speakers</a>
-						</li>
-						<li>
-							<a href="/about">About</a>
-						</li>
-						<li>
-							<a href="/help">Help</a>
-						</li>
-						<li>
-							<a href="/dashboard">Dashboard</a>
-						</li>
-					</ul>
-
-					<h2>
-						LEGAL
-					</h2>
-					<ul>
-						<li>
-							<a href="/honor">Honor Code</a>
-						</li>
-						<li>
-							<a href="/tos">Terms of Service</a>
-						</li>
-						<li>
-							<a href="/privacy">Privacy Policy</a>
-						</li>
-					</ul>
-				</nav>
-
-				<p class="ibioNavNote">The pages shown above are only for content on the iBiology Courses website. For all other iBiology content, please visit <a href="https://ibiology.org">iBiology.org</a></p>
-
-
-			</div>
-
-		</div>
-
-		<div class="ibioCol">
-			<h1>NEWSLETTER</h1>
-			<p>
-				 Don't miss out! Sign up for our email newsletter below to get updates from iBiology Courses.
-			</p>
-			<div class="_form_1"></div><script src="https://ibiology.activehosted.com/f/embed.php?id=1" type="text/javascript" charset="utf-8"></script>
-		</div>
-
-	</footer>
-</div>
+        </footer>
+    </div>
 
 
 </div>
 % if include_dependencies:
-	<%static:js group='base_vendor'/>
-	<%static:css group='style-vendor'/>
+    <%static:js group='base_vendor'/>
+    <%static:css group='style-vendor'/>
 % endif
 % if footer_css_urls:
-	% for url in footer_css_urls:
-		<link rel="stylesheet" type="text/css" href="${url}"></link>
-	% endfor
+    % for url in footer_css_urls:
+        <link rel="stylesheet" type="text/css" href="${url}"></link>
+    % endfor
 % endif
 
 
