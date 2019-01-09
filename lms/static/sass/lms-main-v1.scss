@@ -472,35 +472,36 @@ input[type="submit"], input[type="button"], button, .button {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+
+
+        /* DMcQ: Kind of hacky css to order course cards on front page,
+           since Open edX doesn't give us this feature.
+           Override the margin-right so regular styles don't remove it
+           based on position (since we're changing up position).
+           I've added these styles via a small mod to the courses-list.html
+        */
+        .course-card-Demo {
+          order: 4;
+          margin-right: 2.35765% !important;
+        }
+        .course-card-LE {
+          order: 1;
+          margin-right: 2.35765% !important;
+        }
+        .course-card-iBio1 {
+          order: 2;
+          margin-right: 2.35765% !important;
+        }
+        .course-card-BCLS {
+          order: 3;
+          margin-right: 2.35765% !important;
+        }
+
         .course-listing-item{
           float: none;
           margin-bottom: 40px !important;
           min-width: 350px;
-
-          /* DMcQ: Kind of hacky css to order course cards on front page,
-             since Open edX doesn't give us this feature.
-             Override the margin-right so regular styles don't remove it
-             based on position (since we're changing up position).
-             I've added these styles via a small mod to the courses-list.html
-          */
-          .course-card-demo {
-            order: 4;
-            margin-right: 2.35765% !important;
-          }
-          .course-card-LE {
-            order: 1;
-            margin-right: 2.35765% !important;
-          }
-          .course-card-iBio1 {
-            order: 2;
-            margin-right: 2.35765% !important;
-          }
-          .course-card-BCLS {
-            order: 3;
-            margin-right: 2.35765% !important;
-          }
-
-
+          
           &:first-child{
             padding: 0px 20px 20px 10px;
           }
