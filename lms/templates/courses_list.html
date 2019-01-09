@@ -22,7 +22,7 @@
 
                     ## limiting the course number by using HOMEPAGE_COURSE_MAX as the maximum number of courses
           %for course in courses[:settings.HOMEPAGE_COURSE_MAX]:
-                    <div class="courses-listing-item">
+                    <div class="courses-listing-item course-card-${course.display_number_with_default}">
                             <%include file="course.html" args="course=course" />
                     </div>
                 %endfor
