@@ -494,14 +494,14 @@ input[type="submit"], input[type="button"], button, .button {
         }
         .course-card-BCLS {
           order: 3;
-          margin-right: 2.35765% !important;
+          margin-right: 0 !important;
         }
 
         .course-listing-item{
           float: none;
           margin-bottom: 40px !important;
           min-width: 350px;
-          
+
           &:first-child{
             padding: 0px 20px 20px 10px;
           }
