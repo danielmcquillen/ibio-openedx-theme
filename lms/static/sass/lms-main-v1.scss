@@ -839,6 +839,11 @@ input[type="submit"], input[type="button"], button, .button {
 
   .course-speakers-title {
     margin-top: 2em;
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    justify-content: center;
   }
 
   .ibio-speakers-grid {
