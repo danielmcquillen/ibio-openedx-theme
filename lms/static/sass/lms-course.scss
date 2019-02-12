@@ -322,12 +322,20 @@ p {
 
     padding: 20px 3% 40px 3%;
 
+    /* Hide headers for videos, we use our own in an HTML
+    block above the video XBlock */
+
+    .xmodule_VideoModule {
+      h3 {
+        display: none;
+      }
+    }
+
     .xblock-student_view {
 
       border: 0px;
       padding-bottom: 0px;
       margin-bottom: 0px;
-
 
       /* Headers for company vs MSP (BCLS) */
 
