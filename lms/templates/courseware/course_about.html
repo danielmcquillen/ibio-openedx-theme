@@ -283,12 +283,21 @@ from openedx.core.lib.courses import course_image_url
             % endif
 
             % if course.display_number_with_default == "LE":
-                 <li class="important-dates-item">
-                     <a href="https://s3-us-west-1.amazonaws.com/ibio-download/Let's_Experiment_Syllabus_hosted_2019.pdf" target="_blank">
-                         <span class="icon fa fa-file" aria-hidden="true"></span>
-                     </a>
-                     <a href="https://s3-us-west-1.amazonaws.com/ibio-download/Let's_Experiment_Syllabus_hosted_2019.pdf" target="_blank">View Syllabus</a>
-                 </li>
+                % if "SP" in course.id:
+                    <li class="important-dates-item">
+                         <a href="https://s3-us-west-1.amazonaws.com/ibio-download/Let's_Experiment_Syllabus_SelfPaced+2019.pdf" target="_blank">
+                             <span class="icon fa fa-file" aria-hidden="true"></span>
+                        </a>
+                        <a href="https://s3-us-west-1.amazonaws.com/ibio-download/Let's_Experiment_Syllabus_SelfPaced+2019.pdf" target="_blank">View Syllabus</a>
+                    </li>
+                %else:
+                    <li class="important-dates-item">
+                        <a href="https://s3-us-west-1.amazonaws.com/ibio-download/Let's_Experiment_Syllabus_hosted_2019.pdf" target="_blank">
+                            <span class="icon fa fa-file" aria-hidden="true"></span>
+                        </a>
+                        <a href="https://s3-us-west-1.amazonaws.com/ibio-download/Let's_Experiment_Syllabus_hosted_2019.pdf" target="_blank">View Syllabus</a>
+                    </li>
+                % endif
             % endif
 
           ##<li class="important-dates-item"><span class="icon fa fa-clock-o" aria-hidden="true"></span><p class="important-dates-item-title">${_('Course Length')}</p><span class="important-dates-item-text course-length">${_('{number} weeks').format(number=15)}</span></li>
