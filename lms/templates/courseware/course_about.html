@@ -273,6 +273,39 @@ from openedx.core.lib.courses import course_image_url
             <li class="important-dates-item"><span class="icon fa fa-pencil" aria-hidden="true"></span><p class="important-dates-item-title">${_("Estimated Effort (hours/week)")}</p><span class="important-dates-item-text effort">${get_course_about_section(request, course, "effort")}</span></li>
           % endif
 
+            <!-- iBio: Adding in duration text for certain courses -->
+            % if course.display_number_with_default == "LE" and course_details.run == "SP":
+                <li class="important-dates-item">
+                    <p class="important-dates-item-title">
+                        Estimated Duration
+                    </p>
+                    <span class="important-dates-item-text effort">
+                        5 weeks
+                    </span>
+                </li>
+            % endif
+            % if course.display_number_with_default == "iBio1" and course_details.run == "2018":
+                <li class="important-dates-item">
+                    <p class="important-dates-item-title">
+                        Estimated Duration
+                    </p>
+                    <span class="important-dates-item-text effort">
+                        6 weeks
+                    </span>
+                </li>
+            % endif
+            % if course.display_number_with_default == "BCLS":
+                <li class="important-dates-item">
+                    <p class="important-dates-item-title">
+                        Estimated Duration
+                    </p>
+                    <span class="important-dates-item-text effort">
+                        5 weeks
+                    </span>
+                </li>
+            % endif
+
+            <!-- iBio: Adding in syllabus links -->
             % if course.display_number_with_default == "iBio1":
                  <li class="important-dates-item">
                      <a href="https://s3-us-west-1.amazonaws.com/ibio-download/PYSJ_Self-paced_Complete_Syllabus_for_iBiology.pdf" target="_blank">
