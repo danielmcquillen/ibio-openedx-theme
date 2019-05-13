@@ -276,6 +276,7 @@ from openedx.core.lib.courses import course_image_url
             <!-- iBio: Adding in duration text for certain courses -->
             % if course.display_number_with_default == "LE" and course_details.run == "SP":
                 <li class="important-dates-item">
+                    <span class="icon fa fa-hourglass-half" aria-hidden="true"></span>
                     <p class="important-dates-item-title">
                         Estimated Duration
                     </p>
@@ -286,6 +287,7 @@ from openedx.core.lib.courses import course_image_url
             % endif
             % if course.display_number_with_default == "iBio1" and course_details.run == "2018":
                 <li class="important-dates-item">
+                    <span class="icon fa fa-hourglass-half" aria-hidden="true"></span>
                     <p class="important-dates-item-title">
                         Estimated Duration
                     </p>
@@ -296,6 +298,7 @@ from openedx.core.lib.courses import course_image_url
             % endif
             % if course.display_number_with_default == "BCLS":
                 <li class="important-dates-item">
+                    <span class="icon fa fa-hourglass-half" aria-hidden="true"></span>
                     <p class="important-dates-item-title">
                         Estimated Duration
                     </p>
