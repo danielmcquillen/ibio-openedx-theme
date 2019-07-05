@@ -1,0 +1,358 @@
+<!DOCTYPE html PUBLIC"-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<head lang="en" class="">
+
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Patrick+Hand+SC&display=swap" rel="stylesheet">
+    <link href="../../static/css/tiny-slider.css" rel="stylesheet"/>
+    <script src="../../static/js/tiny-slider.js"></script>
+
+    <style>
+
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .header-slider-container {
+            height: 360px;
+            display: flex;
+            width: 100%;
+        }
+
+        .my-slider {
+            height: 340px;
+            width: 100%;
+        }
+
+        .slide {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            height: 100%;
+            z-index: 99999;
+        }
+
+        .main-slide {
+            background-position: center top;
+            background-size: auto;
+            background-repeat: no-repeat;
+            background-size: auto;
+            background-image: url('https://courses.ibiology.org/static/ibio-openedx-theme/images/hero-image.86c84b8d7654.jpg')
+        }
+
+        /* Text only shows on smaller widths */
+        .main-slide .main-slide-title {
+            display: none;
+        }
+
+        .slide-2 {
+            background-color: #f8d862;
+            background-position: left top;
+            background-size: auto;
+            background-image: url('testimonials-bg.png');
+            background-repeat: no-repeat;
+        }
+
+        .slide-3 {
+            background-color: black;
+            background-size: auto;
+            background-image: url('video-bg.png');
+            background-repeat: repeat;
+        }
+
+        .slider-video-wrapper {
+            margin: 0 auto;
+            max-width: 700px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-wrapper {
+            overflow: hidden;
+            position: relative;
+            height: 100%;
+        }
+
+        .video-wrapper iframe {
+            border: 0;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        .slide .slider-testimonial {
+            max-width: 700px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Open Sans';
+
+        }
+        .slide .slider-testimonial .quote-holder {
+            padding: 3rem;
+            margin: 3rem;
+            max-height: 180px;
+            border: 1px solid #f1f1f1;
+            font-size: 1rem;
+            background-color: #ffffff;
+            border-radius: 10px;
+            opacity: 0.8;
+            box-shadow: 0 1px 10px 0 rgba(0,0,0,0.125), inset 0 0 0 1px rgba(255,255,255,0.75);
+
+
+        }
+
+        .slide .slider-testimonial .quote-header {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .slide .slider-testimonial .quote {
+           font-family: 'Patrick Hand SC', cursive;
+            font-size: 1.2rem;
+        }
+
+        .slide .slider-testimonial .quote-source {
+           font-family: 'Patrick Hand SC', cursive;
+            font-style: italic;
+            font-size: 1.2rem;
+            padding-top: 1rem;
+            padding-left: 2rem;
+        }
+
+        .tns-outer {
+            width: 100%;
+        }
+
+        .ts-inner {
+            display: flex;
+            width: 100%;
+        }
+
+        #my-controls {
+            height: 360px;
+            display: flex;
+            flex-shrink: 0;
+            width: 100%;
+            position: absolute;
+            z-index: 999;
+            justify-content: space-between;
+            align-items: center;
+            pointer-events: none;
+        }
+
+        #my-controls button {
+            z-index: 999;
+            display: block;
+            pointer-events: all;
+            width: 3rem;
+            height: 3rem;
+            background: #2a2a2a;
+            border: 0;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            opacity: 0.4;
+            cursor: pointer;
+            font-family: 'Open Sans';
+        }
+
+
+        .ibio-nav {
+            background: #333;
+            height: 120px;
+            display: block;
+            z-index: 998;
+        }
+
+        .tns-nav {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background: #359ff7;
+            background: -webkit-linear-gradient(#359ff7, #1c93f6);
+            background: -o-linear-gradient(#359ff7, #1c93f6);
+            background: -moz-linear-gradient(#359ff7, #1c93f6);
+            background: linear-gradient(#359ff7, #1c93f6);
+            min-height: 50px;
+        }
+
+        .tns-nav > [aria-controls] {
+            width: 9px;
+            height: 9px;
+            padding: 0;
+            margin: 0 5px;
+            border-radius: 50%;
+            background: #bee0fd;
+            border: 0;
+        }
+
+        .tns-nav > .tns-nav-active {
+            background: #FFF;
+            width: 11px;
+            height: 11px;
+        }
+
+        @media only screen and (max-width: 1023px) {
+
+            #my-controls {
+                height: 220px;
+            }
+
+            .my-slider {
+                height: 220px;
+            }
+
+            .main-slide {
+                background-position: left center;
+                background-image: url("https://courses.ibiology.org/static/ibio-openedx-theme/images/hero-image-small.1260d7198d7e.jpg");
+                background-size: contain;
+                background-repeat: no-repeat;
+                align-items: center;
+                justify-content: center;
+                padding-right: 80px;
+            }
+
+            .main-slide .main-slide-title {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-end;
+                height: 100%;
+                width: 100%;
+                font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+                font-size: 2em;
+                color: #000;
+                text-align: right;
+            }
+        }
+
+        @media only screen and (max-width: 780px) {
+            .main-slide .main-slide-title {
+                font-size: 1.5em !important;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+
+            #my-controls {
+                height: 190px;
+            }
+
+            .my-slider {
+                height: 190px;
+            }
+
+            .main-slide {
+                background-position: left center;
+                background-repeat: no-repeat;
+                background-size: auto;
+                background-image: url("https://courses.ibiology.org/static/ibio-openedx-theme/images/compass.7eec6faf0bff.jpg");
+                padding-right: 0;
+            }
+
+            .main-slide .main-slide-title {
+                font-size: 1.5em !important;
+                text-align: center;
+                justify-content: center;
+            }
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+
+
+<div class="ibio-nav">
+
+</div>
+
+<main id="main" aria-label="Content" tabindex="-1">
+
+    <section class="home">
+
+        <div id="my-controls">
+            <button><<</button>
+            <button>>></button>
+        </div>
+
+        <header class="header-slider-container">
+
+            <div class="my-slider">
+
+                <div class="slide main-slide">
+                    <div class="main-slide-title">
+                        <p>Helping you navigate<br/>your scientific journey.</p>
+                    </div>
+
+                </div>
+
+                <div class="slide slide-2">
+                    <div class="slider-testimonial">
+                        <div class="quote-holder">
+                            <div class="quote-header">
+                                Testimonial
+                            </div>
+                            <div class="quote">
+                                I loved the way this course was planned and executed. I enjoyed watching the videos, the
+                                information
+                                was extremely helpful and I am working on implementing the ideas into my everyday life!
+                            </div>
+                            <div class="quote-source">
+                                - Graduate student
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide slide-3">
+                    <div class="slider-video-wrapper ">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/V0hklsjf1Yc?rel=0" frameborder="0"></iframe>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </header>
+    </section>
+
+    <div class="feature-bar">
+
+    </div>
+
+
+</main>
+</body>
+<script>
+
+    var controls = document.getElementById('my-controls');
+    var slider = tns({
+        container: '.my-slider',
+        items: 1,
+        slideBy: 'page',
+        autoplay: false,
+        navPosition: 'bottom',
+        controlsContainer: controls
+
+
+    });
+</script>
+</html>
