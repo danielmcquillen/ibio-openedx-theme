@@ -12,32 +12,112 @@
     # and write into the template.
 
     all_speaker_video_ids = [
-        "V0hklsjf1Yc", #Prachee Avasthi
-        "uIv1H4Vxce8", #Needhi Bhalla
-        "5WVUOsnr8jA", #Daniel Colon-Ramos
-        "zSqGvoHjVUA", #Doug Koshland
-        "1CHoHKX1vy8", #Katie Pollard
-        "Zno5C0SRtAg", #Neil Robbins II
-        "w5vDdQTX45g", #Ana Ruiz Saenz
-        "TxQXo3XNg2w", #Paul Turner
-        "ASkKRvK20to", #Ron Vale
-        "1nDOrWetd6s", #Uri Alon
-        "_pZl7pofC9s", #Angela DePace
-        "XD2IxKd1PT0", #Tejal Desai
-        "JfYTL0LLhlQ", #Cynthia Fuhrmann
-        "kqZSbLBpcRQ", #Ryan Hernandez
-        "SWzZHnG-4rU", #Asia Matthew-Onabanjo
-        "i-KvrBpW-2A", #Kassandra Ori-McKenney
-        "kkK6_Akv9cw", #Sabine Petry
-        "P0aWoY_FBOM", #Indira Raman
-        "gdioxba2uXw", #Randy Schekman
-        "JKY3nxYOGLU", #Clarissa Scholes
-        "rDGZkhlMRec", #Ben Vincent
-        "U3eN-SzdgKI", #Keith Yamamoto
+        {
+            "video_url":"V0hklsjf1Yc",
+            "speaker_name": "Prachee Avasthi"
+        },
+        {
+            "video_url":"uIv1H4Vxce8",
+            "speaker_name": "Needhi Bhalla"
+        },
+
+        {
+            "video_url":"5WVUOsnr8jA",
+            "speaker_name": "Daniel Colon-Ramos"
+        },
+        {
+            "video_url":"zSqGvoHjVUA",
+            "speaker_name": "Doug Koshland"
+        },
+        {
+            "video_url":"1CHoHKX1vy8",
+            "speaker_name": "Katie Pollard"
+        },
+        {
+            "video_url":"Zno5C0SRtAg",
+            "speaker_name": "Neil Robbins II"
+        },
+        {
+            "video_url":"w5vDdQTX45g",
+            "speaker_name": "Ana Ruiz Saenz"
+        },
+        {
+            "video_url":"TxQXo3XNg2w",
+            "speaker_name": "Paul Turner"
+        },
+        {
+            "video_url":"ASkKRvK20to",
+            "speaker_name": "Ron Vale"
+        },
+        {
+            "video_url":"1nDOrWetd6s",
+            "speaker_name": "Uri Alon"
+        },
+        {
+            "video_url":"_pZl7pofC9s",
+            "speaker_name": "Angela DePace"
+        },
+        {
+            "video_url":"XD2IxKd1PT0",
+            "speaker_name": "Tejal Desai"
+        },
+        {
+            "video_url":"JfYTL0LLhlQ",
+            "speaker_name": "Cynthia Fuhrmann"
+        },
+        {
+            "video_url":"kqZSbLBpcRQ",
+            "speaker_name": "Ryan Hernandez"
+        },
+        {
+            "video_url":"SWzZHnG-4rU",
+            "speaker_name": "Asia Matthew-Onabanjo"
+        },
+        {
+            "video_url":"i-KvrBpW-2A",
+            "speaker_name": "Kassandra Ori-McKenney"
+        },
+        {
+            "video_url":"kkK6_Akv9cw",
+            "speaker_name": "Sabine Petry"
+        },
+        {
+            "video_url":"P0aWoY_FBOM",
+            "speaker_name": "Indira Raman"
+        },
+        {
+            "video_url":"gdioxba2uXw",
+            "speaker_name": "Randy Schekman"
+        },
+        {
+            "video_url":"JKY3nxYOGLU",
+            "speaker_name": "Clarissa Scholes"
+        },
+        {
+            "video_url":"rDGZkhlMRec",
+            "speaker_name": "Ben Vincent"
+        },
+        {
+            "video_url":"U3eN-SzdgKI",
+            "speaker_name": "Keith Yamamoto"
+        },
     ]
+
+    # Pick random video for hero slider
+    hero_video = random.sample(all_speaker_video_ids, 1)
+    try:
+        hero_video_id = hero_video.get('url')
+        hero_video_text = hero_video.get('speaker_name', )
+    except Exception as e:
+        hero_video_id = "gI_JRiu4Qic"
+        hero_video_text = "Asia Matthew-Onabanjo"
+
+
+    # Pick random videos for speaker slider
     speaker_video_ids = []
     try:
-        speaker_video_ids = random.sample(all_speaker_video_ids, 5)
+        speaker_videos = random.sample(all_speaker_video_ids, 5)
+        speaker_video_ids = [item.video_url for item in speaker_videos]
     except Exception as e:
         # If there's an error building random list, use
         # default list from earlier design.
@@ -125,15 +205,14 @@
 
                     <div class="slider-video-wrapper">
                         <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/V0hklsjf1Yc?rel=0&modestbranding=1&showinfo=0"
-                                    frameborder="0"></iframe>
+                            <iframe src="https://www.youtube.com/embed/${hero_video_id}?rel=0&modestbranding=1&showinfo=0" frameborder="0"></iframe>
                         </div>
                     </div>
 
                     <div class="speaker-info" >
                         Meet our speakers:
                         <div class="speaker-name">
-                            Prachee Avasthi
+                            ${ hero_video_text }
                         </div>
                     </div>
 
