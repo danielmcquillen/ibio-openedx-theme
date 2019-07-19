@@ -54,6 +54,12 @@
 <%block name="headextra">
     <!-- we only use these styles and scripts in index marketing page -->
     <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+
+    <!-- page redesign -->
+    <link href="/static/ibio-openedx-theme/css/ibio-slider.css" rel="stylesheet">
+    <link href="/static/ibio-openedx-theme/css/tiny-slider.css" rel="stylesheet"/>
+    <script src="/static/ibio-openedx-theme/js/tiny-slider.js"></script>
+
     <link href="/static/ibio-openedx-theme/css/wallop.css" rel="stylesheet">
     <link href="/static/ibio-openedx-theme/css/wallop--slide.css" rel="stylesheet">
     <script src="/static/ibio-openedx-theme/js/Wallop.min.js"></script>
@@ -61,14 +67,80 @@
 
 <main id="main" aria-label="Content" tabindex="-1">
 
-    <section class="home">
+     <section class="home">
 
-        <header>
-            <div class="outer-wrapper">
-                <div class="title">
-                    <p>Helping you navigate<br/>your scientific journey.</p>
+        <div id="my-controls">
+            <button><i class="fas fa-arrow-circle-left"></i></button>
+            <button><i class="fas fa-arrow-circle-right"></i></button>
+        </div>
+
+        <header class="header-slider-container">
+
+            <div class="my-slider">
+
+
+                <div class="slide main-slide">
+                    <div class="main-slide-title">
+                        <p>Helping you navigate<br/>your scientific journey.</p>
+                    </div>
+
                 </div>
+
+                <div class="slide slide-2" style="position:relative;">
+
+                    <div class="heart-holder"
+                         style="position: absolute; bottom:40px; width:450px; right:0; z-index: -1;">
+                        <img src="heart.png" style="width:100%;"/>
+                    </div>
+
+                    <div class="slider-testimonial">
+                        <div class="inner-border">
+                            <div class="quote-holder">
+                                <div class="quote-header">
+                                    Testimonial
+                                </div>
+                                <div class="quote">
+                                    I loved the way this course was planned and executed. I enjoyed watching the videos,
+                                    the
+                                    information
+                                    was extremely helpful and I am working on implementing the ideas into my everyday
+                                    life!
+                                </div>
+                                <div class="quote-source">
+                                    - Graduate student
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="slide slide-3" style="position:relative;">
+
+                    <div class="video-icon-holder"
+                         style="position: absolute; top:20px; width:450px; left:0; z-index: -1;">
+                        <img src="video.png" style="width:100%;"/>
+                    </div>
+
+                    <div class="slider-video-wrapper">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/V0hklsjf1Yc?rel=0&modestbranding=1&showinfo=0"
+                                    frameborder="0"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="speaker-info" >
+                        Meet our speakers:
+                        <div class="speaker-name">
+                            Prachee Avasthi
+                        </div>
+                    </div>
+
+                </div>
+
+
             </div>
+
         </header>
 
         <div class="feature-bar">
@@ -387,6 +459,23 @@
             }
         })
     </script>
+
+
+    <script>
+
+        var controls = document.getElementById('my-controls');
+        var slider = tns({
+            container: '.my-slider',
+            items: 1,
+            slideBy: 'page',
+            autoplay: false,
+            navPosition: 'bottom',
+            controlsContainer: controls
+
+
+        });
+    </script>
+
 </%block>
 
 % if show_signup_immediately is not UNDEFINED:
