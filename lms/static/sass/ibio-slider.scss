@@ -4,7 +4,7 @@ body {
 }
 
 .header-slider-container {
-  height: 380px !important;
+  height: 390px !important;
   display: flex;
   width: 100%;
 }
@@ -247,8 +247,13 @@ body {
   height: 11px;
 }
 
+@media only screen and (max-width: 1450px) {
+  .slide-3 .speaker-info .speaker-name {
+    font-size: 1.5rem;
+  }
+}
 
-@media only screen and (max-width: 1023px) {
+@media only screen and (max-width: 1325px) {
 
   #my-controls {
     height: 220px;
@@ -287,7 +292,7 @@ body {
   }
 
   .slide-3 .speaker-info .speaker-name {
-    font-size: 1.5rem;
+    font-size: .8rem;
   }
 }
 
