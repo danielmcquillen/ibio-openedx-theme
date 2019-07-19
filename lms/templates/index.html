@@ -11,7 +11,7 @@
     # Pick five videos from our complete speaker videos list
     # and write into the template.
 
-    all_speaker_video_ids = [
+    all_speaker_videos = [
         {
             "video_url":"V0hklsjf1Yc",
             "speaker_name": "Prachee Avasthi"
@@ -104,9 +104,9 @@
     ]
 
     # Pick random video for hero slider
-    hero_video = random.sample(all_speaker_video_ids, 1)
+    hero_video = random.sample(all_speaker_videos, 1)[0]
     try:
-        hero_video_id = hero_video.get('url')
+        hero_video_id = hero_video.get('video_url', None )
         hero_video_text = hero_video.get('speaker_name', None )
     except Exception as e:
         hero_video_id = "gI_JRiu4Qic"
@@ -116,8 +116,8 @@
     # Pick random videos for speaker slider
     speaker_video_ids = []
     try:
-        speaker_videos = random.sample(all_speaker_video_ids, 5)
-        speaker_video_ids = [item.video_url for item in speaker_videos]
+        speaker_videos = random.sample(all_speaker_videos, 5)
+        speaker_video_ids = [item['video_url'] for item in speaker_videos]
     except Exception as e:
         # If there's an error building random list, use
         # default list from earlier design.
