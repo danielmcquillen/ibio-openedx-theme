@@ -248,9 +248,15 @@ body {
 }
 
 @media only screen and (max-width: 1450px) {
-  .slide-3 .speaker-info .speaker-name {
-    font-size: 1.5rem;
+
+  .slide-3 .speaker-info {
+    font-size: 1rem;
+
+    .speaker-name {
+      font-size: 1.5rem;
+    }
   }
+
 }
 
 @media only screen and (max-width: 1325px) {
@@ -291,8 +297,11 @@ body {
     text-align: right;
   }
 
-  .slide-3 .speaker-info .speaker-name {
-    font-size: .8rem;
+  .slide-3 .speaker-info {
+    font-size: 1rem;
+    .speaker-name {
+      font-size: 1rem;
+    }
   }
 }
 
@@ -301,7 +310,7 @@ body {
     font-size: 1.5em !important;
   }
 
-  .slide-3 .speaker-info .speaker-name {
+  .slide-3 .speaker-info {
     display: none;
   }
 }
