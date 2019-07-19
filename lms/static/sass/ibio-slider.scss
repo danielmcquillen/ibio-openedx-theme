@@ -205,7 +205,10 @@ body {
     opacity: 0.6;
     cursor: pointer;
     font-family: 'Open Sans';
-}
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+  }
 
 
 .ibio-nav {
