@@ -107,7 +107,7 @@
     hero_video = random.sample(all_speaker_video_ids, 1)
     try:
         hero_video_id = hero_video.get('url')
-        hero_video_text = hero_video.get('speaker_name', )
+        hero_video_text = hero_video.get('speaker_name', None )
     except Exception as e:
         hero_video_id = "gI_JRiu4Qic"
         hero_video_text = "Asia Matthew-Onabanjo"
