@@ -14,102 +14,148 @@
     all_speaker_videos = [
         {
             "video_url":"V0hklsjf1Yc",
-            "speaker_name": "Prachee Avasthi"
+            "type": "speaker",
+            "title": "Prachee Avasthi"
         },
         {
             "video_url":"uIv1H4Vxce8",
-            "speaker_name": "Needhi Bhalla"
+            "type": "speaker",
+            "title": "Needhi Bhalla"
         },
-
         {
             "video_url":"5WVUOsnr8jA",
-            "speaker_name": "Daniel Colon-Ramos"
+            "type": "speaker",
+            "title": "Daniel Colon-Ramos"
         },
         {
             "video_url":"zSqGvoHjVUA",
-            "speaker_name": "Doug Koshland"
+            "type": "speaker",
+            "title": "Doug Koshland"
         },
         {
             "video_url":"1CHoHKX1vy8",
-            "speaker_name": "Katie Pollard"
+            "type": "speaker",
+            "title": "Katie Pollard"
         },
         {
             "video_url":"Zno5C0SRtAg",
-            "speaker_name": "Neil Robbins II"
+            "type": "speaker",
+            "title": "Neil Robbins II"
         },
         {
             "video_url":"w5vDdQTX45g",
-            "speaker_name": "Ana Ruiz Saenz"
+            "type": "speaker",
+            "title": "Ana Ruiz Saenz"
         },
         {
             "video_url":"TxQXo3XNg2w",
-            "speaker_name": "Paul Turner"
+            "type": "speaker",
+            "title": "Paul Turner"
         },
         {
             "video_url":"ASkKRvK20to",
-            "speaker_name": "Ron Vale"
+            "type": "speaker",
+            "title": "Ron Vale"
         },
         {
             "video_url":"1nDOrWetd6s",
-            "speaker_name": "Uri Alon"
+            "type": "speaker",
+            "title": "Uri Alon"
         },
         {
             "video_url":"_pZl7pofC9s",
-            "speaker_name": "Angela DePace"
+            "type": "speaker",
+            "title": "Angela DePace"
         },
         {
             "video_url":"XD2IxKd1PT0",
-            "speaker_name": "Tejal Desai"
+            "type": "speaker",
+            "title": "Tejal Desai"
         },
         {
             "video_url":"JfYTL0LLhlQ",
-            "speaker_name": "Cynthia Fuhrmann"
+            "type": "speaker",
+            "title": "Cynthia Fuhrmann"
         },
         {
             "video_url":"kqZSbLBpcRQ",
-            "speaker_name": "Ryan Hernandez"
+            "type": "speaker",
+            "title": "Ryan Hernandez"
         },
         {
             "video_url":"SWzZHnG-4rU",
-            "speaker_name": "Asia Matthew-Onabanjo"
+            "type": "speaker",
+            "title": "Asia Matthew-Onabanjo"
         },
         {
             "video_url":"i-KvrBpW-2A",
-            "speaker_name": "Kassandra Ori-McKenney"
+            "type": "speaker",
+            "title": "Kassandra Ori-McKenney"
         },
         {
             "video_url":"kkK6_Akv9cw",
-            "speaker_name": "Sabine Petry"
+            "type": "speaker",
+            "title": "Sabine Petry"
         },
         {
             "video_url":"P0aWoY_FBOM",
-            "speaker_name": "Indira Raman"
+            "type": "speaker",
+            "title": "Indira Raman"
         },
         {
             "video_url":"gdioxba2uXw",
-            "speaker_name": "Randy Schekman"
+            "type": "speaker",
+            "title": "Randy Schekman"
         },
         {
+            "type": "speaker",
             "video_url":"JKY3nxYOGLU",
-            "speaker_name": "Clarissa Scholes"
+            "title": "Clarissa Scholes"
         },
         {
             "video_url":"rDGZkhlMRec",
-            "speaker_name": "Ben Vincent"
+            "type": "speaker",
+            "title": "Ben Vincent"
         },
         {
             "video_url":"U3eN-SzdgKI",
-            "speaker_name": "Keith Yamamoto"
+            "type": "speaker",
+            "title": "Keith Yamamoto"
         },
     ]
+
+    all_trailer_videos = [
+        {
+            "video_url":"sDi_wsvsojw",
+            "type": "trailer",
+            "title": "Planning Your Scientific Journey"
+        },
+
+        {
+            "video_url":"sDnZJtniUQg",
+            "type": "trailer",
+            "title": "Let's Experiment"
+        }
+    ]
+
+
+    all_videos = all_speaker_videos + all_trailer_videos
 
     # Pick random video for hero slider
     hero_video = random.sample(all_speaker_videos, 1)[0]
     try:
-        hero_video_id = hero_video.get('video_url', None )
-        hero_video_text = hero_video.get('speaker_name', None )
+        hero_video_id = hero_video['video_url']
+        hero_video_text = hero_video['title']
+        type = hero_video['type']
+        if type == "speaker":
+            hero_video_pre_text = "Meet our speakers:"
+        elif type == "trailer":
+            hero_video_pre_text = "Course trailer:"
+        else:
+            raise Exception("Unrecognized video type {} for hero slider".format(type))
     except Exception as e:
         hero_video_id = "gI_JRiu4Qic"
+        hero_video_pre_text = "Meet our speakers:"
         hero_video_text = "Asia Matthew-Onabanjo"
 
 
@@ -210,7 +256,7 @@
                     </div>
 
                     <div class="speaker-info" >
-                        Meet our speakers:
+                        ${ hero_video_pre_text }
                         <div class="speaker-name">
                             ${ hero_video_text }
                         </div>
