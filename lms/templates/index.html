@@ -203,7 +203,7 @@
 
         <header class="header-slider-container">
 
-            <div class="my-slider">
+            <div class="my-slider" onclick="pauseSlider()">
 
 
                 <div class="slide main-slide">
@@ -603,6 +603,12 @@
 
 
         });
+
+
+        function pauseSlider() {
+            slider.pause();
+        }
+
     </script>
 
 </%block>

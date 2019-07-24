@@ -1,0 +1,75 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.1/tiny-slider.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.1/min/tiny-slider.js"></script>
+
+</head>
+<body>
+<main id="main" aria-label="Content" tabindex="-1">
+
+     <section class="home">
+
+        <div id="my-controls">
+            <button><i class="fas fa-arrow-circle-left"></i></button>
+            <button><i class="fas fa-arrow-circle-right"></i></button>
+        </div>
+
+        <header class="header-slider-container">
+
+            <div class="my-slider" onclick="pauseSlider()">
+
+                <div class="slide main-slide">
+                   <h1>Test 1</h1>
+                </div>
+
+                <div class="slide slide-2" style="position:relative;">
+
+                   <h1>Test 2</h1>
+                </div>
+
+                <div class="slide slide-3" style="position:relative;">
+                   <h1>Test 3</h1>
+                </div>
+
+            </div>
+
+        </header>
+
+        <!--
+        <div class="feature-bar">
+
+        </div>
+        -->
+
+        <div class="courses-list-title">
+            <h2>Our Courses</h2>
+        </div>
+
+
+    </section> <!-- section home -->
+</main>
+</body>
+    <script>
+
+        var controls = document.getElementById('my-controls');
+        var slider = tns({
+            container: '.my-slider',
+            items: 1,
+            slideBy: 'page',
+            autoplay: true,
+            navPosition: 'bottom',
+            controlsContainer: controls,
+            autoplayButtonOutput: false
+
+
+        });
+
+        function pauseSlider() {
+            slider.pause();
+        }
+
+    </script>
+
+</html>
+
+
