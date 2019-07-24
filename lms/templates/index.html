@@ -295,31 +295,6 @@
 
                     <div class="ibioSlider">
 
-                        <script>
-
-                            /*
-                                iBio: Setup players for videos in Wallop slider
-                            */
-                            // TODO : Add to edxapp file and manage via RequireJS
-                            // Load the IFrame Player API code asynchronously.
-                            var tag = document.createElement('script');
-
-                            tag.src = "https://www.youtube.com/iframe_api";
-                            var firstScriptTag = document.getElementsByTagName('script')[0];
-                            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-                            var ytplayerArr = [];
-
-                            function onYouTubeIframeAPIReady() {
-                                var bios = document.querySelectorAll('.vidBio');
-                                bios.forEach(function (entry, index, array) {
-                                    ytplayerArr.push(new YT.Player(entry));
-                                });
-                            }
-
-                        </script>
-
-
                         <div id="videoSlider" class="Wallop Wallop--slide">
                             <button class="Wallop-buttonPrevious"></button>
                             <div class="Wallop-list">
@@ -394,48 +369,7 @@
                             <button class="slider-dot " onclick="iBioVideoSlider.goTo(3)"></button>
                             <button class="slider-dot " onclick="iBioVideoSlider.goTo(4)"></button>
                         </div>
-                    </div> <!-- ./ibioSlider -->
-                    <script>
-
-                        /*
-                            iBio: A bit of code to setup and drive the iBio
-                          Wallop-based slider, videos and forward/back and
-                          index buttons
-                        */
-
-                        // TODO : Add to edxapp file and manage via RequireJS
-
-                        var wallopEl = document.querySelector('#videoSlider');
-                        var iBioVideoSlider = new Wallop(wallopEl);
-
-
-                        iBioVideoSlider.on('change', function (event) {
-                            var videoSelector = document.querySelector("#video-slider-position");
-                            var dots = videoSelector.querySelectorAll('.slider-dot');
-                            iBioSliderRemoveClass(videoSelector.querySelector('.slider-dot-current'), 'slider-dot-current');
-                            iBioSliderAddClass(dots[event.detail.currentItemIndex], 'slider-dot-current');
-                            //stop all videos
-                            for (var i = 0; i < ytplayerArr.length; i++) {
-                                ytplayerArr[i].stopVideo();
-                            }
-                        });
-
-                        function iBioSliderAddClass(element, className) {
-                            if (!element) {
-                                return;
-                            }
-                            element.className = element.className.replace(/\s+$/gi, '') + ' ' + className;
-                        }
-
-                        function iBioSliderRemoveClass(element, className) {
-                            if (!element) {
-                                return;
-                            }
-                            element.className = element.className.replace(className, '');
-                        }
-
-
-                    </script>
+                    </div> <!-- ./ibioSlider -->\
                 </div>
                 <div class="col-content">
                     <h2>World-class Instructors</h2>
@@ -595,8 +529,10 @@
 
     <script>
 
+        /* HERO SLIDER */
+
         var controls = document.getElementById('my-controls');
-        var slider = tns({
+        var heroSlider = tns({
             container: '.my-slider',
             items: 1,
             slideBy: 'page',
@@ -609,25 +545,77 @@
         });
 
         function pauseHeroSlider() {
-            slider.pause();
+            heroSlider.pause();
         }
+
+
+        /* YOUTUBE VIDEO HANDLERS */
 
         function onHeroSliderVideoStateChange(event) {
             var playerStatus = event.data;
-            if (playerStatus>=0){
-                 pauseHeroSlider();
+            if (playerStatus >= 0) {
+                pauseHeroSlider();
             }
         }
 
-        var hero_slider_video_player;
+
+        /* YOUTUBE VIDEOS SETUP*/
+
+        /*
+            iBio: Setup players for videos in Wallop slider
+        */
+        // TODO : Add to edxapp file and manage via RequireJS
+        // Load the IFrame Player API code asynchronously.
+        var tag = document.createElement('script');
+
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var ytplayerArr = [];
         function onYouTubeIframeAPIReady() {
-            hero_slider_video_player = new YT.Player('hero-slider-video', {
+            var bios = document.querySelectorAll('.vidBio');
+            bios.forEach(function (entry, index, array) {
+                ytplayerArr.push(new YT.Player(entry));
+            });
+
+            var hero_slider_video_player = new YT.Player('hero-slider-video', {
                 events: {
                     'onStateChange': onHeroSliderVideoStateChange
                 }
             });
         }
 
+
+        /* WALLOP SLIDER FOR VIDEOS AND TESTIMONIAL SECTIONS */
+
+        var wallopEl = document.querySelector('#videoSlider');
+        var iBioVideoSlider = new Wallop(wallopEl);
+
+        iBioVideoSlider.on('change', function (event) {
+            var videoSelector = document.querySelector("#video-slider-position");
+            var dots = videoSelector.querySelectorAll('.slider-dot');
+            iBioSliderRemoveClass(videoSelector.querySelector('.slider-dot-current'), 'slider-dot-current');
+            iBioSliderAddClass(dots[event.detail.currentItemIndex], 'slider-dot-current');
+            //stop all videos
+            for (var i = 0; i < ytplayerArr.length; i++) {
+                ytplayerArr[i].stopVideo();
+            }
+        });
+
+        function iBioSliderAddClass(element, className) {
+            if (!element) {
+                return;
+            }
+            element.className = element.className.replace(/\s+$/gi, '') + ' ' + className;
+        }
+
+        function iBioSliderRemoveClass(element, className) {
+            if (!element) {
+                return;
+            }
+            element.className = element.className.replace(className, '');
+        }
 
 
     </script>
