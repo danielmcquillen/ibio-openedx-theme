@@ -612,11 +612,18 @@
             slider.pause();
         }
 
+        function onHeroSliderVideoStateChange(event) {
+            var playerStatus = event.data;
+            if (playerStatus>=0){
+                 pauseHeroSlider();
+            }
+        }
+
         var hero_slider_video_player;
         function onYouTubeIframeAPIReady() {
             hero_slider_video_player = new YT.Player('hero-slider-video', {
                 events: {
-                    'onStateChange': pauseHeroSlider
+                    'onStateChange': onHeroSliderVideoStateChange
                 }
             });
         }
