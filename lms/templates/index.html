@@ -194,7 +194,7 @@
 
 <main id="main" aria-label="Content" tabindex="-1">
 
-     <section class="home">
+    <section class="home">
 
         <div id="my-controls">
             <button><i class="fas fa-arrow-circle-left"></i></button>
@@ -251,11 +251,26 @@
 
                     <div class="slider-video-wrapper">
                         <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/${hero_video_id}?rel=0&modestbranding=1&showinfo=0" frameborder="0"  onclick="pauseSlider()"></iframe>
+                            <iframe id="hero-slider-video" src="https://www.youtube.com/embed/${hero_video_id}?rel=0&modestbranding=1&showinfo=0"
+                                    frameborder="0" onclick="pauseSlider()"></iframe>
+                            <script>
+                                var hero_slider_video_player;
+                                function onYouTubeIframeAPIReady() {
+                                    hero_slider_video_player = new YT.Player('hero-slider-video', {
+                                        events: {
+                                            'onStateChange': onHeroSliderStateChange
+                                        }
+                                    });
+                                }
+
+                                function onHeroSliderStateChange(event) {
+                                   pauseHeroSlider()
+                                }
+                            </script>
                         </div>
                     </div>
 
-                    <div class="speaker-info" >
+                    <div class="speaker-info">
                         ${ hero_video_pre_text }
                         <div class="speaker-name">
                             ${ hero_video_text }
@@ -605,7 +620,7 @@
         });
 
 
-        function pauseSlider() {
+        function pauseHeroSlider() {
             slider.pause();
         }
 
