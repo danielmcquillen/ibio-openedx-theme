@@ -272,6 +272,18 @@ body {
     width: 350px;
   }
 
+
+  .slide-3 .speaker-info {
+    font-size: 1rem;
+    .speaker-name {
+      font-size: 1rem;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 980px) {
+
   .main-slide {
     background-position: left center;
     background-image: url("/static/ibio-openedx-theme/images/hero-image-small.jpg");
@@ -289,17 +301,15 @@ body {
     justify-content: flex-end;
     height: 100%;
     width: 100%;
-    font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+    font-family: "Literata", Georgia, sans-serif;
+    font-weight: bold;
     font-size: 2em;
     color: #000;
     text-align: right;
   }
 
   .slide-3 .speaker-info {
-    font-size: 1rem;
-    .speaker-name {
-      font-size: 1rem;
-    }
+    display: none;
   }
 }
 
