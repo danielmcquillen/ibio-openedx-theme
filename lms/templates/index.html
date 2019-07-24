@@ -616,14 +616,11 @@
         function onYouTubeIframeAPIReady() {
             hero_slider_video_player = new YT.Player('hero-slider-video', {
                 events: {
-                    'onStateChange': onHeroSliderStateChange
+                    'onStateChange': pauseHeroSlider
                 }
             });
         }
 
-        function onHeroSliderStateChange(event) {
-            pauseHeroSlider()
-        }
 
 
     </script>
