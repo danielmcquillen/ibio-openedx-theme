@@ -251,22 +251,11 @@
 
                     <div class="slider-video-wrapper">
                         <div class="video-wrapper">
-                            <iframe id="hero-slider-video" src="https://www.youtube.com/embed/${hero_video_id}?rel=0&modestbranding=1&showinfo=0"
+                            <iframe id="hero-slider-video"
+                                    enablejsapi="true"
+                                    src="https://www.youtube.com/embed/${hero_video_id}?rel=0&modestbranding=1&showinfo=0&enablejsapi=1"
                                     frameborder="0" onclick="pauseSlider()"></iframe>
-                            <script>
-                                var hero_slider_video_player;
-                                function onYouTubeIframeAPIReady() {
-                                    hero_slider_video_player = new YT.Player('hero-slider-video', {
-                                        events: {
-                                            'onStateChange': onHeroSliderStateChange
-                                        }
-                                    });
-                                }
 
-                                function onHeroSliderStateChange(event) {
-                                   pauseHeroSlider()
-                                }
-                            </script>
                         </div>
                     </div>
 
@@ -619,10 +608,23 @@
 
         });
 
-
         function pauseHeroSlider() {
             slider.pause();
         }
+
+        var hero_slider_video_player;
+        function onYouTubeIframeAPIReady() {
+            hero_slider_video_player = new YT.Player('hero-slider-video', {
+                events: {
+                    'onStateChange': onHeroSliderStateChange
+                }
+            });
+        }
+
+        function onHeroSliderStateChange(event) {
+            pauseHeroSlider()
+        }
+
 
     </script>
 
