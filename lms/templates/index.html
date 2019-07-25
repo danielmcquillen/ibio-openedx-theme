@@ -447,28 +447,7 @@
                             <button class="slider-dot " onclick="iBioTestimonialSlider.goTo(3)"></button>
                         </div>
                     </div> <!-- ./ibioSlider -->
-                    <script>
 
-                        /*
-                            iBio: A bit of code to setup and drive the iBio
-                          Wallop-based slider, videos and forward/back and
-                          index buttons
-                        */
-
-                        // TODO : Add to edxapp file and manage via RequireJS
-
-                        var wallopEl = document.querySelector('#testimonialSlider');
-                        var iBioTestimonialSlider = new Wallop(wallopEl);
-
-                        iBioTestimonialSlider.on('change', function (event) {
-                            var testimonialSelector = document.querySelector("#testimonial-slider-position");
-                            var dots = testimonialSelector.querySelectorAll('.slider-dot');
-                            iBioSliderRemoveClass(testimonialSelector.querySelector('.slider-dot-current'), 'slider-dot-current');
-                            iBioSliderAddClass(dots[event.detail.currentItemIndex], 'slider-dot-current');
-                        });
-
-
-                    </script>
                 </div>
                 <div class="col-content">
                     <h2>Rave Reviews</h2>
@@ -518,6 +497,7 @@
 </main>
 
 <%block name="js_extra">
+
     <script type="text/javascript">
         $(window).load(function () {
             if (getParameterByName('next')) {
@@ -527,7 +507,7 @@
     </script>
 
 
-    <script>
+    <script type="text/javascript">
 
         /* HERO SLIDER */
 
@@ -544,17 +524,12 @@
 
         });
 
-        function pauseHeroSlider() {
-            heroSlider.pause();
-        }
-
-
         /* YOUTUBE VIDEO HANDLERS */
 
         function onHeroSliderVideoStateChange(event) {
             var playerStatus = event.data;
             if (playerStatus >= 0) {
-                pauseHeroSlider();
+                heroSlider.pause();
             }
         }
 
@@ -573,13 +548,15 @@
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
         var ytplayerArr = [];
+        var hero_slider_video_player;
+
         function onYouTubeIframeAPIReady() {
             var bios = document.querySelectorAll('.vidBio');
             bios.forEach(function (entry, index, array) {
                 ytplayerArr.push(new YT.Player(entry));
             });
 
-            var hero_slider_video_player = new YT.Player('hero-slider-video', {
+            hero_slider_video_player = new YT.Player('hero-slider-video', {
                 events: {
                     'onStateChange': onHeroSliderVideoStateChange
                 }
@@ -589,8 +566,10 @@
 
         /* WALLOP SLIDER FOR VIDEOS AND TESTIMONIAL SECTIONS */
 
-        var wallopEl = document.querySelector('#videoSlider');
-        var iBioVideoSlider = new Wallop(wallopEl);
+        /* VIDEO Slider */
+
+        var wallopVideoEl = document.querySelector('#videoSlider');
+        var iBioVideoSlider = new Wallop(wallopVideoEl);
 
         iBioVideoSlider.on('change', function (event) {
             var videoSelector = document.querySelector("#video-slider-position");
@@ -602,6 +581,20 @@
                 ytplayerArr[i].stopVideo();
             }
         });
+
+        /* TESTIMONIAL Slider */
+
+        var wallopTestimonialEl = document.querySelector('#testimonialSlider');
+        var iBioTestimonialSlider = new Wallop(wallopTestimonialEl);
+
+        iBioTestimonialSlider.on('change', function (event) {
+            var testimonialSelector = document.querySelector("#testimonial-slider-position");
+            var dots = testimonialSelector.querySelectorAll('.slider-dot');
+            iBioSliderRemoveClass(testimonialSelector.querySelector('.slider-dot-current'), 'slider-dot-current');
+            iBioSliderAddClass(dots[event.detail.currentItemIndex], 'slider-dot-current');
+        });
+
+        /* WALLOP SLIDER add/remove functions */
 
         function iBioSliderAddClass(element, className) {
             if (!element) {
@@ -616,7 +609,6 @@
             }
             element.className = element.className.replace(className, '');
         }
-
 
     </script>
 
