@@ -542,6 +542,7 @@
 
         var ytplayerArr = [];
         var hero_slider_video_player;
+
         function onYouTubeIframeAPIReady() {
             var bios = document.querySelectorAll('.vidBio');
             bios.forEach(function (entry, index, array) {
@@ -549,11 +550,20 @@
             });
 
             hero_slider_video_player = new YT.Player('hero-slider-video', {
+                /*
                 events: {
                     'onStateChange': function(event) {
                       if (event.data != -1) {
                         heroSlider.pause();
                       }
+                    }
+                }*/
+                events: {
+                    'onReady': function () {
+                        console.log('ready');
+                    },
+                    'onStateChange': function () {
+                        console.log('state change', arguments)
                     }
                 }
             });
