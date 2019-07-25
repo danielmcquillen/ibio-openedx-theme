@@ -531,20 +531,6 @@
 
         });
 
-        /* YOUTUBE VIDEO HANDLERS */
-
-        function onHeroSliderVideoReady(event) {
-            console.log("Hero slider video ready");
-        }
-
-        function onHeroSliderVideoStateChange(event) {
-            var playerStatus = event.data;
-            if (playerStatus >= 0) {
-                heroSlider.pause();
-            }
-        }
-
-
         /* YOUTUBE VIDEOS SETUP*/
 
         /*
@@ -565,7 +551,11 @@
             hero_slider_video_player = new YT.Player('hero-slider-video', {
                 events: {
                     'onReady': onHeroSliderVideoReady,
-                    'onStateChange': onHeroSliderVideoStateChange
+                    'onStateChange': function(event) {
+                      if (event.data != -1) {
+                        heroSlider.pause();
+                      }
+                    }
                 }
             });
         }
