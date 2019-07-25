@@ -7,30 +7,32 @@
 <body>
 <main id="main" aria-label="Content" tabindex="-1">
 
-     <section class="home">
+    <section class="home">
 
-        <div id="my-controls">
-            <button><i class="fas fa-arrow-circle-left"></i></button>
-            <button><i class="fas fa-arrow-circle-right"></i></button>
-        </div>
+        <header class="header-slider-container" style="width:100%; height: 300px;">
 
-        <header class="header-slider-container">
+            <div class="my-slider">
 
-            <div class="my-slider" onclick="pauseSlider()">
-
-                <div class="slide main-slide">
-                   <h1>Test 1</h1>
+                <div class="slide main-slide" style="height:220px;background-color:red;">
+                    <h1>Test 1</h1>
                 </div>
 
-                <div class="slide slide-2" style="position:relative;">
-
-                   <h1>Test 2</h1>
+                <div class="slide slide-2" style="width:100%; background-color:green;">
+                    <h1>Test 2</h1>
                 </div>
 
-                <div class="slide slide-3" style="position:relative;">
-                   <h1>Test 3</h1>
+                <div class="slide slide-3" style="background-color:blue;">
+                    <iframe id="hero-slider-video"
+                            enablejsapi="true"
+                            src="https://www.youtube.com/embed/V0hklsjf1Yc?rel=0&modestbranding=1&showinfo=0&enablejsapi=1"
+                            frameborder="0"></iframe>
                 </div>
 
+            </div>
+
+            <div id="my-controls">
+                <button>Left</button>
+                <button>Right</button>
             </div>
 
         </header>
@@ -48,27 +50,50 @@
 
     </section> <!-- section home -->
 </main>
-</body>
-    <script>
+<script type="text/javascript">
+    var tag = document.createElement('script');
 
-        var controls = document.getElementById('my-controls');
-        var slider = tns({
-            container: '.my-slider',
-            items: 1,
-            slideBy: 'page',
-            autoplay: true,
-            navPosition: 'bottom',
-            controlsContainer: controls,
-            autoplayButtonOutput: false
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 
+    var hero_slider_video_player;
+
+    function onYouTubeIframeAPIReady() {
+        var bios = document.querySelectorAll('.vidBio');
+        bios.forEach(function (entry, index, array) {
+            ytplayerArr.push(new YT.Player(entry));
         });
 
-        function pauseSlider() {
-            slider.pause();
-        }
+        hero_slider_video_player = new YT.Player('hero-slider-video', {
+            events: {
+                'onReady': onHeroSliderVideoReady,
+                'onStateChange': onHeroSliderVideoStateChange,
+                'onError': onPlayerError
+            }
+        });
+    }
 
-    </script>
+    function onHeroSliderVideoReady(event) {
+        console.log("Hero slider video ready");
+    }
+
+    function onHeroSliderVideoStateChange(event) {
+        var playerStatus = event.data;
+        if (playerStatus >= 0) {
+            heroSlider.pause();
+        }
+    }
+
+    function onPlayerError(event) {
+        console.log(event);
+    }
+
+
+</script>
+</body>
+
 
 </html>
 

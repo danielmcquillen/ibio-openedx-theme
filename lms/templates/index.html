@@ -509,6 +509,13 @@
 
     <script type="text/javascript">
 
+        /* Load YOUTUBE Script first */
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+
         /* HERO SLIDER */
 
         var controls = document.getElementById('my-controls');
@@ -526,6 +533,10 @@
 
         /* YOUTUBE VIDEO HANDLERS */
 
+        function onHeroSliderVideoReady(event) {
+            console.log("Hero slider video ready");
+        }
+
         function onHeroSliderVideoStateChange(event) {
             var playerStatus = event.data;
             if (playerStatus >= 0) {
@@ -541,15 +552,10 @@
         */
         // TODO : Add to edxapp file and manage via RequireJS
         // Load the IFrame Player API code asynchronously.
-        var tag = document.createElement('script');
 
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
         var ytplayerArr = [];
         var hero_slider_video_player;
-
         function onYouTubeIframeAPIReady() {
             var bios = document.querySelectorAll('.vidBio');
             bios.forEach(function (entry, index, array) {
@@ -558,6 +564,7 @@
 
             hero_slider_video_player = new YT.Player('hero-slider-video', {
                 events: {
+                    'onReady': onHeroSliderVideoReady,
                     'onStateChange': onHeroSliderVideoStateChange
                 }
             });
