@@ -550,7 +550,6 @@
 
             hero_slider_video_player = new YT.Player('hero-slider-video', {
                 events: {
-                    'onReady': onHeroSliderVideoReady,
                     'onStateChange': function(event) {
                       if (event.data != -1) {
                         heroSlider.pause();
