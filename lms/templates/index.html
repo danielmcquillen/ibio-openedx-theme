@@ -553,6 +553,11 @@
             });
         }
 
+        function onHeroVideoReady(){
+            // This is never called :-(
+            console.log("onReady was in fact called.")
+        }
+
         /* iBio: Hack for Youtube API issues inside TinySlider */
         setInterval(function () {
             var state = hero_slider_video_player.getPlayerState();
