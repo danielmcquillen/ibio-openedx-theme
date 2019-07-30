@@ -214,8 +214,8 @@
 
                     <div class="slider-video-wrapper">
                         <div class="video-wrapper">
-                            <iframe id="hero-slider-video"
-                                    src="https://www.youtube.com/embed/${hero_video_id}?enablejsapi=1&html5=1&origin=https://courses.ibiology.org"
+                            <iframe id="hero_slider_video"
+                                    src="https://www.youtube.com/embed/${hero_video_id}?enablejsapi=1&html5=1&origin=http://54.183.191.89/"
                                     frameborder="0"></iframe>
                         </div>
                     </div>
@@ -300,7 +300,7 @@
                                         <iframe class="vidBio"
                                                 width="560"
                                                 height="315"
-                                                src="https://www.youtube.com/embed/${ speaker_video_ids[0] }?rel=0&enablejsapi=1&origin=https://courses.ibiology.org"
+                                                src="https://www.youtube.com/embed/${ speaker_video_ids[0] }?rel=0&enablejsapi=1&origin=http://54.183.191.89/"
                                                 frameborder="0"
                                                 allowfullscreen></iframe>
                                     </div>
@@ -312,7 +312,7 @@
                                         <iframe class="vidBio"
                                                 width="560"
                                                 height="315"
-                                                src="https://www.youtube.com/embed/${ speaker_video_ids[1] }?rel=0&enablejsapi=1&origin=https://courses.ibiology.org"
+                                                src="https://www.youtube.com/embed/${ speaker_video_ids[1] }?rel=0&enablejsapi=1&origin=http://54.183.191.89/"
                                                 frameborder="0"
                                                 allowfullscreen></iframe>
                                     </div>
@@ -324,7 +324,7 @@
                                         <iframe class="vidBio"
                                                 width="560"
                                                 height="315"
-                                                src="https://www.youtube.com/embed/${ speaker_video_ids[2] }?rel=0&enablejsapi=1&origin=https://courses.ibiology.org"
+                                                src="https://www.youtube.com/embed/${ speaker_video_ids[2] }?rel=0&enablejsapi=1&origin=http://54.183.191.89/"
                                                 frameborder="0"
                                                 allowfullscreen></iframe>
                                     </div>
@@ -336,7 +336,7 @@
                                         <iframe class="vidBio"
                                                 width="560"
                                                 height="315"
-                                                src="https://www.youtube.com/embed/${ speaker_video_ids[3] }?rel=0&enablejsapi=1&origin=https://courses.ibiology.org"
+                                                src="https://www.youtube.com/embed/${ speaker_video_ids[3] }?rel=0&enablejsapi=1&origin=http://54.183.191.89/"
                                                 frameborder="0"
                                                 allowfullscreen></iframe>
                                     </div>
@@ -348,7 +348,7 @@
                                         <iframe class="vidBio"
                                                 width="560"
                                                 height="315"
-                                                src="https://www.youtube.com/embed/${ speaker_video_ids[4] }?rel=0&enablejsapi=1&origin=https://courses.ibiology.org"
+                                                src="https://www.youtube.com/embed/${ speaker_video_ids[4] }?rel=0&enablejsapi=1&origin=http://54.183.191.89/"
                                                 frameborder="0"
                                                 allowfullscreen></iframe>
                                     </div>
@@ -543,9 +543,10 @@
             bios.forEach(function (entry, index, array) {
                 ytplayerArr.push(new YT.Player(entry));
             });
-            hero_slider_video_player = new YT.Player('hero-slider-video', {
+            hero_slider_video_player = new YT.Player('hero_slider_video', {
                 events: {
-                    'onReady': onHeroVideoReady
+                    'onReady': onHeroVideoReady,
+                    'onStateChange': onHeroSliderVideoStateChange()
                 }
             });
         }
@@ -555,9 +556,16 @@
             console.log("onReady was in fact called.")
         }
 
+        function onHeroSliderVideoStateChange(event){
+            console.log("onHeroSliderVideoStateChange was in fact called.")
+            if (event.state != -1 ){
+                heroSlider.pause();
+            }
+        }
+
         /* iBio: Hack for Youtube API issues inside TinySlider */
         setInterval(function () {
-            if (hero_slider_video_player !== null) {
+            if (typeof hero_slider_video_player === "function") {
                 var state = hero_slider_video_player.getPlayerState();
                 if (playerState !== -1) {
                     heroSlider.pause();
