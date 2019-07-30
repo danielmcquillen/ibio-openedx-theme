@@ -251,10 +251,13 @@
 
                     <div class="slider-video-wrapper">
                         <div class="video-wrapper">
-                            <iframe id="hero-slider-video"
-                                    src="https://www.youtube.com/embed/${hero_video_id}?enablejsapi=1&origin=https://courses.ibiology.org/"
-                                    frameborder="0"></iframe>
+                            <div id="hero-video-player"></div>
 
+                            <!--
+                            <iframe id="hero-slider-video"
+                                    src="https://www.youtube.com/embed/${hero_video_id}?enablejsapi=1&html5=1&origin=https://courses.ibiology.org"
+                                    frameborder="0"></iframe>
+                            -->
                         </div>
                     </div>
 
@@ -304,7 +307,7 @@
                                         <iframe class="vidBio"
                                                 width="560"
                                                 height="315"
-                                                src="https://www.youtube.com/embed/${ speaker_video_ids[0] }?rel=0&enablejsapi=1&origin=https://courses.ibiology.org/"
+                                                src="https://www.youtube.com/embed/${ speaker_video_ids[0] }?rel=0&enablejsapi=1&origin=https://courses.ibiology.org"
                                                 frameborder="0"
                                                 allowfullscreen></iframe>
                                     </div>
@@ -316,7 +319,7 @@
                                         <iframe class="vidBio"
                                                 width="560"
                                                 height="315"
-                                                src="https://www.youtube.com/embed/${ speaker_video_ids[1] }?rel=0&enablejsapi=1&origin=https://courses.ibiology.org/"
+                                                src="https://www.youtube.com/embed/${ speaker_video_ids[1] }?rel=0&enablejsapi=1&origin=https://courses.ibiology.org"
                                                 frameborder="0"
                                                 allowfullscreen></iframe>
                                     </div>
@@ -328,7 +331,7 @@
                                         <iframe class="vidBio"
                                                 width="560"
                                                 height="315"
-                                                src="https://www.youtube.com/embed/${ speaker_video_ids[2] }?rel=0&enablejsapi=1&origin=https://courses.ibiology.org/"
+                                                src="https://www.youtube.com/embed/${ speaker_video_ids[2] }?rel=0&enablejsapi=1&origin=https://courses.ibiology.org"
                                                 frameborder="0"
                                                 allowfullscreen></iframe>
                                     </div>
@@ -340,7 +343,7 @@
                                         <iframe class="vidBio"
                                                 width="560"
                                                 height="315"
-                                                src="https://www.youtube.com/embed/${ speaker_video_ids[3] }?rel=0&enablejsapi=1&origin=https://courses.ibiology.org/"
+                                                src="https://www.youtube.com/embed/${ speaker_video_ids[3] }?rel=0&enablejsapi=1&origin=https://courses.ibiology.org"
                                                 frameborder="0"
                                                 allowfullscreen></iframe>
                                     </div>
@@ -352,7 +355,7 @@
                                         <iframe class="vidBio"
                                                 width="560"
                                                 height="315"
-                                                src="https://www.youtube.com/embed/${ speaker_video_ids[4] }?rel=0&enablejsapi=1&origin=https://courses.ibiology.org/"
+                                                src="https://www.youtube.com/embed/${ speaker_video_ids[4] }?rel=0&enablejsapi=1&origin=https://courses.ibiology.org"
                                                 frameborder="0"
                                                 allowfullscreen></iframe>
                                     </div>
@@ -548,6 +551,7 @@
                 ytplayerArr.push(new YT.Player(entry));
             });
             hero_slider_video_player = new YT.Player('hero-slider-video', {
+                videoId: '${hero_video_id}',
                 events: {
                     'onReady': onHeroVideoReady
                 }
