@@ -205,7 +205,7 @@
 
             <div class="my-slider">
 
-  <div class="slide slide-3" style="position:relative;">
+                <div class="slide slide-3" style="position:relative;">
 
                     <div class="video-icon-holder"
                          style="position: absolute; top:20px; width:450px; left:0; z-index: -1;">
@@ -262,9 +262,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
 
 
             </div>
@@ -553,16 +550,18 @@
             });
         }
 
-        function onHeroVideoReady(){
+        function onHeroVideoReady() {
             // This is never called :-(
             console.log("onReady was in fact called.")
         }
 
         /* iBio: Hack for Youtube API issues inside TinySlider */
         setInterval(function () {
-            var state = hero_slider_video_player.getPlayerState();
-            if (playerState !== -1) {
-                heroSlider.pause();
+            if (hero_slider_video_player !== null) {
+                var state = hero_slider_video_player.getPlayerState();
+                if (playerState !== -1) {
+                    heroSlider.pause();
+                }
             }
         }, 100);
 
