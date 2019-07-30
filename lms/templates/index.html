@@ -251,13 +251,9 @@
 
                     <div class="slider-video-wrapper">
                         <div class="video-wrapper">
-                            <div id="hero-slider-video"></div>
-
-                            <!--
                             <iframe id="hero-slider-video"
                                     src="https://www.youtube.com/embed/${hero_video_id}?enablejsapi=1&html5=1&origin=https://courses.ibiology.org"
                                     frameborder="0"></iframe>
-                            -->
                         </div>
                     </div>
 
@@ -551,21 +547,19 @@
                 ytplayerArr.push(new YT.Player(entry));
             });
             hero_slider_video_player = new YT.Player('hero-slider-video', {
-                videoId: '${hero_video_id}',
                 events: {
                     'onReady': onHeroVideoReady
                 }
             });
         }
 
-        function onHeroVideoReady() {
-            hero_slider_video_player.addEventListener('onStateChange', function (event) {
-                if (event.data != -1) {
-                    heroSlider.pause();
-                }
-            });
-        }
-
+        /* iBio: Hack for Youtube API issues inside TinySlider */
+        setInterval(function () {
+            var state = hero_slider_video_player.getPlayerState();
+            if (playerState !== -1) {
+                heroSlider.pause();
+            }
+        }, 100);
 
         /* WALLOP SLIDER FOR VIDEOS AND TESTIMONIAL SECTIONS */
 
