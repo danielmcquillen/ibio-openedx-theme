@@ -205,7 +205,29 @@
 
             <div class="my-slider">
 
+  <div class="slide slide-3" style="position:relative;">
 
+                    <div class="video-icon-holder"
+                         style="position: absolute; top:20px; width:450px; left:0; z-index: -1;">
+                        <img src="/static/ibio-openedx-theme/images/video.png" style="width:100%;"/>
+                    </div>
+
+                    <div class="slider-video-wrapper">
+                        <div class="video-wrapper">
+                            <iframe id="hero-slider-video"
+                                    src="https://www.youtube.com/embed/${hero_video_id}?enablejsapi=1&html5=1&origin=https://courses.ibiology.org"
+                                    frameborder="0"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="speaker-info">
+                        ${ hero_video_pre_text }
+                        <div class="speaker-name">
+                            ${ hero_video_text }
+                        </div>
+                    </div>
+
+                </div>
                 <div class="slide main-slide">
                     <div class="main-slide-title">
                         <p>Helping you navigate<br/>your scientific journey.</p>
@@ -242,29 +264,7 @@
                 </div>
 
 
-                <div class="slide slide-3" style="position:relative;">
 
-                    <div class="video-icon-holder"
-                         style="position: absolute; top:20px; width:450px; left:0; z-index: -1;">
-                        <img src="/static/ibio-openedx-theme/images/video.png" style="width:100%;"/>
-                    </div>
-
-                    <div class="slider-video-wrapper">
-                        <div class="video-wrapper">
-                            <iframe id="hero-slider-video"
-                                    src="https://www.youtube.com/embed/${hero_video_id}?enablejsapi=1&html5=1&origin=https://courses.ibiology.org"
-                                    frameborder="0"></iframe>
-                        </div>
-                    </div>
-
-                    <div class="speaker-info">
-                        ${ hero_video_pre_text }
-                        <div class="speaker-name">
-                            ${ hero_video_text }
-                        </div>
-                    </div>
-
-                </div>
 
 
             </div>
