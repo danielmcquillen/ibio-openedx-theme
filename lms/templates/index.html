@@ -547,14 +547,17 @@
             bios.forEach(function (entry, index, array) {
                 ytplayerArr.push(new YT.Player(entry));
             });
-
             hero_slider_video_player = new YT.Player('hero-slider-video', {
                 events: {
-                    'onStateChange': function(event) {
-                      if (event.data != -1) {
-                        heroSlider.pause();
-                      }
-                    }
+                    'onReady': onHeroVideoReady
+                }
+            });
+        }
+
+        function onHeroVideoReady() {
+            hero_slider_video_player.addEventListener('onStateChange', function (event) {
+                if (event.data != -1) {
+                    heroSlider.pause();
                 }
             });
         }
