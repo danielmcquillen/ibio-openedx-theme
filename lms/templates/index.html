@@ -190,8 +190,6 @@
     <link href="/static/ibio-openedx-theme/css/wallop.css" rel="stylesheet">
     <link href="/static/ibio-openedx-theme/css/wallop--slide.css" rel="stylesheet">
     <script src="/static/ibio-openedx-theme/js/Wallop.min.js"></script>
-
-    <script async src="https://www.youtube.com/iframe_api"></script>
 </%block>
 
 <main id="main" aria-label="Content" tabindex="-1">
@@ -290,7 +288,7 @@
             <div class="feature-container">
                 <div class="col-graphic">
 
-                    <div class="ibioSlider">
+                    <div class="ibioSlider" onmouseover="onHeroSliderMouseOver()">
 
                         <div id="videoSlider" class="Wallop Wallop--slide">
                             <button class="Wallop-buttonPrevious"></button>
@@ -366,7 +364,7 @@
                             <button class="slider-dot " onclick="iBioVideoSlider.goTo(3)"></button>
                             <button class="slider-dot " onclick="iBioVideoSlider.goTo(4)"></button>
                         </div>
-                    </div> <!-- ./ibioSlider -->\
+                    </div> <!-- ./ibioSlider -->
                 </div>
                 <div class="col-content">
                     <h2>World-class Instructors</h2>
@@ -506,6 +504,13 @@
 
     <script type="text/javascript">
 
+        /* Load YOUTUBE Script first */
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+
         /* HERO SLIDER */
         var controls = document.getElementById('my-controls');
         var heroSlider = tns({
@@ -516,9 +521,12 @@
             navPosition: 'bottom',
             controlsContainer: controls,
             autoplayButtonOutput: false
-
-
         });
+
+        function onHeroSliderMouseOver() {
+            heroSlider.pause();
+        }
+
 
         /* YOUTUBE VIDEOS SETUP*/
 
@@ -530,42 +538,13 @@
 
 
         var ytplayerArr = [];
-        var hero_slider_video_player;
 
         function onYouTubeIframeAPIReady() {
             var bios = document.querySelectorAll('.vidBio');
             bios.forEach(function (entry, index, array) {
                 ytplayerArr.push(new YT.Player(entry));
             });
-            hero_slider_video_player = new YT.Player('hero_slider_video', {
-                events: {
-                    'onReady': onHeroVideoReady,
-                    'onStateChange': onHeroSliderVideoStateChange
-                }
-            });
         }
-
-        function onHeroVideoReady() {
-            // This is never called :-(
-            console.log("onReady was in fact called.")
-        }
-
-        function onHeroSliderVideoStateChange(event){
-            console.log("onHeroSliderVideoStateChange was in fact called.")
-            if (event.state != -1 ){
-                heroSlider.pause();
-            }
-        }
-
-        /* iBio: Hack for Youtube API issues inside TinySlider */
-        setInterval(function () {
-            if (typeof hero_slider_video_player === "function") {
-                var state = hero_slider_video_player.getPlayerState();
-                if (playerState !== -1) {
-                    heroSlider.pause();
-                }
-            }
-        }, 100);
 
         /* WALLOP SLIDER FOR VIDEOS AND TESTIMONIAL SECTIONS */
 
