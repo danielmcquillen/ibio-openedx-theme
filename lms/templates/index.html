@@ -569,12 +569,16 @@
 
         function pauseHeroSlider() {
             console.log("Pausing hero slider.");
-            heroSlider.pause();
+            if(heroSlider!==null){
+                 heroSlider.pause();
+            }
         }
 
         function pauseHeroMovie() {
             console.log("Pausing hero movie.");
-            heroSliderPlayer.pauseVideo();
+            if (heroSliderPlayer!==null){
+                heroSliderPlayer.pauseVideo();
+            }
         }
 
         heroSlider.events.on('transitionStart', pauseHeroMovie);
