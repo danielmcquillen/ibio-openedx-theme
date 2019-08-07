@@ -240,7 +240,7 @@
                     </div>
                 </div>
 
-                 <div class="slide slide-3" style="position:relative;">
+                <div class="slide slide-3" style="position:relative;">
 
                     <div class="video-icon-holder"
                          style="position: absolute; top:20px; width:450px; left:0; z-index: -1;">
@@ -250,7 +250,7 @@
                     <div class="slider-video-wrapper">
                         <div class="video-wrapper">
                             <iframe id="hero_slider_video"
-                                    src="https://www.youtube.com/embed/${hero_video_id}?enablejsapi=1&html5=1&origin=http://54.183.191.89/"
+                                    src="https://www.youtube.com/embed/${hero_video_id}?enablejsapi=1"
                                     frameborder="0"></iframe>
                         </div>
                     </div>
@@ -288,7 +288,7 @@
             <div class="feature-container">
                 <div class="col-graphic">
 
-                    <div class="ibioSlider" >
+                    <div class="ibioSlider">
 
                         <div id="videoSlider" class="Wallop Wallop--slide">
                             <button class="Wallop-buttonPrevious"></button>
@@ -540,16 +540,6 @@
             bios.forEach(function (entry, index, array) {
                 ytplayerArr.push(new YT.Player(entry));
             });
-
-            heroSliderPlayer = new YT.Player('hero_slider_video', {
-                host: "https://www.youtube-nocookie.com",
-                videoId: "${hero_video_id}",
-                events: {
-                    'onReady': onHeroVideoReady,
-                    'onStateChange': onHeroSliderVideoStateChange
-                }
-            })
-
         }
 
 
@@ -560,28 +550,53 @@
             console.log("onReady was called.");
         }
 
-        function onHeroSliderVideoStateChange(event){
+
+        function onHeroSliderVideoStateChange(event) {
             console.log("onHeroSliderVideoStateChange was called.");
-            if (event.state != -1 ){
+            if (event.state != -1) {
                 pauseHeroSlider();
             }
         }
 
+        function onHeroVideError(event) {
+            console.log("onHeroVideError was called.");
+        }
+
         function pauseHeroSlider() {
             console.log("Pausing hero slider.");
-            if(heroSlider!==null){
-                 heroSlider.pause();
+            try {
+                heroSlider.pause();
+            } catch (e) {
+                console.log("Couldn't pause slider");
             }
         }
 
         function pauseHeroMovie() {
             console.log("Pausing hero movie.");
-            if (heroSliderPlayer!==null){
+            try {
                 heroSliderPlayer.pauseVideo();
+            } catch (e) {
+                console.log("Couldn't pause movie");
             }
         }
 
+        function onSliderTransitionEnd(event) {
+            if (event.displayIndex == 3) {
+                heroSliderPlayer = new YT.Player('hero_slider_video', {
+                    videoId: "${hero_video_id}",
+                    events: {
+                        'onReady': onHeroVideoReady,
+                        'onStateChange': onHeroSliderVideoStateChange,
+                        'onError': onHeroVideError,
+                    }
+                });
+                heroSlider.pause();
+            }
+
+        }
+
         heroSlider.events.on('transitionStart', pauseHeroMovie);
+        heroSlider.events.on('transitionEnd', onSliderTransitionEnd);
 
         /* WALLOP SLIDER FOR VIDEOS AND TESTIMONIAL SECTIONS */
 
