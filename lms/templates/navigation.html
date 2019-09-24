@@ -3,17 +3,17 @@
 <%namespace name='static' file='static_content.html'/>
 <%namespace file='main.html' import="login_query"/>
 <%!
-from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext as _
+    from django.core.urlresolvers import reverse
+    from django.utils.translation import ugettext as _
 
-from context_processors import doc_url
-from lms.djangoapps.ccx.overrides import get_current_ccx
-from openedx.core.djangolib.markup import HTML, Text
+    from context_processors import doc_url
+    from lms.djangoapps.ccx.overrides import get_current_ccx
+    from openedx.core.djangolib.markup import HTML, Text
 
-# App that handles subdomain specific branding
-from branding import api as branding_api
-# app that handles site status messages
-from status.status import get_site_status_msg
+    # App that handles subdomain specific branding
+    from branding import api as branding_api
+    # app that handles site status messages
+    from status.status import get_site_status_msg
 %>
 
 ## Provide a hook for themes to inject branding on top.
@@ -23,196 +23,212 @@ from status.status import get_site_status_msg
 <!-- DMC: Add in iBio cross site nav -->
 
 ## iBio cross-site navigation
-<nav class="ibio-nav" >
-	<div class="ibio-nav-wrap">
-		<ul style="touch-action: pan-y;">
 
-			% if user.is_authenticated():
-			<li>
-				<a href="/dashboard" itemprop="url">
-					<span itemprop="name">Dashboard</span>
-				</a>
-			</li>
-			% endif
+<nav class="ibio-nav">
+    <div class="ibio-nav-wrap">
+        <ul style="touch-action: pan-y;">
+
+            % if user.is_authenticated():
+                <li>
+                    <a href="/dashboard" itemprop="url">
+                        <span itemprop="name">Dashboard</span>
+                    </a>
+                </li>
+            % endif
 
             <li>
                 <a href="/news/" itemprop="url">
                     <span itemprop="name">News</span>
                 </a>
             </li>
-			<li>
-				<a href="/courses" itemprop="url">
-					<span itemprop="name">Course Catalog</span>
-				</a>
-			</li>
+            <li>
+                <a href="/courses" itemprop="url">
+                    <span itemprop="name">Course Catalog</span>
+                </a>
+            </li>
 
-			<li>
-				<a href="/speakers" itemprop="url">
-					<span itemprop="name">Speakers</span>
-				</a>
-			</li>
+            <li>
+                <a href="/speakers" itemprop="url">
+                    <span itemprop="name">Speakers</span>
+                </a>
+            </li>
+            <li>
+                <a href="/educator_resources" itemprop="url">
+                    <span itemprop="name">Educators</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about" itemprop="url">
+                    <span itemprop="name">About</span>
+                </a>
+            </li>
 
-			<li>
-				<a href="/about" itemprop="url">
-					<span itemprop="name">About</span>
-				</a>
-			</li>
-
-			<li>
-				<a href="/help" itemprop="url">
-					<span itemprop="name">Help</span>
-				</a>
-			</li>
-
-
-			<li>
-				<a href="https://www.ibiology.org" itemprop="url">
-					<span itemprop="name">Visit iBiology.org</span>
-				</a>
-			</li>
+            <li>
+                <a href="/help" itemprop="url">
+                    <span itemprop="name">Help</span>
+                </a>
+            </li>
 
 
-		</ul>
-	</div>
+            <li>
+                <a href="https://www.ibiology.org" itemprop="url">
+                    <span itemprop="name">Visit iBiology.org</span>
+                </a>
+            </li>
+
+
+        </ul>
+    </div>
 </nav>
 
 
 ## Add UI Toolkit components if using the Pattern Library
 % if uses_pattern_library:
     <%block name="js_extra">
-    <%static:require_module module_name="js/header_factory" class_name="HeaderFactory">
-    HeaderFactory();
-    </%static:require_module>
+        <%static:require_module module_name="js/header_factory" class_name="HeaderFactory">
+            HeaderFactory();
+        </%static:require_module>
     </%block>
 % endif
 
 <%block>
-<%
-try:
+    <%
+        try:
     course_id = course.id
 except:
     # can't figure out a better way to get at a possibly-defined course var
     course_id = None
-site_status_msg = get_site_status_msg(course_id)
-%>
-% if site_status_msg:
-<div class="site-status">
-  <div class="inner-wrapper">
-    <span class="white-error-icon"></span>
-    <p>${site_status_msg}</p>
-  </div>
-</div>
-% endif
+        site_status_msg = get_site_status_msg(course_id)
+    %>
+    % if site_status_msg:
+        <div class="site-status">
+            <div class="inner-wrapper">
+                <span class="white-error-icon"></span>
+                <p>${site_status_msg}</p>
+            </div>
+        </div>
+    % endif
 </%block>
-  <header id="global-navigation" class="header-global" >
+<header id="global-navigation" class="header-global">
     <nav class="wrapper-header" aria-label="${_('Global')}">
 
-    <h1 class="logo">
-      <a href="${marketing_link('ROOT')}">
-        <%block name="navigation_logo">
-            <img src="https://courses.ibiology.org/static/ibio-openedx-theme/images/logo.png" alt="${_("{platform_name} Home Page").format(platform_name=static.get_platform_name())}" style="max-height: 45px;">
-        </%block>
-      </a>
-    </h1>
+        <h1 class="logo">
+            <a href="${marketing_link('ROOT')}">
+                <%block name="navigation_logo">
+                    <img src="https://courses.ibiology.org/static/ibio-openedx-theme/images/logo.png"
+                         alt="${_("{platform_name} Home Page").format(platform_name=static.get_platform_name())}"
+                         style="max-height: 45px;">
+                </%block>
+            </a>
+        </h1>
 
-    % if course:
-      <h2 class="course-header"><span class="provider">${course.display_org_with_default}:</span>
-        <span class="course-number">${course.display_number_with_default}</span>
-        <%
-        display_name = course.display_name_with_default
-        if settings.FEATURES.get('CUSTOM_COURSES_EDX', False):
+        % if course:
+            <h2 class="course-header"><span class="provider">${course.display_org_with_default}:</span>
+                <span class="course-number">${course.display_number_with_default}</span>
+                <%
+                    display_name = course.display_name_with_default
+                    if settings.FEATURES.get('CUSTOM_COURSES_EDX', False):
           ccx = get_current_ccx(course.id)
           if ccx:
             display_name = ccx.display_name
-        %>
-        <span class="course-name">${display_name}</span></h2>
-      % endif
+                %>
+                <span class="course-name">${display_name}</span></h2>
+        % endif
 
-      % if user.is_authenticated():
-        <ol class="left nav-global list-inline authenticated">
-        <%block name="navigation_global_links_authenticated">
+        % if user.is_authenticated():
+            <ol class="left nav-global list-inline authenticated">
+                <%block name="navigation_global_links_authenticated">
 
-          % if show_program_listing:
-            <li class="tab-nav-item">
-              <a class="${'active ' if reverse('dashboard') == request.path else ''}tab-nav-link" href="${reverse('dashboard')}">
-                ${_("Courses")}
-              </a>
-            </li>
-            <li class="tab-nav-item">
-              <a class="${'active ' if reverse('program_listing_view') in request.path else ''}tab-nav-link" href="${reverse('program_listing_view')}">
-                ${_("Programs")}
-              </a>
-            </li>
-          % endif
-          %if settings.FEATURES.get('ENABLE_SYSADMIN_DASHBOARD','') and user.is_staff:
-            <li class="item">
-              ## Translators: This is short for "System administration".
-              <a href="${reverse('sysadmin')}">${_("Sysadmin")}</a>
-            </li>
-          %endif
-        </%block>
-      </ol>
-
-      <%include file="user_dropdown.html"/>
-
-
-      % if should_display_shopping_cart_func() and not (course and static.is_request_in_themed_site()): # see shoppingcart.context_processor.user_has_cart_context_processor
-        <ol class="user">
-          <li class="primary">
-            <a class="shopping-cart" href="${reverse('shoppingcart.views.show_cart')}">
-              <span class="icon fa fa-shopping-cart" aria-hidden="true"></span> ${_("Shopping Cart")}
-            </a>
-          </li>
-        </ol>
-      % endif
-    % else:
-
-      <ol class="right nav-courseware list-inline">
-
-        <%block name="navigation_sign_in">
-          <li class="item nav-courseware-01" style="margin-left:10px;">
-            % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
-              % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
-                <a class="btn btn-login" href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}">${_("Sign in")}</a>
-              % else:
-                <a class="btn btn-login" href="/login${login_query()}">${_("Sign in")}</a>
-              % endif
-            % endif
-          </li>
-	        <li class="item nav-courseware-02" style="margin-left:10px;">
-		        <a class="btn btn-register btn-deemphasize" href="/register${login_query()}">${_("Register")}</a>
-	        </li>
-        </%block>
-      </ol>
-    % endif
-    % if static.show_language_selector():
-     <% languages = static.get_released_languages() %>
-      % if len(languages) > 1:
-      <ol class="user">
-        <li class="primary">
-          <form action="/i18n/setlang/" method="post" class="settings-language-form" id="language-settings-form">
-            <input type="hidden" id="csrf_token" name="csrfmiddlewaretoken" value="${csrf_token}">
-            % if user.is_authenticated():
-            <input title="preference api" type="hidden" class="url-endpoint" value="${reverse('preferences_api', kwargs={'username': user.username})}" data-user-is-authenticated="true">
-            % else:
-            <input title="session update url" type="hidden" class="url-endpoint" value="${reverse('session_language')}" data-user-is-authenticated="false">
-            % endif
-            <label><span class="sr">${_("Choose Language")}</span>
-                <select class="input select language-selector" id="settings-language-value" name="language">
-                  % for language in languages:
-                    % if language[0] == LANGUAGE_CODE:
-                      <option value="${language[0]}" selected="selected">${language[1]}</option>
-                    % else:
-                      <option value="${language[0]}" >${language[1]}</option>
+                    % if show_program_listing:
+                        <li class="tab-nav-item">
+                            <a class="${'active ' if reverse('dashboard') == request.path else ''}tab-nav-link"
+                               href="${reverse('dashboard')}">
+                                ${_("Courses")}
+                            </a>
+                        </li>
+                        <li class="tab-nav-item">
+                            <a class="${'active ' if reverse('program_listing_view') in request.path else ''}tab-nav-link"
+                               href="${reverse('program_listing_view')}">
+                                ${_("Programs")}
+                            </a>
+                        </li>
                     % endif
-                  % endfor
-                </select>
-            </label>
-          </form>
-        </li>
-      </ol>
-      % endif
-      % endif
+                    %if settings.FEATURES.get('ENABLE_SYSADMIN_DASHBOARD','') and user.is_staff:
+                        <li class="item">
+                            ## Translators: This is short for "System administration".
+              <a href="${reverse('sysadmin')}">${_("Sysadmin")}</a>
+                        </li>
+                    %endif
+                </%block>
+            </ol>
+
+        <%include file="user_dropdown.html"/>
+
+
+        % if should_display_shopping_cart_func() and not (course and static.is_request_in_themed_site()): # see shoppingcart.context_processor.user_has_cart_context_processor
+            <ol class="user">
+                <li class="primary">
+                    <a class="shopping-cart" href="${reverse('shoppingcart.views.show_cart')}">
+                        <span class="icon fa fa-shopping-cart" aria-hidden="true"></span> ${_("Shopping Cart")}
+                    </a>
+                </li>
+            </ol>
+        % endif
+        % else:
+
+            <ol class="right nav-courseware list-inline">
+
+                <%block name="navigation_sign_in">
+                    <li class="item nav-courseware-01" style="margin-left:10px;">
+                        % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
+                            % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
+                                <a class="btn btn-login"
+                                   href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}">${_("Sign in")}</a>
+                            % else:
+                                <a class="btn btn-login" href="/login${login_query()}">${_("Sign in")}</a>
+                            % endif
+                        % endif
+                    </li>
+                    <li class="item nav-courseware-02" style="margin-left:10px;">
+                        <a class="btn btn-register btn-deemphasize"
+                           href="/register${login_query()}">${_("Register")}</a>
+                    </li>
+                </%block>
+            </ol>
+        % endif
+        % if static.show_language_selector():
+            <% languages = static.get_released_languages() %>
+            % if len(languages) > 1:
+                <ol class="user">
+                    <li class="primary">
+                        <form action="/i18n/setlang/" method="post" class="settings-language-form"
+                              id="language-settings-form">
+                            <input type="hidden" id="csrf_token" name="csrfmiddlewaretoken" value="${csrf_token}">
+                            % if user.is_authenticated():
+                                <input title="preference api" type="hidden" class="url-endpoint"
+                                       value="${reverse('preferences_api', kwargs={'username': user.username})}"
+                                       data-user-is-authenticated="true">
+                            % else:
+                                <input title="session update url" type="hidden" class="url-endpoint"
+                                       value="${reverse('session_language')}" data-user-is-authenticated="false">
+                            % endif
+                            <label><span class="sr">${_("Choose Language")}</span>
+                                <select class="input select language-selector" id="settings-language-value"
+                                        name="language">
+                                    % for language in languages:
+                                        % if language[0] == LANGUAGE_CODE:
+                                            <option value="${language[0]}" selected="selected">${language[1]}</option>
+                                        % else:
+                                            <option value="${language[0]}">${language[1]}</option>
+                                        % endif
+                                    % endfor
+                                </select>
+                            </label>
+                        </form>
+                    </li>
+                </ol>
+            % endif
+        % endif
     </nav>
 </header>
 % if course:

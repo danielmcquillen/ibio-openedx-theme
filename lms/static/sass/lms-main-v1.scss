@@ -1,15 +1,11 @@
-
 //Add our overrides
 @import 'overrides';
-
 // New styles specific to iBiology on Open Edx
 // *******************************************nav// Import the original styles from edx-platform.
 @import 'lms/static/sass/lms-main-v1.scss';
-
 // Include grid system and settings from v2 ... so cheeky!
 @import 'settings.scss';
 @import 'grid.scss';
-
 // Styles to make our stupid simple top nav look like iBio's top nav
 @import 'ibio-top-nav';
 
@@ -97,7 +93,6 @@ input[type="submit"], input[type="button"], button, .button {
 }
 
 
-
 /* STYLE HEADER
   - Style the user dropdown to work with dark colors.
   - Tweak logo size, divider bar and course title text. 
@@ -127,6 +122,7 @@ input[type="submit"], input[type="button"], button, .button {
     img {
       height: 45px;
     }
+
     a {
       padding-top: 3px;
     }
@@ -149,11 +145,13 @@ input[type="submit"], input[type="button"], button, .button {
       letter-spacing: 0;
       color: #fff;
       box-shadow: none !important;
+
       .label-username {
         margin: 12px 5px 15px 15px;
       }
     }
   }
+
   .user-menu {
     margin-top: 7px;
   }
@@ -176,9 +174,6 @@ input[type="submit"], input[type="button"], button, .button {
   margin-top: 10px;
   margin-left: 5px;
 }
-
-
-
 
 
 /* ******************* */
@@ -236,21 +231,20 @@ input[type="submit"], input[type="button"], button, .button {
 }
 
 
-
 .ibioSlider {
   width: 550px;
   margin-left: -20px;
   margin-top: 20px;
 
-  .wallop-item img{
-      width:100%;
+  .wallop-item img {
+    width: 100%;
   }
 
   .slider-container {
-      flex-direction: column;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .Wallop {
@@ -260,12 +254,14 @@ input[type="submit"], input[type="button"], button, .button {
 
     .Wallop-list {
       width: 400px;
+
       .Wallop-item {
         .videoWrapper {
           position: relative;
           padding-bottom: 56.25%; /* 16:9 */
           height: 0;
           border: 10px solid #ccc;
+
           iframe {
             position: absolute;
             top: 0;
@@ -287,7 +283,7 @@ input[type="submit"], input[type="button"], button, .button {
       box-shadow: none;
 
       &:hover,
-      &:focus{
+      &:focus {
         color: #fff;
         background-color: #0066a2;
         background-image: none;
@@ -295,39 +291,40 @@ input[type="submit"], input[type="button"], button, .button {
       }
     }
 
-    .Wallop-buttonPrevious{
-      margin-right:20px;
+    .Wallop-buttonPrevious {
+      margin-right: 20px;
       padding-left: 0px;
     }
-    .Wallop-buttonNext{
-        margin-left:20px;
+
+    .Wallop-buttonNext {
+      margin-left: 20px;
     }
 
   }
 
   .slider-position {
-    margin-top:20px;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
 
-     .slider-dot {
-        margin-right: 10px;
-        margin-right: 10px;
-        border: none;
-        background-color: #ccc;
-        background-image: none;
-        width: 15px;
-        height: 15px;
-        color: #666;
-        box-shadow: none;
+    .slider-dot {
+      margin-right: 10px;
+      margin-right: 10px;
+      border: none;
+      background-color: #ccc;
+      background-image: none;
+      width: 15px;
+      height: 15px;
+      color: #666;
+      box-shadow: none;
 
-        &:hover,
-        &:focus{
-          color: #fff;
-          background-color: #0066a2;
-          background-image: none;
-          box-shadow: none;
-        }
+      &:hover,
+      &:focus {
+        color: #fff;
+        background-color: #0066a2;
+        background-image: none;
+        box-shadow: none;
+      }
     }
 
     .slider-dot-current {
@@ -371,36 +368,36 @@ input[type="submit"], input[type="button"], button, .button {
 
     }
 
-      .testimonialWrapper {
-        min-height: 250px;
-        border: 1px solid  #fff;
-        border-radius: 5px;
-        padding: 10px 20px;
-        font-family:  "Open Sans", "Helvetica Neue","Verdana", sans-serif;
-        background-color: #FFF;
-        font-size: 1em;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+    .testimonialWrapper {
+      min-height: 250px;
+      border: 1px solid #fff;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-family: "Open Sans", "Helvetica Neue", "Verdana", sans-serif;
+      background-color: #FFF;
+      font-size: 1em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
 
-        .testimonial {
-        }
-
-        .testimonial-source {
-          text-align: right;
-          font-style: italic;
-          color: #333;
-        }
-
+      .testimonial {
       }
+
+      .testimonial-source {
+        text-align: right;
+        font-style: italic;
+        color: #333;
+      }
+
+    }
 
   }
 
   .feature-row {
 
     h2 {
-      font-family:  "Open Sans", "Helvetica Neue","Verdana", sans-serif;
+      font-family: "Open Sans", "Helvetica Neue", "Verdana", sans-serif;
       font-size: 22px;
     }
 
@@ -425,11 +422,13 @@ input[type="submit"], input[type="button"], button, .button {
         display: -ms-flexbox;
         display: flex;
         flex-grow: 1;
+
         img {
           width: 100%;
           max-width: 400px;
         }
       }
+
       .col-content {
         padding: 40px 20px 40px 30px;
         max-width: 500px;
@@ -443,15 +442,15 @@ input[type="submit"], input[type="button"], button, .button {
 }
 
 .get-registered-btn, .get-registered-btn:hover {
-    background-color: #FFFFFF;
-    color: #000;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 2px 1px 0 #0a4a67;
-    border-radius: 2px;
-    background-image: none;
+  background-color: #FFFFFF;
+  color: #000;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 1px 0 #0a4a67;
+  border-radius: 2px;
+  background-image: none;
 
 }
 
@@ -462,11 +461,14 @@ input[type="submit"], input[type="button"], button, .button {
 
 .courses-container {
   max-width: 1180px;
-  .highlighted-courses{
+
+  .highlighted-courses {
     position: inherit;
-    .courses{
-      float:none;
-      .courses-listing{
+
+    .courses {
+      float: none;
+
+      .courses-listing {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -484,25 +486,28 @@ input[type="submit"], input[type="button"], button, .button {
           order: 4;
           margin-right: 2.35765% !important;
         }
+
         .course-card-LE {
           order: 1;
           margin-right: 2.35765% !important;
         }
+
         .course-card-iBio1 {
           order: 2;
           margin-right: 2.35765% !important;
         }
+
         .course-card-BCLS {
           order: 3;
           margin-right: 2.35765% !important;;
         }
 
-        .course-listing-item{
+        .course-listing-item {
           float: none;
           margin-bottom: 40px !important;
           min-width: 350px;
 
-          &:first-child{
+          &:first-child {
             padding: 0px 20px 20px 10px;
           }
 
@@ -516,7 +521,6 @@ input[type="submit"], input[type="button"], button, .button {
     }
   }
 }
-
 
 
 .feature-bar {
@@ -545,6 +549,7 @@ input[type="submit"], input[type="button"], button, .button {
     a, a:visited {
       color: #8dc4e5;
     }
+
     a:hover {
       color: #fff;
     }
@@ -554,13 +559,9 @@ input[type="submit"], input[type="button"], button, .button {
 }
 
 
-
-
-
 /* ******************* */
 /* ALL MARKETING PAGES */
 /* ******************* */
-
 
 
 /* Breadcrumb */
@@ -575,13 +576,14 @@ input[type="submit"], input[type="button"], button, .button {
   justify-content: center;
   text-transform: uppercase;
 
-  a{
+  a {
     color: #eee !important;
 
     &:visited,
     &:active {
       color: #ccc !important;
     }
+
     &:hover {
       color: #fff !important;
     }
@@ -598,7 +600,7 @@ input[type="submit"], input[type="button"], button, .button {
 
 /* Page header for marketing pages */
 .ibio-page-header {
-  h1{
+  h1 {
 
   }
 }
@@ -606,13 +608,12 @@ input[type="submit"], input[type="button"], button, .button {
 
 /* REGISTRATION PAGE */
 .checkbox-user_agreement_ibio_study {
-  label{
+  label {
     display: inline-block !important;
     margin: 5px 0px 0px 0px;
     vertical-align: top;
   }
 }
-
 
 
 /* iBio Intro Video - used on about and newsletter signup complete */
@@ -621,27 +622,27 @@ input[type="submit"], input[type="button"], button, .button {
   padding: 10px 10px 10px 0px;
 
   .ibio-video-container {
-    position:relative;
-    padding-bottom:56.25%;
-    height:0;
-    overflow:hidden;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
   }
+
   .ibio-video-container iframe, .ibio-video-container object, .ibio-video-container embed {
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }
-
 
 
 /* COURSE ABOUT PAGE */
 .course-info {
 
   .details {
-    font-family:  "Helvetica Neue", Arial, sans-serif !important;
+    font-family: "Helvetica Neue", Arial, sans-serif !important;
 
     h3 {
       margin: 20px 0px 5px;
@@ -660,6 +661,7 @@ input[type="submit"], input[type="button"], button, .button {
     .intro-inner-wrapper {
       box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.1);
       border: 1px solid #AAAAAA;
+
       .intro {
         width: 60%;
       }
@@ -674,35 +676,53 @@ input[type="submit"], input[type="button"], button, .button {
   }
 
 
+  .about-educator-guide {
+    margin-top: 80px;
+
+    h1 {
+      font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+      text-transform: uppercase;
+      color: #646464;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    .about-educator-guide-content {
+      border: 1px solid #ccc;
+      border-right: 5px;
+      padding: 1rem;
+    }
+  }
+
   .about-testimonials {
 
-      margin-top: 80px;
+    margin-top: 80px;
 
-      h1 {
-        font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
-        text-transform: uppercase;
-        color: #646464;
-        font-size: 1.2em;
-        margin-bottom: 10px;
+    h1 {
+      font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+      text-transform: uppercase;
+      color: #646464;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    .about-testimonial {
+      margin: 20px;
+      padding: 20px;
+      border-radius: 5px;
+
+      .about-testimonial-quote {
+        margin-bottom: 5px;
+        color: #777;
       }
 
-      .about-testimonial  {
-        margin: 20px;
-        padding: 20px;
-        border-radius: 5px;
-
-        .about-testimonial-quote {
-          margin-bottom: 5px;
-          color: #777;
-        }
-
-        .about-testimonial-source {
-          margin-top:0px;
-          font-style: italic;
-          margin-bottom: 0px;
-          color: #333;
-        }
+      .about-testimonial-source {
+        margin-top: 0px;
+        font-style: italic;
+        margin-bottom: 0px;
+        color: #333;
       }
+    }
   }
 
   .about-newsletter-signup {
@@ -726,8 +746,6 @@ input[type="submit"], input[type="button"], button, .button {
   }
 
 
-
-
 }
 
 // HELP / FAQ
@@ -735,6 +753,7 @@ input[type="submit"], input[type="button"], button, .button {
 .help {
   .faq-item {
     margin-top: 15px;
+
     .question {
       font-weight: bold;
     }
@@ -812,7 +831,7 @@ input[type="submit"], input[type="button"], button, .button {
   }
 
   .testimonial-source {
-    margin-top:0px;
+    margin-top: 0px;
     font-style: italic;
     margin-bottom: 0px;
     color: #333;
@@ -831,7 +850,6 @@ input[type="submit"], input[type="button"], button, .button {
 }
 
 
-
 /* SPEAKER BIOS */
 
 
@@ -847,10 +865,10 @@ input[type="submit"], input[type="button"], button, .button {
   }
 
   .ibio-speakers-grid {
-      display: flex;
-      width: 100%;
-      max-width: 1180px;
-      flex-wrap: wrap;
+    display: flex;
+    width: 100%;
+    max-width: 1180px;
+    flex-wrap: wrap;
 
     .speaker-card {
       width: 340px;
@@ -860,24 +878,28 @@ input[type="submit"], input[type="button"], button, .button {
       position: relative;
 
       .card-thumbnail {
-        width:100%;
+        width: 100%;
       }
 
       .card-content {
         padding: 20px;
         margin-bottom: 30px;
+
         .speaker-name {
           font-weight: bold;
         }
+
         .speaker-title {
           color: #999;
           font-size: .9em;
         }
+
         .speaker-university {
           color: #999;
           font-size: .9em;
           font-style: italic;
         }
+
         .speaker-description {
 
         }
@@ -903,12 +925,15 @@ input[type="submit"], input[type="button"], button, .button {
     text-align: left;
     margin-bottom: 5px;
     padding-bottom: 0px;
-    .speaker-label{
-      color:#333;
+
+    .speaker-label {
+      color: #333;
     }
-    .speaker-name{
+
+    .speaker-name {
     }
-    .speaker-sufix{
+
+    .speaker-sufix {
       color: #ccc;
     }
   }
@@ -918,7 +943,8 @@ input[type="submit"], input[type="button"], button, .button {
     font-size: 1.2em;
     margin-bottom: 0px;
   }
-  .speaker-university{
+
+  .speaker-university {
     color: #999;
     font-style: italic;
     font-size: 1.2em;
@@ -932,13 +958,11 @@ input[type="submit"], input[type="button"], button, .button {
 }
 
 
-
-
-
 /* LOGIN AND REGISTER FORMS */
 .login-register {
   padding-top: 50px;
   font-weight: normal;
+
   .form-field {
     &.select-year_of_birth {
       margin-left: 0px !important;
@@ -957,6 +981,7 @@ input[type="submit"], input[type="button"], button, .button {
   .home > header {
     background-image: none;
     height: 190px;
+
     .outer-wrapper {
       background-position: left center;
       background-image: url("/static/ibio-openedx-theme/images/hero-image-small.jpg");
@@ -968,12 +993,13 @@ input[type="submit"], input[type="button"], button, .button {
       margin-left: 0px;
       width: inherit;
       padding-top: 30px !important;
+
       .title {
         display: block;
         width: inherit;
         margin-left: 0px;
         text-align: right;
-        font-family: "Open Sans", "Helvetica Neue",  Arial, sans-serif;
+        font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
         font-size: 2em !important;
         color: #000;
         margin-right: 20px;
@@ -1034,8 +1060,8 @@ input[type="submit"], input[type="button"], button, .button {
 @media only screen and (max-width: 780px) {
 
   .home > header {
-    .outer-wrapper{
-      .title{
+    .outer-wrapper {
+      .title {
         font-size: 1.5em !important;
       }
     }
@@ -1062,11 +1088,13 @@ input[type="submit"], input[type="button"], button, .button {
 
   .home > header {
     background-image: none;
+
     .outer-wrapper {
       background-position: left center;
       background-image: url("/static/ibio-openedx-theme/images/compass.jpg");
       background-repeat: no-repeat;
       background-size: auto;
+
       .title {
         text-align: center;
       }
@@ -1080,45 +1108,49 @@ input[type="submit"], input[type="button"], button, .button {
   }
 
   .ibio-features {
-     .feature-container {
-       .col-graphic {
-         padding-left: 40px !important;
-         padding-right: 40px !important;
-         padding-top: 60px !important;
-         padding-bottom: 20px !important;
-         margin: 0px;
-         min-width: 200px !important;
-       }
-     }
+    .feature-container {
+      .col-graphic {
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+        padding-top: 60px !important;
+        padding-bottom: 20px !important;
+        margin: 0px;
+        min-width: 200px !important;
+      }
+    }
   }
 
   .ibio-features {
-     .ibio-instructors {
-       .feature-container {
-         .col-graphic {
-           padding: 0px 0px 10px !important;
-           .ibioSlider {
-             width:100%;
-             margin-left:0px;
-             .Wallop {
-               .Wallop-buttonPrevious {
-                 display: none;
-               }
-               .Wallop-buttonNext {
-                 display: none;
-               }
-               .Wallop-list {
-                 .Wallop-item {
-                   .videoWrapper {
-                     border: 0px !important;
-                   }
-                 }
-               }
-             }
-           }
-         }
-       }
-     }
+    .ibio-instructors {
+      .feature-container {
+        .col-graphic {
+          padding: 0px 0px 10px !important;
+
+          .ibioSlider {
+            width: 100%;
+            margin-left: 0px;
+
+            .Wallop {
+              .Wallop-buttonPrevious {
+                display: none;
+              }
+
+              .Wallop-buttonNext {
+                display: none;
+              }
+
+              .Wallop-list {
+                .Wallop-item {
+                  .videoWrapper {
+                    border: 0px !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
 
     .ibio-speakers {
       padding-left: 0px !important;
@@ -1127,11 +1159,11 @@ input[type="submit"], input[type="button"], button, .button {
 
 
   .ibioSlider {
-    .slider-position{
-      .slider-dot{
-        width:30px;
-        height:30px;
-        margin-left:30px;
+    .slider-position {
+      .slider-dot {
+        width: 30px;
+        height: 30px;
+        margin-left: 30px;
       }
     }
   }
@@ -1204,26 +1236,29 @@ input[type="submit"], input[type="button"], button, .button {
 }
 
 
-
 /* Speaker list shown inside course (on tab) */
 
-.ibio-course-speaker-list{
+.ibio-course-speaker-list {
   .speaker {
     display: flex;
     margin-bottom: 20px;
-    .video-container{
+
+    .video-container {
       .iframe {
         width: 360px;
         height: 210px;
       }
     }
+
     .speaker-bio-info {
-      margin-left:20px;
+      margin-left: 20px;
+
       .info-name {
         font-weight: bold;
       }
+
       .info-university {
-        font-style:italic;
+        font-style: italic;
       }
     }
   }
@@ -1232,7 +1267,7 @@ input[type="submit"], input[type="button"], button, .button {
 
 /* Hide the problem-builder copyright notice and make our own notice farther down on page */
 .mentoring {
-  .copyright{
+  .copyright {
     display: none;
   }
 }
@@ -1260,9 +1295,11 @@ input[type="submit"], input[type="button"], button, .button {
   .ibioSlider {
     width: 100%;
     margin-left: 0px;
+
     .wallop-item img {
       width: 100%;
     }
+
     .Wallop {
       .Wallop-list {
         width: 100%;
